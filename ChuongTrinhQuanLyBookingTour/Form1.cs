@@ -51,12 +51,12 @@ namespace ChuongTrinhQuanLyBookingTour
                 command.Parameters.AddWithValue("@Username", username);
                 command.Parameters.AddWithValue("@Password", password);
 
-                object result = command.ExecuteScalar();  
+                object result = command.ExecuteScalar();
 
                 if (result != null)
                 {
-                    int userID = Convert.ToInt32(result); 
-                    GlobalUserInfo.UserID = userID;       
+                    int userID = Convert.ToInt32(result);
+                    GlobalUserInfo.UserID = userID;
                     isValid = true;
                 }
             }
@@ -68,6 +68,19 @@ namespace ChuongTrinhQuanLyBookingTour
         private void labelError_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void linkRegister_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Register register = new Register();
+            this.Hide();
+
+            register.Show();
         }
     }
 }

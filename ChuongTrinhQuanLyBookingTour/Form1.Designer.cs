@@ -49,6 +49,7 @@
             label1 = new Label();
             guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             btnExit = new Guna.UI2.WinForms.Guna2CircleButton();
+            linkRegister = new LinkLabel();
             guna2Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).BeginInit();
             SuspendLayout();
@@ -56,6 +57,7 @@
             // guna2Panel1
             // 
             guna2Panel1.BackColor = Color.White;
+            guna2Panel1.Controls.Add(linkRegister);
             guna2Panel1.Controls.Add(label3);
             guna2Panel1.Controls.Add(labelError);
             guna2Panel1.Controls.Add(btnLogin);
@@ -204,6 +206,18 @@
             btnExit.TabIndex = 0;
             btnExit.Click += btnExit_Click;
             // 
+            // linkRegister
+            // 
+            linkRegister.AutoSize = true;
+            linkRegister.Font = new Font("Segoe UI", 10.8F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            linkRegister.Location = new Point(945, 409);
+            linkRegister.Name = "linkRegister";
+            linkRegister.Size = new Size(132, 25);
+            linkRegister.TabIndex = 8;
+            linkRegister.TabStop = true;
+            linkRegister.Text = "Đăng ký ngay !";
+            linkRegister.LinkClicked += linkRegister_LinkClicked;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -234,5 +248,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtPassword;
         private Label labelError;
         private Label label3;
+        private LinkLabel linkRegister;
     }
 }

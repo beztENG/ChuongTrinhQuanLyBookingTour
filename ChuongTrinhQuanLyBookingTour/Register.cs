@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Drawing.Text;
 using Guna.UI2.WinForms;
+using ChuongTrinhQuanLyBookingTour.Helpers;
 
 namespace ChuongTrinhQuanLyBookingTour
 {
@@ -21,18 +22,30 @@ namespace ChuongTrinhQuanLyBookingTour
 
         private void btnSelectAvatar_Click(object sender, EventArgs e)
         {
-            // Open a file dialog to select an avatar
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.Title = "Select Avatar";
             openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png)|*.jpg;*.jpeg;*.png";
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                // Display the selected image in the PictureBox
-                selectedAvatar = Path.GetFileName(openFileDialog.FileName);
-                pictureBoxAvatar.Image = Image.FromFile(openFileDialog.FileName);
+                string selectedFilePath = openFileDialog.FileName;
+                selectedAvatar = Path.GetFileName(selectedFilePath);
+
+                try
+                {
+                    Image originalImage = Image.FromFile(selectedFilePath);
+
+                    Image resizedImage = ImageHelper.ResizeImage(originalImage, 150, 150);
+
+                    pictureBoxAvatar.Image = resizedImage;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Error loading image: {ex.Message}");
+                }
             }
         }
+
         private void btnSubmit_Click(object sender, EventArgs e)
         {
             // Get input values from the form

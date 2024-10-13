@@ -5,6 +5,7 @@ using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
+using ChuongTrinhQuanLyBookingTour.Models;
 
 namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 {
@@ -149,41 +150,56 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void btnBookFlight_Click(object sender, EventArgs e)
         {
+           
             if (dgvFlights.SelectedRows.Count == 0)
             {
                 MessageBox.Show("Please select a flight to book.");
                 return;
             }
 
+            // Lấy thông tin từ dòng được chọn
             DataGridViewRow selectedRow = dgvFlights.SelectedRows[0];
             int flightID = (int)selectedRow.Cells["FlightID"].Value;
-            DateTime bookingDate = DateTime.Now;
+            string airline = selectedRow.Cells["Airline"].Value.ToString();
+            DateTime departureDate = (DateTime)selectedRow.Cells["DepartureDate"].Value;
+            decimal price = GetFlightCost(flightID);
 
-            int userID = GlobalUserInfo.UserID;
+            int userID = GlobalUserInfo.UserID; // Lấy user ID hiện tại (sử dụng từ GlobalUserInfo)
+
+            // Tạo đối tượng BookingInfo để truyền sang trang thanh toán
+            BookingInfo bookingInfo = new BookingInfo
+            {
+                UserID = userID,
+                FlightID = flightID,
+                Airline = airline,
+                DepartureDate = departureDate,
+                Price = price,
+                BookingType = "Flight" // Đặt loại đặt chỗ là 'Flight'
+            };
+
+            // Chuyển đến trang thanh toán với thông tin BookingInfo
+            Payment paymentForm = new Payment(bookingInfo);
+            paymentForm.Show();
+        }
+        private decimal GetFlightCost(int flightID)
+        {
+            decimal cost = 0;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                string query = @"INSERT INTO FlightBookings (UserID, FlightID, BookingDate) 
-                         VALUES (@UserID, @FlightID, @BookingDate)";
+                conn.Open();
+                SqlCommand cmd = new SqlCommand("SELECT Cost FROM Flights WHERE FlightID = @flightID", conn);
+                cmd.Parameters.AddWithValue("@flightID", flightID);
 
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    cmd.Parameters.AddWithValue("@UserID", userID);
-                    cmd.Parameters.AddWithValue("@FlightID", flightID);
-                    cmd.Parameters.AddWithValue("@BookingDate", bookingDate);
-
-                    try
-                    {
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Flight booked successfully!");
-                    }
-                    catch (Exception ex)
-                    {
-                        MessageBox.Show($"An error occurred while booking the flight: {ex.Message}");
-                    }
+                    cost = Convert.ToDecimal(reader["Cost"]);
                 }
+                reader.Close();
             }
+
+            return cost;
         }
 
         private void UC_AddFlight_Load(object sender, EventArgs e)

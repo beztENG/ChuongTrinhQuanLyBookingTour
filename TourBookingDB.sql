@@ -93,6 +93,16 @@ CREATE TABLE TourBookings (
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
+CREATE TABLE Payments (
+    PaymentID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT NOT NULL,
+    PaymentDate DATETIME NOT NULL DEFAULT GETDATE(),
+    Amount DECIMAL(10, 2) NOT NULL,
+    PaymentMethod NVARCHAR(50) NOT NULL,
+    BookingID INT NULL,
+    BookingType NVARCHAR(20) NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID)
+);
 
 INSERT INTO Users (Username, Password, FullName, Email, Phone, Avatar)
 VALUES 
@@ -131,7 +141,7 @@ VALUES
 ('Mountain Adventure', 'Hanoi', 'Sapa', '2025-06-01', '2025-06-05', 'An adventurous trek through the mountains of Sapa', 400.00, 'sapa_mountains.jpg'),
 ('Cultural Tour', 'Hanoi', 'Hue', '2025-07-15', '2025-07-20', 'A cultural exploration of the historical city of Hue', 300.00, 'hue_culture.jpg');
 
-
+select * from Tours
 select * from TourBookings
 select * from HotelBookings
 select * from FlightBookings
@@ -146,3 +156,10 @@ ALTER TABLE FlightBookings ADD Status VARCHAR(20) DEFAULT 'Active';
 
 ALTER TABLE TourBookings ADD Status VARCHAR(20) DEFAULT 'Active';
 
+ALTER TABLE HotelBookings ADD PaymentStatus VARCHAR(20) DEFAULT 'Pending'; 
+ALTER TABLE FlightBookings ADD PaymentStatus VARCHAR(20) DEFAULT 'Pending';
+ALTER TABLE TourBookings ADD PaymentStatus VARCHAR(20) DEFAULT 'Pending';
+
+Select * from Payments;
+
+Select * from HotelBookings;

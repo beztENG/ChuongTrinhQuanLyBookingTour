@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.All_Users_Control.ChildUserControl;
 using ChuongTrinhQuanLyBookingTour.Helpers;
+using ChuongTrinhQuanLyBookingTour.Models;
 
 
 namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
@@ -61,7 +62,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
             {
                 conn.Open();
 
-                StringBuilder queryBuilder = new StringBuilder("SELECT TourName, StartingDate, ReturnDate, Cost FROM Tours WHERE 1=1");
+                StringBuilder queryBuilder = new StringBuilder("SELECT TourName, Starting, Destination, StartingDate, ReturnDate, Cost FROM Tours WHERE 1=1");
 
                 if (!string.IsNullOrEmpty(starting))
                 {
@@ -124,8 +125,9 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
             string selectedTourName = dataGridViewTours.SelectedRows[0].Cells["TourName"].Value.ToString();
             DateTime bookingDate = DateTime.Now;
 
+            // Lấy tourID và userID
             int tourID = GetTourIDByName(selectedTourName);
-            int userID = GlobalUserInfo.UserID; 
+            int userID = GlobalUserInfo.UserID;  // Thông tin user từ lớp GlobalUserInfo
 
             if (tourID == -1 || userID == -1)
             {
@@ -133,26 +135,56 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 return;
             }
 
+            // Lấy chi phí của tour đã chọn
+            decimal cost = GetTourCost(tourID);
+
+            // Tạo đối tượng BookingInfo để truyền vào trang thanh toán
+            BookingInfo bookingInfo = new BookingInfo
+            {
+                UserID = userID,
+                BookingType = "Tour",
+                TourID = tourID,
+                TourName = selectedTourName,
+                Starting = dataGridViewTours.SelectedRows[0].Cells["Starting"].Value.ToString(),
+                Destination = dataGridViewTours.SelectedRows[0].Cells["Destination"].Value.ToString(),
+                StartingDate = Convert.ToDateTime(dataGridViewTours.SelectedRows[0].Cells["StartingDate"].Value),
+                ReturnDate = Convert.ToDateTime(dataGridViewTours.SelectedRows[0].Cells["ReturnDate"].Value),
+                Price = cost
+            };
+
+            // Mở trang thanh toán và truyền thông tin BookingInfo
+            Payment paymentForm = new Payment(bookingInfo);
+            paymentForm.ShowDialog();
+
+            // Sau khi form Payment đóng lại, kiểm tra trạng thái thanh toán
+            if (paymentForm.DialogResult == DialogResult.OK)
+            {
+                MessageBox.Show("Tour booking and payment completed!", "Success");
+            }
+            else
+            {
+                MessageBox.Show("Payment was not completed.", "Warning");
+            }
+        }
+        private decimal GetTourCost(int tourID)
+        {
+            decimal cost = 0;
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO TourBookings (TourID, UserID, BookingDate) VALUES (@tourID, @userID, @bookingDate)", conn);
-
+                SqlCommand cmd = new SqlCommand("SELECT Cost FROM Tours WHERE TourID = @tourID", conn);
                 cmd.Parameters.AddWithValue("@tourID", tourID);
-                cmd.Parameters.AddWithValue("@userID", userID);
-                cmd.Parameters.AddWithValue("@bookingDate", bookingDate);
 
-                int rowsAffected = cmd.ExecuteNonQuery();
-
-                if (rowsAffected > 0)
+                SqlDataReader reader = cmd.ExecuteReader();
+                if (reader.Read())
                 {
-                    MessageBox.Show("Tour booked successfully!", "Success");
+                    cost = Convert.ToDecimal(reader["Cost"]);
                 }
-                else
-                {
-                    MessageBox.Show("Failed to book the tour. Please try again.", "Error");
-                }
+                reader.Close();
             }
+
+            return cost;
         }
 
         private int GetTourIDByName(string tourName)

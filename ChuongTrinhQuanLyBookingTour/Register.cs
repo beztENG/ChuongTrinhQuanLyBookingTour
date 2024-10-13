@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Data.SqlClient;
-using System.Windows.Forms;
+using System.Drawing;
 using System.IO;
-using System.Drawing.Text;
-using Guna.UI2.WinForms;
+using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
 
 namespace ChuongTrinhQuanLyBookingTour
@@ -11,44 +10,65 @@ namespace ChuongTrinhQuanLyBookingTour
     public partial class Register : Form
     {
         private string connectionString = @"Data Source=(local);Initial Catalog=TourBookingDB;Integrated Security=True";
-        private string selectedAvatar = "";
-        
+        private string imagePath = Path.Combine(Application.StartupPath, @"Images\User");
+        private string selectedAvatarFileName = "";
+
 
         public Register()
         {
-            
-        InitializeComponent();
+
+            InitializeComponent();
         }
 
         private void btnSelectAvatar_Click(object sender, EventArgs e)
         {
-            OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Title = "Select Avatar";
-            openFileDialog.Filter = "Image Files (*.jpg; *.jpeg; *.png)|*.jpg;*.jpeg;*.png";
+
+            OpenFileDialog openFileDialog = new OpenFileDialog
+            {
+                Title = "Select Avatar",
+                Filter = "Image Files (*.jpg; *.jpeg; *.png)|*.jpg;*.jpeg;*.png"
+            };
 
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
-                string selectedFilePath = openFileDialog.FileName;
-                selectedAvatar = Path.GetFileName(selectedFilePath);
+
+                string selectedImagePath = openFileDialog.FileName;
+
+                if (pictureBoxAvatar.Image != null)
+                {
+                    pictureBoxAvatar.Image.Dispose();
+                }
+
+                using (Image originalImage = Image.FromFile(selectedImagePath))
+                {
+                    pictureBoxAvatar.Image = ImageHelper.ResizeImage(originalImage, 200, 200);
+                }
+
+
+                selectedAvatarFileName = Path.GetFileName(selectedImagePath);
+                string destinationPath = Path.Combine(imagePath, selectedAvatarFileName);
+
+
+                if (!Directory.Exists(imagePath))
+                {
+                    Directory.CreateDirectory(imagePath);
+                }
 
                 try
                 {
-                    Image originalImage = Image.FromFile(selectedFilePath);
 
-                    Image resizedImage = ImageHelper.ResizeImage(originalImage, 150, 150);
-
-                    pictureBoxAvatar.Image = resizedImage;
+                    File.Copy(selectedImagePath, destinationPath, true);
                 }
-                catch (Exception ex)
+                catch (IOException ex)
                 {
-                    MessageBox.Show($"Error loading image: {ex.Message}");
+                    MessageBox.Show($"Error copying the avatar: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
 
         private void btnSubmit_Click(object sender, EventArgs e)
         {
-            // Get input values from the form
+
             string username = txtUsername.Text;
             string password = txtPassword.Text;
             string fullName = txtFullName.Text;
@@ -67,7 +87,6 @@ namespace ChuongTrinhQuanLyBookingTour
                 {
                     connection.Open();
 
-                    // Insert user information into the database
                     string query = "INSERT INTO Users (Username, Password, FullName, Email, Phone, Avatar) VALUES (@Username, @Password, @FullName, @Email, @Phone, @Avatar)";
 
                     SqlCommand command = new SqlCommand(query, connection);
@@ -76,14 +95,14 @@ namespace ChuongTrinhQuanLyBookingTour
                     command.Parameters.AddWithValue("@FullName", fullName);
                     command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@Phone", phone);
-                    command.Parameters.AddWithValue("@Avatar", selectedAvatar);  // Store the selected avatar's filename
+                    command.Parameters.AddWithValue("@Avatar", selectedAvatarFileName);
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)
                     {
                         MessageBox.Show("Registration successful!");
-                        this.Close();  // Close the registration form
-                        Form1 loginForm = new Form1();  // Redirect to login form
+                        this.Close();
+                        Form1 loginForm = new Form1();
                         loginForm.Show();
                     }
                     else

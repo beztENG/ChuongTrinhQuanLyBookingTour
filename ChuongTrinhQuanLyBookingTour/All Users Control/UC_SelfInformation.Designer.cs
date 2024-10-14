@@ -2,15 +2,8 @@
 {
     partial class UC_SelfInformation
     {
-        /// <summary> 
-        /// Required designer variable.
-        /// </summary>
         private System.ComponentModel.IContainer components = null;
 
-        /// <summary> 
-        /// Clean up any resources being used.
-        /// </summary>
-        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -20,217 +13,206 @@
             base.Dispose(disposing);
         }
 
-        #region Component Designer generated code
-
-        /// <summary> 
-        /// Required method for Designer support - do not modify 
-        /// the contents of this method with the code editor.
-        /// </summary>
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            label1 = new Label();
-            pictureBoxAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            txtFullName = new TextBox();
-            txtEmail = new TextBox();
-            txtPhone = new TextBox();
-            btnAdjust = new Guna.UI2.WinForms.Guna2Button();
-            guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
-            btnChangeAvatar = new Guna.UI2.WinForms.Guna2Button();
-            btnSave = new Guna.UI2.WinForms.Guna2Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBoxAvatar).BeginInit();
-            SuspendLayout();
+            this.label1 = new Label();
+            this.guna2GroupBoxPersonalInfo = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtFullName = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtEmail = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtPhone = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnSave = new Guna.UI2.WinForms.Guna2Button();
+            this.pictureBoxAvatar = new Guna.UI2.WinForms.Guna2CirclePictureBox();
+            this.btnChangeAvatar = new Guna.UI2.WinForms.Guna2Button();
+            this.guna2GroupBoxPassword = new Guna.UI2.WinForms.Guna2GroupBox();
+            this.txtOldPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtNewPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.txtConfirmPassword = new Guna.UI2.WinForms.Guna2TextBox();
+            this.btnChangePassword = new Guna.UI2.WinForms.Guna2Button();
+
             // 
-            // label1
+            // label1 (Title)
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Century", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.Black;
-            label1.Location = new Point(778, 54);
-            label1.Name = "label1";
-            label1.Size = new Size(283, 35);
-            label1.TabIndex = 2;
-            label1.Text = "Thông tin cá nhân";
+            this.label1.AutoSize = true;
+            this.label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = Color.FromArgb(33, 150, 243);
+            this.label1.Location = new Point(100, 30);  // Tiêu đề nằm ở vị trí ban đầu
+            this.label1.Name = "label1";
+            this.label1.Size = new Size(300, 45);
+            this.label1.Text = "Thông tin cá nhân";
+            this.label1.TabIndex = 0;
+
             // 
             // pictureBoxAvatar
             // 
-            pictureBoxAvatar.ImageRotate = 0F;
-            pictureBoxAvatar.InitialImage = null;
-            pictureBoxAvatar.Location = new Point(38, 104);
-            pictureBoxAvatar.Name = "pictureBoxAvatar";
-            pictureBoxAvatar.ShadowDecoration.CustomizableEdges = customizableEdges1;
-            pictureBoxAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            pictureBoxAvatar.Size = new Size(194, 181);
-            pictureBoxAvatar.TabIndex = 3;
-            pictureBoxAvatar.TabStop = false;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(18, 425);
-            label2.Name = "label2";
-            label2.Size = new Size(54, 20);
-            label2.TabIndex = 4;
-            label2.Text = "Họ tên";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(18, 504);
-            label3.Name = "label3";
-            label3.Size = new Size(46, 20);
-            label3.TabIndex = 5;
-            label3.Text = "Email";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(18, 575);
-            label4.Name = "label4";
-            label4.Size = new Size(97, 20);
-            label4.TabIndex = 6;
-            label4.Text = "Số điện thoại";
-            // 
-            // txtFullName
-            // 
-            txtFullName.Location = new Point(18, 448);
-            txtFullName.Name = "txtFullName";
-            txtFullName.Size = new Size(240, 27);
-            txtFullName.TabIndex = 7;
-            // 
-            // txtEmail
-            // 
-            txtEmail.Location = new Point(18, 527);
-            txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(240, 27);
-            txtEmail.TabIndex = 8;
-            // 
-            // txtPhone
-            // 
-            txtPhone.Location = new Point(18, 598);
-            txtPhone.Name = "txtPhone";
-            txtPhone.Size = new Size(240, 27);
-            txtPhone.TabIndex = 9;
-            // 
-            // btnAdjust
-            // 
-            btnAdjust.BorderRadius = 18;
-            btnAdjust.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            btnAdjust.BorderThickness = 1;
-            btnAdjust.CheckedState.FillColor = Color.FromArgb(0, 118, 221);
-            btnAdjust.CheckedState.ForeColor = Color.White;
-            btnAdjust.CustomizableEdges = customizableEdges2;
-            btnAdjust.DisabledState.BorderColor = Color.DarkGray;
-            btnAdjust.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnAdjust.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnAdjust.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAdjust.FillColor = Color.White;
-            btnAdjust.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            btnAdjust.ForeColor = Color.Black;
-            btnAdjust.Location = new Point(18, 672);
-            btnAdjust.Name = "btnAdjust";
-            btnAdjust.ShadowDecoration.CustomizableEdges = customizableEdges3;
-            btnAdjust.Size = new Size(105, 56);
-            btnAdjust.TabIndex = 25;
-            btnAdjust.Text = "Chỉnh sửa";
-            btnAdjust.Click += btnAdjust_Click;
-            // 
-            // guna2Elipse1
-            // 
-            guna2Elipse1.BorderRadius = 30;
-            guna2Elipse1.TargetControl = this;
+            this.pictureBoxAvatar.ImageRotate = 0F;
+            this.pictureBoxAvatar.Location = new Point(200, 90); // Đặt ảnh đại diện ngay dưới tiêu đề
+            this.pictureBoxAvatar.Size = new Size(150, 150); // Phóng to ảnh đại diện
+            this.pictureBoxAvatar.TabStop = false;
+            this.pictureBoxAvatar.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.pictureBoxAvatar.ShadowDecoration.Color = Color.Gray;
+            this.pictureBoxAvatar.ShadowDecoration.Depth = 20;
+            this.pictureBoxAvatar.ShadowDecoration.Enabled = true;
+            this.pictureBoxAvatar.TabIndex = 5;
+
             // 
             // btnChangeAvatar
             // 
-            btnChangeAvatar.BorderRadius = 18;
-            btnChangeAvatar.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            btnChangeAvatar.BorderThickness = 1;
-            btnChangeAvatar.CheckedState.FillColor = Color.FromArgb(0, 118, 221);
-            btnChangeAvatar.CheckedState.ForeColor = Color.White;
-            btnChangeAvatar.CustomizableEdges = customizableEdges6;
-            btnChangeAvatar.DisabledState.BorderColor = Color.DarkGray;
-            btnChangeAvatar.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnChangeAvatar.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnChangeAvatar.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnChangeAvatar.FillColor = Color.White;
-            btnChangeAvatar.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            btnChangeAvatar.ForeColor = Color.Black;
-            btnChangeAvatar.Location = new Point(83, 317);
-            btnChangeAvatar.Name = "btnChangeAvatar";
-            btnChangeAvatar.ShadowDecoration.CustomizableEdges = customizableEdges7;
-            btnChangeAvatar.Size = new Size(105, 56);
-            btnChangeAvatar.TabIndex = 27;
-            btnChangeAvatar.Text = "Chọn ảnh";
-            btnChangeAvatar.Click += btnChangeAvatar_Click;
+            this.btnChangeAvatar.BorderRadius = 15;
+            this.btnChangeAvatar.FillColor = Color.FromArgb(33, 150, 243);
+            this.btnChangeAvatar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            this.btnChangeAvatar.ForeColor = Color.White;
+            this.btnChangeAvatar.Location = new Point(210, 250); // Nút đặt ngay dưới ảnh đại diện
+            this.btnChangeAvatar.Size = new Size(120, 40);
+            this.btnChangeAvatar.Text = "Thay đổi ảnh";
+            this.btnChangeAvatar.Click += new System.EventHandler(this.btnChangeAvatar_Click);
+
+            // 
+            // guna2GroupBoxPersonalInfo
+            // 
+            this.guna2GroupBoxPersonalInfo.BorderRadius = 10;
+            this.guna2GroupBoxPersonalInfo.Controls.Add(this.txtFullName);
+            this.guna2GroupBoxPersonalInfo.Controls.Add(this.txtEmail);
+            this.guna2GroupBoxPersonalInfo.Controls.Add(this.txtPhone);
+            this.guna2GroupBoxPersonalInfo.Controls.Add(this.btnSave);
+            this.guna2GroupBoxPersonalInfo.Controls.Add(this.pictureBoxAvatar);
+            this.guna2GroupBoxPersonalInfo.Controls.Add(this.btnChangeAvatar);
+            this.guna2GroupBoxPersonalInfo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            this.guna2GroupBoxPersonalInfo.ForeColor = Color.Black;
+            this.guna2GroupBoxPersonalInfo.Location = new Point(50, 100);
+            this.guna2GroupBoxPersonalInfo.Name = "guna2GroupBoxPersonalInfo";
+            this.guna2GroupBoxPersonalInfo.Size = new Size(600, 600); // Đã giảm chiều cao để phù hợp
+            this.guna2GroupBoxPersonalInfo.TabIndex = 1;
+            this.guna2GroupBoxPersonalInfo.Text = "Thông tin cá nhân";
+
+            // 
+            // txtFullName
+            // 
+            this.txtFullName.BorderRadius = 8;
+            this.txtFullName.Font = new Font("Segoe UI", 12F);
+            this.txtFullName.PlaceholderText = "Họ tên";
+            this.txtFullName.Location = new Point(50, 310); // Đặt Họ tên dưới nút thay đổi ảnh
+            this.txtFullName.Size = new Size(400, 40);
+            this.txtFullName.TabIndex = 2;
+
+            // 
+            // txtEmail
+            // 
+            this.txtEmail.BorderRadius = 8;
+            this.txtEmail.Font = new Font("Segoe UI", 12F);
+            this.txtEmail.PlaceholderText = "Email";
+            this.txtEmail.Location = new Point(50, 360); // Đặt Email dưới Họ tên
+            this.txtEmail.Size = new Size(400, 40);
+            this.txtEmail.TabIndex = 3;
+
+            // 
+            // txtPhone
+            // 
+            this.txtPhone.BorderRadius = 8;
+            this.txtPhone.Font = new Font("Segoe UI", 12F);
+            this.txtPhone.PlaceholderText = "Số điện thoại";
+            this.txtPhone.Location = new Point(50, 410); // Đặt Số điện thoại dưới Email
+            this.txtPhone.Size = new Size(400, 40);
+            this.txtPhone.TabIndex = 4;
+
             // 
             // btnSave
             // 
-            btnSave.BorderRadius = 18;
-            btnSave.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
-            btnSave.BorderThickness = 1;
-            btnSave.CheckedState.FillColor = Color.FromArgb(0, 118, 221);
-            btnSave.CheckedState.ForeColor = Color.White;
-            btnSave.CustomizableEdges = customizableEdges4;
-            btnSave.DisabledState.BorderColor = Color.DarkGray;
-            btnSave.DisabledState.CustomBorderColor = Color.DarkGray;
-            btnSave.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
-            btnSave.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSave.FillColor = Color.White;
-            btnSave.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            btnSave.ForeColor = Color.Black;
-            btnSave.Location = new Point(143, 672);
-            btnSave.Name = "btnSave";
-            btnSave.ShadowDecoration.CustomizableEdges = customizableEdges5;
-            btnSave.Size = new Size(105, 56);
-            btnSave.TabIndex = 28;
-            btnSave.Text = "Lưu";
-            btnSave.Click += btnSave_Click;
+            this.btnSave.BorderRadius = 10;
+            this.btnSave.FillColor = Color.FromArgb(33, 150, 243);
+            this.btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            this.btnSave.ForeColor = Color.White;
+            this.btnSave.Location = new Point(200, 470); // Đặt nút Lưu ở dưới cùng
+            this.btnSave.Size = new Size(150, 45);
+            this.btnSave.Text = "Lưu";
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+
+            // 
+            // guna2GroupBoxPassword
+            // 
+            this.guna2GroupBoxPassword.BorderRadius = 10;
+            this.guna2GroupBoxPassword.Controls.Add(this.txtOldPassword);
+            this.guna2GroupBoxPassword.Controls.Add(this.txtNewPassword);
+            this.guna2GroupBoxPassword.Controls.Add(this.txtConfirmPassword);
+            this.guna2GroupBoxPassword.Controls.Add(this.btnChangePassword);
+            this.guna2GroupBoxPassword.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            this.guna2GroupBoxPassword.ForeColor = Color.Black;
+            this.guna2GroupBoxPassword.Location = new Point(700, 100);
+            this.guna2GroupBoxPassword.Size = new Size(600, 400);
+            this.guna2GroupBoxPassword.TabIndex = 6;
+            this.guna2GroupBoxPassword.Text = "Thay đổi mật khẩu";
+
+            // 
+            // txtOldPassword
+            // 
+            this.txtOldPassword.BorderRadius = 8;
+            this.txtOldPassword.PasswordChar = '*';
+            this.txtOldPassword.PlaceholderText = "Mật khẩu cũ";
+            this.txtOldPassword.Location = new Point(50, 80);
+            this.txtOldPassword.Size = new Size(400, 40);
+            this.txtOldPassword.TabIndex = 7;
+
+            // 
+            // txtNewPassword
+            // 
+            this.txtNewPassword.BorderRadius = 8;
+            this.txtNewPassword.PasswordChar = '*';
+            this.txtNewPassword.PlaceholderText = "Mật khẩu mới";
+            this.txtNewPassword.Location = new Point(50, 140);
+            this.txtNewPassword.Size = new Size(400, 40);
+            this.txtNewPassword.TabIndex = 8;
+
+            // 
+            // txtConfirmPassword
+            // 
+            this.txtConfirmPassword.BorderRadius = 8;
+            this.txtConfirmPassword.PasswordChar = '*';
+            this.txtConfirmPassword.PlaceholderText = "Nhập lại mật khẩu";
+            this.txtConfirmPassword.Location = new Point(50, 200);
+            this.txtConfirmPassword.Size = new Size(400, 40);
+            this.txtConfirmPassword.TabIndex = 9;
+
+            // 
+            // btnChangePassword
+            // 
+            this.btnChangePassword.BorderRadius = 10;
+            this.btnChangePassword.FillColor = Color.FromArgb(33, 150, 243);
+            this.btnChangePassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            this.btnChangePassword.ForeColor = Color.White;
+            this.btnChangePassword.Location = new Point(50, 260);
+            this.btnChangePassword.Size = new Size(200, 45);
+            this.btnChangePassword.Text = "Đổi mật khẩu";
+            this.btnChangePassword.Click += new System.EventHandler(this.btnChangePassword_Click);
+
             // 
             // UC_SelfInformation
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(btnSave);
-            Controls.Add(btnChangeAvatar);
-            Controls.Add(btnAdjust);
-            Controls.Add(txtPhone);
-            Controls.Add(txtEmail);
-            Controls.Add(txtFullName);
-            Controls.Add(label4);
-            Controls.Add(label3);
-            Controls.Add(label2);
-            Controls.Add(pictureBoxAvatar);
-            Controls.Add(label1);
-            Name = "UC_SelfInformation";
-            Size = new Size(1882, 852);
-            ((System.ComponentModel.ISupportInitialize)pictureBoxAvatar).EndInit();
-            ResumeLayout(false);
-            PerformLayout();
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.guna2GroupBoxPersonalInfo);
+            this.Controls.Add(this.guna2GroupBoxPassword);
+            this.Name = "UC_SelfInformation";
+            this.Size = new Size(1350, 700);
+            this.guna2GroupBoxPersonalInfo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAvatar)).EndInit();
+            this.guna2GroupBoxPassword.ResumeLayout(false);
         }
 
-        #endregion
-
         private Label label1;
-        private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxAvatar;
-        private Label label2;
-        private Label label3;
-        private Label label4;
-        private TextBox txtFullName;
-        private TextBox txtEmail;
-        private TextBox txtPhone;
-        private Guna.UI2.WinForms.Guna2Button btnAdjust;
-        private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
-        private Guna.UI2.WinForms.Guna2Button btnChangeAvatar;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBoxPersonalInfo;
+        private Guna.UI2.WinForms.Guna2TextBox txtFullName;
+        private Guna.UI2.WinForms.Guna2TextBox txtEmail;
+        private Guna.UI2.WinForms.Guna2TextBox txtPhone;
         private Guna.UI2.WinForms.Guna2Button btnSave;
+        private Guna.UI2.WinForms.Guna2CirclePictureBox pictureBoxAvatar;
+        private Guna.UI2.WinForms.Guna2Button btnChangeAvatar;
+        private Guna.UI2.WinForms.Guna2GroupBox guna2GroupBoxPassword;
+        private Guna.UI2.WinForms.Guna2TextBox txtOldPassword;
+        private Guna.UI2.WinForms.Guna2TextBox txtNewPassword;
+        private Guna.UI2.WinForms.Guna2TextBox txtConfirmPassword;
+        private Guna.UI2.WinForms.Guna2Button btnChangePassword;
     }
 }

@@ -70,30 +70,49 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void btnSearchFlights_Click(object sender, EventArgs e)
         {
-            // Get the selected airline, departure, and arrival
-            string selectedAirline = ((DataRowView)cmbAirline.SelectedItem)?["Airline"].ToString(); // Get airline name
+            string selectedAirline = ((DataRowView)cmbAirline.SelectedItem)?["Airline"].ToString();
             string selectedDeparture = cmbDeparture.SelectedItem?.ToString();
             string selectedArrival = cmbArrival.SelectedItem?.ToString();
-
-
-
+            DateTime departureDate = dtpDepartureDate.Value; // Lấy ngày đi từ DateTimePicker
+            Console.WriteLine(departureDate);
             if (string.IsNullOrEmpty(selectedAirline) ||
                 string.IsNullOrEmpty(selectedDeparture) ||
                 string.IsNullOrEmpty(selectedArrival))
             {
-                MessageBox.Show("Please select all fields (Airline, Departure, Arrival) before searching.");
+                MessageBox.Show("Vui lòng chọn đầy đủ các trường (Hãng hàng không, Nơi khởi hành, Nơi đến) trước khi tìm kiếm.");
                 return;
             }
-            LoadFlights(selectedAirline, selectedDeparture, selectedArrival);
+
+            if (chkRoundTrip.Checked)
+            {
+                // Người dùng chọn khứ hồi
+                DateTime returnDate = dtpReturnDate.Value;
+
+                // Nơi khởi hành của chuyến bay về là nơi đến của chuyến đi
+                string returnDeparture = selectedArrival;
+
+                // Nơi đến của chuyến bay về là nơi khởi hành của chuyến đi
+                string returnArrival = selectedDeparture;
+
+                // Tìm kiếm chuyến bay đi và về
+                LoadRoundTripFlights(selectedAirline, selectedDeparture, selectedArrival, departureDate, returnDate, returnDeparture, returnArrival);
+            }
+            else
+            {
+                // Người dùng chọn chuyến đi một chiều
+                LoadFlights(selectedAirline, selectedDeparture, selectedArrival, departureDate);
+            }
         }
 
-        private void LoadFlights(string airline, string departure, string arrival)
+
+        private void LoadFlights(string airline, string departure, string arrival, DateTime departureDate)
         {
             string query = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
                      FROM Flights 
                      WHERE Airline = @Airline 
                      AND Departure = @Departure 
-                     AND Arrival = @Arrival";
+                     AND Arrival = @Arrival
+                     AND DepartureDate = @DepartureDate"; // Thêm điều kiện ngày đi
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -101,7 +120,10 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 cmd.Parameters.AddWithValue("@Airline", airline);
                 cmd.Parameters.AddWithValue("@Departure", departure);
                 cmd.Parameters.AddWithValue("@Arrival", arrival);
+                //cmd.Parameters.AddWithValue("@DepartureDate", departureDate); // Thêm tham số ngày đi
 
+                // Chuyển đổi ngày về định dạng chuẩn yyyy-MM-dd nếu cần
+                cmd.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -115,11 +137,64 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                     dgvFlights.DataSource = dt;
                 }
 
-                dgvFlights.DataSource = dt;
-
                 dgvFlights.AutoResizeColumns();
             }
         }
+
+        private void LoadRoundTripFlights(string airline, string departure, string arrival, DateTime departureDate, DateTime returnDate, string returnDeparture, string returnArrival)
+        {
+            string queryOutbound = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
+                             FROM Flights 
+                             WHERE Airline = @Airline 
+                             AND Departure = @Departure 
+                             AND Arrival = @Arrival
+                             AND DepartureDate = @DepartureDate";
+
+            string queryReturn = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
+                           FROM Flights 
+                           WHERE Airline = @Airline 
+                           AND Departure = @ReturnDeparture 
+                           AND Arrival = @ReturnArrival 
+                           AND DepartureDate = @ReturnDate";
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                SqlCommand cmdOutbound = new SqlCommand(queryOutbound, conn);
+                SqlCommand cmdReturn = new SqlCommand(queryReturn, conn);
+
+                cmdOutbound.Parameters.AddWithValue("@Airline", airline);
+                cmdOutbound.Parameters.AddWithValue("@Departure", departure);
+                cmdOutbound.Parameters.AddWithValue("@Arrival", arrival);
+                cmdOutbound.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
+
+                cmdReturn.Parameters.AddWithValue("@Airline", airline);
+                cmdReturn.Parameters.AddWithValue("@ReturnDeparture", returnDeparture);
+                cmdReturn.Parameters.AddWithValue("@ReturnArrival", returnArrival);
+                cmdReturn.Parameters.AddWithValue("@ReturnDate", returnDate.ToString("yyyy-MM-dd"));
+
+                SqlDataAdapter daOutbound = new SqlDataAdapter(cmdOutbound);
+                SqlDataAdapter daReturn = new SqlDataAdapter(cmdReturn);
+
+                DataTable dtOutbound = new DataTable();
+                DataTable dtReturn = new DataTable();
+
+                daOutbound.Fill(dtOutbound);
+                daReturn.Fill(dtReturn);
+
+                if (dtOutbound.Rows.Count == 0 || dtReturn.Rows.Count == 0)
+                {
+                    MessageBox.Show("Không tìm thấy chuyến bay phù hợp cho chuyến đi khứ hồi.");
+                }
+                else
+                {
+                    // Hiển thị chuyến đi
+                    dgvFlights.DataSource = dtOutbound;
+                    dgvReturnFlights.DataSource = dtReturn;
+                    // Bạn có thể hiển thị chuyến về trong một bảng khác hoặc cho phép người dùng chọn chuyến đi trước rồi hiển thị chuyến về.
+                }
+            }
+        }
+
 
         private void dgvFlights_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -145,28 +220,26 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
             cmbArrival.Items.Add("Hanoi");
             cmbArrival.Items.Add("Ho Chi Minh City");
             cmbArrival.Items.Add("Danang");
-            cmbDeparture.Items.Add("Phu Quoc");
+            cmbArrival.Items.Add("Phu Quoc");
         }
 
         private void btnBookFlight_Click(object sender, EventArgs e)
         {
-           
             if (dgvFlights.SelectedRows.Count == 0)
             {
-                MessageBox.Show("Please select a flight to book.");
+                MessageBox.Show("Vui lòng chọn chuyến bay để đặt vé.");
                 return;
             }
 
-            // Lấy thông tin từ dòng được chọn
             DataGridViewRow selectedRow = dgvFlights.SelectedRows[0];
             int flightID = (int)selectedRow.Cells["FlightID"].Value;
             string airline = selectedRow.Cells["Airline"].Value.ToString();
             DateTime departureDate = (DateTime)selectedRow.Cells["DepartureDate"].Value;
             decimal price = GetFlightCost(flightID);
 
-            int userID = GlobalUserInfo.UserID; // Lấy user ID hiện tại (sử dụng từ GlobalUserInfo)
+            int userID = GlobalUserInfo.UserID;
 
-            // Tạo đối tượng BookingInfo để truyền sang trang thanh toán
+            // Đặt chỗ cho chuyến đi
             BookingInfo bookingInfo = new BookingInfo
             {
                 UserID = userID,
@@ -174,13 +247,53 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 Airline = airline,
                 DepartureDate = departureDate,
                 Price = price,
-                BookingType = "Flight" // Đặt loại đặt chỗ là 'Flight'
+                BookingType = "Flight"
             };
 
-            // Chuyển đến trang thanh toán với thông tin BookingInfo
-            Payment paymentForm = new Payment(bookingInfo);
-            paymentForm.Show();
+            if (chkRoundTrip.Checked)
+            {
+                // Người dùng chọn khứ hồi, xử lý tiếp chuyến bay về
+                // Yêu cầu người dùng chọn chuyến bay về từ DataGridView khác hoặc thông qua tìm kiếm
+
+                // Giả sử có một DataGridView khác tên là dgvReturnFlights cho chuyến bay về
+                if (dgvReturnFlights.SelectedRows.Count == 0)
+                {
+                    MessageBox.Show("Vui lòng chọn chuyến bay về để hoàn tất đặt vé khứ hồi.");
+                    return;
+                }
+
+                // Lấy thông tin chuyến về
+                DataGridViewRow selectedReturnRow = dgvReturnFlights.SelectedRows[0];
+                int returnFlightID = (int)selectedReturnRow.Cells["FlightID"].Value;
+                string returnAirline = selectedReturnRow.Cells["Airline"].Value.ToString();
+                DateTime returnDate = (DateTime)selectedReturnRow.Cells["DepartureDate"].Value;
+                decimal returnPrice = GetFlightCost(returnFlightID);
+
+                // Tạo đối tượng BookingInfo cho chuyến về
+                BookingInfo returnBookingInfo = new BookingInfo
+                {
+                    UserID = userID,
+                    FlightID = returnFlightID,
+                    Airline = returnAirline,
+                    DepartureDate = returnDate,
+                    Price = returnPrice,
+                    BookingType = "Flight"
+                };
+
+                // Gửi thông tin cả chuyến đi và chuyến về đến trang thanh toán
+                Payment paymentForm1 = new Payment(bookingInfo);
+                paymentForm1.Show();
+                Payment paymentForm2 = new Payment(returnBookingInfo);
+                paymentForm2.Show();
+            }
+            else
+            {
+                // Nếu không phải khứ hồi, chỉ gửi chuyến đi
+                Payment paymentForm3 = new Payment(bookingInfo);
+                paymentForm3.Show();
+            }
         }
+
         private decimal GetFlightCost(int flightID)
         {
             decimal cost = 0;
@@ -206,5 +319,20 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
         {
 
         }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+        private void chkRoundTrip_CheckedChanged(object sender, EventArgs e)
+        {
+            // Hiển thị hoặc ẩn DateTimePicker để chọn ngày về
+            bool isRoundTrip = chkRoundTrip.Checked;
+            lblReturnDate.Visible = isRoundTrip;
+            dtpReturnDate.Visible = isRoundTrip;
+            dgvReturnFlights.Visible = isRoundTrip;
+            label5.Visible = isRoundTrip;
+        }
+
     }
 }

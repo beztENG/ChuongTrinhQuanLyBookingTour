@@ -16,5 +16,18 @@ namespace ChuongTrinhQuanLyBookingTour
         {
             InitializeComponent();
         }
+
+        private void AdminDashboard_Load(object sender, EventArgs e)
+        {
+            btn.PerformClick();
+        }
+
+        private void btn_Click(object sender, EventArgs e)
+        {
+            uC_AddUsers1.BringToFront();
+            uC_AddUsers1.Visible = true;
+        }
+
+
     }
 }

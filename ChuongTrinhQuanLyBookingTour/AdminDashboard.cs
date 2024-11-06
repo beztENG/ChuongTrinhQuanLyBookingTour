@@ -28,6 +28,9 @@ namespace ChuongTrinhQuanLyBookingTour
             uC_AddUsers1.Visible = true;
         }
 
-
+        private void btnExit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

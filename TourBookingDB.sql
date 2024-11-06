@@ -124,6 +124,31 @@ CREATE TABLE Payments (
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
+CREATE TABLE HotelEmployees (
+    EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT NOT NULL,
+    HotelID INT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (HotelID) REFERENCES Hotels(HotelID)
+);
+
+CREATE TABLE FlightEmployees (
+    EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT NOT NULL,
+    FlightID INT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (FlightID) REFERENCES Flights(FlightID)
+);
+
+CREATE TABLE TourEmployees (
+    EmployeeID INT PRIMARY KEY IDENTITY(1,1),
+    UserID INT NOT NULL,
+    TourID INT NOT NULL,
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
+    FOREIGN KEY (TourID) REFERENCES Tours(TourID)
+);
+
+
 INSERT INTO Users (Username, Password, FullName, Email, Phone, Avatar, Role)
 VALUES 
 ('alice123', 'alicepass', 'Alice Johnson', 'alice.johnson@example.com', '1234567890', 'alice_avatar.jpg', 'Customer'),
@@ -138,6 +163,8 @@ VALUES
 ('tom_tour', 'tompass', 'Tom Brown', 'tom.brown@example.com', '5557654321', 'tom_avatar.jpg', 'TourProvider'),
 ('michael_flight', 'michaelpass', 'Michael Green', 'michael.green@example.com', '5552223333', 'michael_avatar.jpg', 'FlightProvider'),
 ('linda_tour', 'lindapass', 'Linda Black', 'linda.black@example.com', '5553334444', 'linda_avatar.jpg', 'TourProvider');
+INSERT INTO Users(Username, Password, FullName, Email, Phone, Avatar, Role)
+VALUES ('admin', 'admin', 'Admin', 'admin@example.com', '1234567890', 'Admin.jpg', 'Admin');
 
 INSERT INTO Providers (UserID, ProviderName, ProviderType)
 VALUES 
@@ -185,6 +212,78 @@ VALUES
 ('Mountain Adventure', 'Hanoi', 'Sapa', '2025-06-01', '2025-06-07', 'A thrilling adventure in the beautiful mountains of Sapa', 650.00, 'sapa_mountains.jpg', 7),
 ('City Explorer', 'Ho Chi Minh City', 'Da Nang', '2025-07-15', '2025-07-20', 'Discover the culture and sights of Da Nang', 400.00, 'danang_city.jpg', 9);
 
+INSERT INTO HotelEmployees (UserID, HotelID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Diana Moore' AND Role = 'HotelProvider'), 
+    1 
+);
+
+INSERT INTO HotelEmployees (UserID, HotelID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Jane Doe' AND Role = 'HotelProvider'), 
+    2
+);
+
+INSERT INTO HotelEmployees (UserID, HotelID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Mike Johnson' AND Role = 'HotelProvider'), 
+    3
+);
+
+INSERT INTO FlightEmployees (UserID, FlightID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Edward Barnes' AND Role = 'FlightProvider'), 
+    1
+);
+
+INSERT INTO FlightEmployees (UserID, FlightID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Susan Lee' AND Role = 'FlightProvider'), 
+    2
+);
+
+INSERT INTO FlightEmployees (UserID, FlightID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Michael Green' AND Role = 'FlightProvider'), 
+    3
+);
+
+
+INSERT INTO TourEmployees (UserID, TourID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Frank Thompson' AND Role = 'TourProvider'), 
+    1
+);
+
+INSERT INTO TourEmployees (UserID, TourID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Tom Brown' AND Role = 'TourProvider'), 
+    2
+);
+
+
+INSERT INTO TourEmployees (UserID, TourID)
+VALUES (
+    (SELECT UserID FROM Users WHERE FullName = 'Linda Black' AND Role = 'TourProvider'), 
+    3
+);
+
+
+SELECT u.FullName, h.HotelName 
+FROM HotelEmployees he
+JOIN Users u ON he.UserID = u.UserID
+JOIN Hotels h ON he.HotelID = h.HotelID
+
+SELECT u.FullName, f.Airline
+FROM FlightEmployees fe
+JOIN Users u ON fe.UserID = u.UserID
+JOIN Flights f ON fe.FlightID = f.FlightID;
+
+SELECT u.FullName, t.TourName
+FROM TourEmployees te
+JOIN Users u ON te.UserID = u.UserID
+JOIN Tours t ON te.TourID = t.TourID;
+
 
 ALTER TABLE Rooms
 ADD status BIT DEFAULT 1;
@@ -208,3 +307,4 @@ Set status = 1;
 select * from Providers
 select * from Users
 select * from Tours
+

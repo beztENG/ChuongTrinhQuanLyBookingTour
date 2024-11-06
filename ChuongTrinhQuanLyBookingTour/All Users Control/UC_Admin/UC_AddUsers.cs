@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace ChuongTrinhQuanLyBookingTour
+namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
 {
-    public partial class AdminDashboard : Form
+    public partial class UC_AddUsers : UserControl
     {
-        public AdminDashboard()
+        public UC_AddUsers()
         {
             InitializeComponent();
-        }
-
-        private void btnAddUser_Click(object sender, EventArgs e)
-        {
-            uC_AddUsers1.BringToFront();
-            uC_AddUsers1.Visible = true;
         }
     }
 }

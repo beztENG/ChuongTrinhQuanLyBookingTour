@@ -195,11 +195,6 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 }
             }
 
-            txtFullName.Enabled = false;
-            txtEmail.Enabled = false;
-            txtPhone.Enabled = false;
-            btnChangeAvatar.Enabled = false;
-            btnSave.Enabled = false;
         }
     }
 }

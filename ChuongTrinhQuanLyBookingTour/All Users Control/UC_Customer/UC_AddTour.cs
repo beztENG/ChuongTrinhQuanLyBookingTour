@@ -62,7 +62,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
             {
                 conn.Open();
 
-                StringBuilder queryBuilder = new StringBuilder("SELECT TourName, Starting, Destination, StartingDate, ReturnDate, Cost FROM Tours WHERE 1=1");
+                // Modified query to include the Status filter
+                StringBuilder queryBuilder = new StringBuilder("SELECT TourName, Starting, Destination, StartingDate, ReturnDate, Cost FROM Tours WHERE Status = 1");
 
                 if (!string.IsNullOrEmpty(starting))
                 {
@@ -112,6 +113,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 }
             }
         }
+
 
 
         private void btnBookTour_Click(object sender, EventArgs e)

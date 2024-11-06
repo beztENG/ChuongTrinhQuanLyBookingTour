@@ -104,7 +104,6 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
             }
         }
 
-
         private void LoadFlights(string airline, string departure, string arrival, DateTime departureDate)
         {
             string query = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
@@ -112,7 +111,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                      WHERE Airline = @Airline 
                      AND Departure = @Departure 
                      AND Arrival = @Arrival
-                     AND DepartureDate = @DepartureDate"; // Thêm điều kiện ngày đi
+                     AND DepartureDate = @DepartureDate
+                     AND Status = 1"; 
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -120,17 +120,15 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 cmd.Parameters.AddWithValue("@Airline", airline);
                 cmd.Parameters.AddWithValue("@Departure", departure);
                 cmd.Parameters.AddWithValue("@Arrival", arrival);
-                //cmd.Parameters.AddWithValue("@DepartureDate", departureDate); // Thêm tham số ngày đi
-
-                // Chuyển đổi ngày về định dạng chuẩn yyyy-MM-dd nếu cần
                 cmd.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
+
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
 
                 if (dt.Rows.Count == 0)
                 {
-                    MessageBox.Show("Không có chuyến bay nào phù hợp.");
+                    MessageBox.Show("No available flights found.");
                 }
                 else
                 {
@@ -148,14 +146,16 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                              WHERE Airline = @Airline 
                              AND Departure = @Departure 
                              AND Arrival = @Arrival
-                             AND DepartureDate = @DepartureDate";
+                             AND DepartureDate = @DepartureDate
+                             AND Status = 1"; 
 
             string queryReturn = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
                            FROM Flights 
                            WHERE Airline = @Airline 
                            AND Departure = @ReturnDeparture 
                            AND Arrival = @ReturnArrival 
-                           AND DepartureDate = @ReturnDate";
+                           AND DepartureDate = @ReturnDate
+                           AND Status = 1";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -183,18 +183,15 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
                 if (dtOutbound.Rows.Count == 0 || dtReturn.Rows.Count == 0)
                 {
-                    MessageBox.Show("Không tìm thấy chuyến bay phù hợp cho chuyến đi khứ hồi.");
+                    MessageBox.Show("No suitable flights found for the round trip.");
                 }
                 else
                 {
-                    // Hiển thị chuyến đi
                     dgvFlights.DataSource = dtOutbound;
                     dgvReturnFlights.DataSource = dtReturn;
-                    // Bạn có thể hiển thị chuyến về trong một bảng khác hoặc cho phép người dùng chọn chuyến đi trước rồi hiển thị chuyến về.
                 }
             }
         }
-
 
         private void dgvFlights_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {

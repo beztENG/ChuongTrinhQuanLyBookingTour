@@ -86,7 +86,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void LoadRoomDetails(int hotelID)
         {
-            string query = "SELECT RoomID, RoomType, BedType, Price FROM Rooms WHERE HotelID = @HotelID";
+            string query = "SELECT RoomID, RoomType, BedType, Price FROM Rooms WHERE HotelID = @HotelID AND Status = 1";
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -98,14 +99,16 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 txtRoomtype.DataSource = dt;
                 txtPrice.DataSource = dt;
                 txtBed.DataSource = dt;
-                txtRoomtype.DisplayMember = "RoomType"; 
-                txtRoomtype.ValueMember = "RoomID"; 
+
+                txtRoomtype.DisplayMember = "RoomType";
+                txtRoomtype.ValueMember = "RoomID";
                 txtBed.DisplayMember = "BedType";
                 txtBed.ValueMember = "RoomID";
-                txtPrice.DisplayMember = "txtPrice";
+                txtPrice.DisplayMember = "Price";
                 txtPrice.ValueMember = "Price";
             }
         }
+
 
 
         private void btnAddHotel_Click(object sender, EventArgs e)
@@ -135,7 +138,6 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 return;
             }
 
-            // Tạo một đối tượng để lưu thông tin đặt phòng
             BookingInfo bookingInfo = new BookingInfo
             {
                 HotelID = selectedHotelID,
@@ -147,7 +149,6 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
             };
             MessageBox.Show($"HotelID: {bookingInfo.HotelID}, RoomID: {bookingInfo.RoomID}, UserID: {bookingInfo.UserID}, Price: {bookingInfo.Price}");
 
-            // Chuyển đến trang Payment
             Payment paymentForm = new Payment(bookingInfo);
             paymentForm.Show();
         }

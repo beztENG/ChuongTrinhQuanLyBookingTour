@@ -9,7 +9,7 @@ namespace ChuongTrinhQuanLyBookingTour
 {
     public partial class Register : Form
     {
-        private string connectionString = @"Data Source=(local);Initial Catalog=TourBookingDB;Integrated Security=True";
+        private string connectionString = DatabaseHelper.ConnectionString;
         private string imagePath = Path.Combine(Application.StartupPath, @"Images\User");
         private string selectedAvatarFileName = "";
 

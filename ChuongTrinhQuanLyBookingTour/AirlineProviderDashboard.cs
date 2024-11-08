@@ -7,17 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider;
+using ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider;
 
 namespace ChuongTrinhQuanLyBookingTour
 {
-    public partial class FlightProviderDashboard : Form
+    public partial class AirlineProviderDashboard : Form
     {
-        private string airline;
-        public FlightProviderDashboard(string airline)
+        private int airlineID;
+        public AirlineProviderDashboard(int airlineID)
         {
             InitializeComponent();
-            this.airline = airline;
+            this.airlineID = airlineID;
         }
 
         private void FlightProviderDashboard_Load(object sender, EventArgs e)
@@ -33,13 +33,14 @@ namespace ChuongTrinhQuanLyBookingTour
 
         private void btnEditFlight_Click(object sender, EventArgs e)
         {
-            uC_EditFlight1.LoadFlights();
-            uC_EditFlight1.BringToFront();
-            uC_EditFlight1.Visible = true;
+            uC_EditFlight2.SetAirlineID(this.airlineID);
+            uC_EditFlight2.BringToFront();
+            uC_EditFlight2.Visible = true;
         }
 
         private void btnDisableFlight_Click(object sender, EventArgs e)
         {
+            uC_DisableFlight1.SetAirlineID(this.airlineID) ;
             uC_DisableFlight1.BringToFront();
             uC_DisableFlight1.Visible = true;
         }

@@ -3,7 +3,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
 
-namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
+namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
 {
     public partial class UC_AddNewFlight : UserControl
     {
@@ -16,7 +16,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
 
         private void btnAddFlight_Click(object sender, EventArgs e)
         {
-            string airline = GlobalUserInfo.Airline;
+            int airlineid = GlobalUserInfo.AirlineID;
             string airlineImage = GlobalUserInfo.AirlineImage;
 
             string departure = txtDeparture.Text;
@@ -33,15 +33,15 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
                 return;
             }
 
-            string query = "INSERT INTO Flights (Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime, Cost, AirlineImage, ProviderID, status) " +
-                           "VALUES (@Airline, @Departure, @Arrival, @DepartureDate, @ArrivalDate, @TakeOffTime, @LandingTime, @Cost, @AirlineImage, @ProviderID, 1)";
+            string query = "INSERT INTO Flights (AirlineID, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime, Cost, FlightImage, status) " +
+                           "VALUES (@AirlineID, @Departure, @Arrival, @DepartureDate, @ArrivalDate, @TakeOffTime, @LandingTime, @Cost, @FlightImage, 1)";
 
             try
             {
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
                     SqlCommand command = new SqlCommand(query, connection);
-                    command.Parameters.AddWithValue("@Airline", airline);
+                    command.Parameters.AddWithValue("@AirlineID", airlineid);
                     command.Parameters.AddWithValue("@Departure", departure);
                     command.Parameters.AddWithValue("@Arrival", arrival);
                     command.Parameters.AddWithValue("@DepartureDate", departureDate);
@@ -49,8 +49,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
                     command.Parameters.AddWithValue("@TakeOffTime", takeOffTime);
                     command.Parameters.AddWithValue("@LandingTime", landingTime);
                     command.Parameters.AddWithValue("@Cost", cost);
-                    command.Parameters.AddWithValue("@AirlineImage", airlineImage);
-                    command.Parameters.AddWithValue("@ProviderID", GlobalUserInfo.ProviderID);
+                    command.Parameters.AddWithValue("@FlightImage", DBNull.Value);
 
                     connection.Open();
                     command.ExecuteNonQuery();

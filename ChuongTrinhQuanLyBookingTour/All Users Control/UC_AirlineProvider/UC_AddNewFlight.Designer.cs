@@ -1,4 +1,4 @@
-﻿namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
+﻿namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
 {
     partial class UC_AddNewFlight
     {

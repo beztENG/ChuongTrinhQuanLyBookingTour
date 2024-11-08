@@ -4,21 +4,21 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
 
-namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
+namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
 {
     public partial class UC_DisableTour : UserControl
     {
         private string connectionString = DatabaseHelper.ConnectionString;
-        private int providerID;
+        private int companyID;
 
         public UC_DisableTour()
         {
             InitializeComponent();
         }
 
-        public void SetProviderID(int providerID)
+        public void SetCompanyID(int companyID)
         {
-            this.providerID = providerID;
+            this.companyID = companyID;
             LoadTours();
         }
 
@@ -26,9 +26,9 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "SELECT TourID, TourName, Status FROM Tours WHERE ProviderID = @ProviderID";
+                string query = "SELECT TourID, TourName, Status FROM Tours WHERE CompanyID = @CompanyID";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@ProviderID", providerID);
+                adapter.SelectCommand.Parameters.AddWithValue("@CompanyID", companyID);
                 DataTable toursTable = new DataTable();
                 adapter.Fill(toursTable);
 
@@ -59,11 +59,11 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
 
                 using (SqlConnection connection = new SqlConnection(connectionString))
                 {
-                    string updateQuery = "UPDATE Tours SET Status = @Status WHERE TourID = @TourID AND ProviderID = @ProviderID";
+                    string updateQuery = "UPDATE Tours SET Status = @Status WHERE TourID = @TourID AND CompanyID = @CompanyID";
                     SqlCommand command = new SqlCommand(updateQuery, connection);
                     command.Parameters.AddWithValue("@Status", newStatus);
                     command.Parameters.AddWithValue("@TourID", tourID);
-                    command.Parameters.AddWithValue("@ProviderID", providerID);
+                    command.Parameters.AddWithValue("@CompanyID", companyID);
 
                     connection.Open();
                     command.ExecuteNonQuery();

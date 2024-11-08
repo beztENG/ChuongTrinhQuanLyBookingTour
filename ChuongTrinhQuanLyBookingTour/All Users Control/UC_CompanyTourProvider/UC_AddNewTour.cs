@@ -1,21 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using System.IO;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
-namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
+
+namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
 {
     public partial class UC_AddNewTour : UserControl
     {
         private string connectionString = DatabaseHelper.ConnectionString;
-        private int providerID;
-        private string selectedTourImageFileName; 
+        private int companyID;
+        private string selectedTourImageFileName;
         private readonly string imagePath = Path.Combine(Application.StartupPath, @"Images\Tour");
 
         public UC_AddNewTour()
@@ -67,7 +64,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
 
         private void btnSaveTour_Click(object sender, EventArgs e)
         {
-            this.providerID = GlobalUserInfo.ProviderID;
+            
+            this.companyID = GlobalUserInfo.CompanyID;
             string tourName = txtTourName.Text;
             string starting = txtStarting.Text;
             string destination = txtDestination.Text;
@@ -79,9 +77,10 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string query = "INSERT INTO Tours (TourName, Starting, Destination, StartingDate, ReturnDate, Description, Cost, TourImage, ProviderID) " +
-                               "VALUES (@TourName, @Starting, @Destination, @StartingDate, @ReturnDate, @Description, @Cost, @TourImage, @ProviderID)";
+                string query = "INSERT INTO Tours (CompanyID,TourName, Starting, Destination, StartingDate, ReturnDate, Description, Cost, TourImage) " +
+                               "VALUES (@CompanyID,@TourName, @Starting, @Destination, @StartingDate, @ReturnDate, @Description, @Cost, @TourImage)";
                 SqlCommand command = new SqlCommand(query, connection);
+                command.Parameters.AddWithValue("@CompanyID", companyID);
                 command.Parameters.AddWithValue("@TourName", tourName);
                 command.Parameters.AddWithValue("@Starting", starting);
                 command.Parameters.AddWithValue("@Destination", destination);
@@ -90,7 +89,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
                 command.Parameters.AddWithValue("@Description", description);
                 command.Parameters.AddWithValue("@Cost", cost);
                 command.Parameters.AddWithValue("@TourImage", tourImageName);
-                command.Parameters.AddWithValue("@ProviderID", providerID);
+                
 
                 connection.Open();
                 command.ExecuteNonQuery();

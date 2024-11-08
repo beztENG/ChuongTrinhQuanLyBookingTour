@@ -1,23 +1,24 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design;
 using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider;
+using ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider;
 
 namespace ChuongTrinhQuanLyBookingTour
 {
-    public partial class TourProviderDashboard : Form
+    public partial class CompanyTourProviderDashboard : Form
     {
-        private int providerID;
-        public TourProviderDashboard(int providerID)
+        private int companyid;
+        public CompanyTourProviderDashboard(int companyid)
         {
             InitializeComponent();
-            this.providerID = providerID;
+            this.companyid = companyid;
         }
         private void TourProviderDashboard_Load(object sender, EventArgs e)
         {
@@ -32,14 +33,14 @@ namespace ChuongTrinhQuanLyBookingTour
 
         private void btnEditTour_Click(object sender, EventArgs e)
         {
-            uC_EditTour1.SetProviderID(providerID);
+            uC_EditTour1.SetCompanyID(companyid);
             uC_EditTour1.BringToFront();
             uC_EditTour1.Visible = true;
         }
 
         private void btnDisableTour_Click(object sender, EventArgs e)
         {
-            uC_DisableTour1.SetProviderID(providerID);
+            uC_DisableTour1.SetCompanyID(companyid);
             uC_DisableTour1.BringToFront();
             uC_DisableTour1.Visible = true;
         }

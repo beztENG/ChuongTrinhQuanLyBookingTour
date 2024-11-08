@@ -3,7 +3,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace ChuongTrinhQuanLyBookingTour
 {
@@ -45,23 +44,21 @@ namespace ChuongTrinhQuanLyBookingTour
                         break;
 
                     case "HotelProvider":
-                        int hotelId = GlobalUserInfo.HotelID;
-                        HotelProviderDashboard hotelDashboard = new HotelProviderDashboard(hotelId);
+                        HotelProviderDashboard hotelDashboard = new HotelProviderDashboard(GlobalUserInfo.HotelID);
                         this.Hide();
                         hotelDashboard.Show();
                         break;
 
-                    case "FlightProvider":
-                        string airline = GlobalUserInfo.Airline;
-                        FlightProviderDashboard flightDashboard = new FlightProviderDashboard(airline);
+                    case "AirlineProvider":
+                        AirlineProviderDashboard airlineDashboard = new AirlineProviderDashboard(GlobalUserInfo.AirlineID);
                         this.Hide();
-                        flightDashboard.Show();
+                        airlineDashboard.Show();
                         break;
 
-                    case "TourProvider":
-                        TourProviderDashboard tourDashboard = new TourProviderDashboard(GlobalUserInfo.ProviderID);
+                    case "CompanyTourProvider":
+                        CompanyTourProviderDashboard companytourDashboard = new CompanyTourProviderDashboard(GlobalUserInfo.CompanyID);
                         this.Hide();
-                        tourDashboard.Show();
+                        companytourDashboard.Show();
                         break;
 
                     default:
@@ -96,13 +93,12 @@ namespace ChuongTrinhQuanLyBookingTour
                     int userID = reader.GetInt32(0);
                     role = reader.GetString(1);
 
-                    GlobalUserInfo.UserID = userID;  
-                    GlobalUserInfo.UserRole = role; 
+                    GlobalUserInfo.UserID = userID;
+                    GlobalUserInfo.UserRole = role;
 
                     reader.Close();
 
-                    
-                    if (role == "HotelProvider" || role == "FlightProvider" || role == "TourProvider")
+                    if (role == "HotelProvider" || role == "AirlineProvider" || role == "CompanyTourProvider")
                     {
                         string providerQuery = "SELECT ProviderID FROM Providers WHERE UserID = @UserID";
                         SqlCommand providerCommand = new SqlCommand(providerQuery, connection);
@@ -113,9 +109,9 @@ namespace ChuongTrinhQuanLyBookingTour
 
                         if (role == "HotelProvider")
                         {
-                            string hotelQuery = "SELECT HotelID FROM Hotels WHERE ProviderID = @ProviderID";
+                            string hotelQuery = "SELECT HotelID FROM HotelEmployees WHERE UserID = @UserID";
                             SqlCommand hotelCommand = new SqlCommand(hotelQuery, connection);
-                            hotelCommand.Parameters.AddWithValue("@ProviderID", providerID);
+                            hotelCommand.Parameters.AddWithValue("@UserID", GlobalUserInfo.UserID);
 
                             SqlDataReader hotelReader = hotelCommand.ExecuteReader();
                             if (hotelReader.Read())
@@ -124,22 +120,31 @@ namespace ChuongTrinhQuanLyBookingTour
                             }
                             hotelReader.Close();
                         }
-                        else if (role == "FlightProvider")
+                        else if (role == "AirlineProvider")
                         {
-                            string airlineQuery = @"SELECT Airlines.AirlineName, Airlines.AirlineImage
-                            FROM Providers
-                            JOIN Airlines ON Providers.ProviderID = Airlines.ProviderID
-                            WHERE Providers.UserID = @UserID";
+                            string airlineQuery = "SELECT AirlineID FROM AirlineEmployees WHERE UserID = @UserID";
                             SqlCommand airlineCommand = new SqlCommand(airlineQuery, connection);
                             airlineCommand.Parameters.AddWithValue("@UserID", GlobalUserInfo.UserID);
 
                             SqlDataReader airlineReader = airlineCommand.ExecuteReader();
                             if (airlineReader.Read())
                             {
-                                GlobalUserInfo.Airline = airlineReader.GetString(0); 
-                                GlobalUserInfo.AirlineImage = airlineReader.GetString(1);
+                                GlobalUserInfo.AirlineID = airlineReader.GetInt32(0);
                             }
                             airlineReader.Close();
+                        }
+                        else if (role == "CompanyTourProvider")
+                        {
+                            string companyQuery = "SELECT CompanyID FROM CompanyTourEmployees WHERE UserID = @UserID";
+                            SqlCommand companyCommand = new SqlCommand(companyQuery, connection);
+                            companyCommand.Parameters.AddWithValue("@UserID", GlobalUserInfo.UserID);
+
+                            SqlDataReader companyReader = companyCommand.ExecuteReader();
+                            if (companyReader.Read())
+                            {
+                                GlobalUserInfo.CompanyID = companyReader.GetInt32(0);
+                            }
+                            companyReader.Close();
                         }
                     }
 
@@ -153,9 +158,6 @@ namespace ChuongTrinhQuanLyBookingTour
 
             return isValid;
         }
-
-
-
         private void labelError_Click(object sender, EventArgs e)
         {
 

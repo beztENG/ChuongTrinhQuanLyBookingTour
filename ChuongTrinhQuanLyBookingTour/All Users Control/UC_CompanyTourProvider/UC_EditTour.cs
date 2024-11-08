@@ -6,12 +6,12 @@ using System.IO;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
 
-namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
+namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
 {
     public partial class UC_EditTour : UserControl
     {
         private string connectionString = DatabaseHelper.ConnectionString;
-        private int providerID;
+        private int companyID;
         private int selectedTourID;
         private string selectedTourImageFileName;
         private readonly string imagePath = Path.Combine(Application.StartupPath, @"Images\Tour");
@@ -21,27 +21,26 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
             InitializeComponent();
         }
 
-        
-        public void SetProviderID(int providerID)
+        public void SetCompanyID(int companyID)
         {
-            this.providerID = providerID;
+            this.companyID = companyID;
             LoadTours();
         }
 
         public void LoadTours()
         {
-            if (providerID == 0)
+            if (companyID == 0)
             {
-                MessageBox.Show("ProviderID chưa có.");
+                MessageBox.Show("CompanyID chưa có.");
                 return;
             }
 
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
                 string query = "SELECT TourID, TourName, Starting, Destination, StartingDate, ReturnDate, Description, Cost, TourImage " +
-                               "FROM Tours WHERE ProviderID = @ProviderID";
+                               "FROM Tours WHERE companyID = @CompanyID";
                 SqlDataAdapter adapter = new SqlDataAdapter(query, connection);
-                adapter.SelectCommand.Parameters.AddWithValue("@ProviderID", providerID);
+                adapter.SelectCommand.Parameters.AddWithValue("@CompanyID", companyID);
                 DataTable toursTable = new DataTable();
                 adapter.Fill(toursTable);
 
@@ -74,7 +73,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
 
         private void btnSaveChanges_Click(object sender, EventArgs e)
         {
-            this.providerID = GlobalUserInfo.ProviderID;
+            this.companyID = GlobalUserInfo.CompanyID;
             string tourName = txtTourName.Text;
             string starting = txtStarting.Text;
             string destination = txtDestination.Text;
@@ -88,7 +87,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
             {
                 string query = "UPDATE Tours SET TourName = @TourName, Starting = @Starting, Destination = @Destination, " +
                                "StartingDate = @StartingDate, ReturnDate = @ReturnDate, Description = @Description, Cost = @Cost, " +
-                               "TourImage = @TourImage WHERE TourID = @TourID AND ProviderID = @ProviderID";
+                               "TourImage = @TourImage WHERE TourID = @TourID AND CompanyID = @CompanyID";
                 SqlCommand command = new SqlCommand(query, connection);
                 command.Parameters.AddWithValue("@TourName", tourName);
                 command.Parameters.AddWithValue("@Starting", starting);
@@ -99,7 +98,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
                 command.Parameters.AddWithValue("@Cost", cost);
                 command.Parameters.AddWithValue("@TourImage", tourImageName);
                 command.Parameters.AddWithValue("@TourID", selectedTourID);
-                command.Parameters.AddWithValue("@ProviderID", providerID);
+                command.Parameters.AddWithValue("@CompanyID", companyID);
 
                 connection.Open();
                 command.ExecuteNonQuery();

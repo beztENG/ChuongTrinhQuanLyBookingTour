@@ -1,4 +1,4 @@
-﻿namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_TourProvider
+﻿namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
 {
     partial class UC_AddNewTour
     {

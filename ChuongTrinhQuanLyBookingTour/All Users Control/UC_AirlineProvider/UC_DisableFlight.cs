@@ -4,29 +4,33 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.Helpers;
 
-namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
+namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
 {
     public partial class UC_DisableFlight : UserControl
     {
         private string connectionString = DatabaseHelper.ConnectionString;
-
+        private int airlineID;
         public UC_DisableFlight()
         {
             InitializeComponent();
+            
+        }
+        public void SetAirlineID(int airlineID)
+        {
+            this.airlineID = airlineID;
             LoadFlights();
         }
-
         public void LoadFlights()
         {
             dgvFlights.ReadOnly = true;
-            string query = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, Status
+            string query = @"SELECT FlightID, Departure, Arrival, DepartureDate, ArrivalDate, Status
                              FROM Flights
-                             WHERE ProviderID = @ProviderID";
+                             WHERE AirlineID = @AirlineID";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@ProviderID", GlobalUserInfo.ProviderID);
+                cmd.Parameters.AddWithValue("@AirlineID", GlobalUserInfo.AirlineID);
                 SqlDataAdapter da = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 da.Fill(dt);
@@ -51,7 +55,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
 
             int newStatus = isCurrentlyEnabled ? 0 : 1;
 
-            string updateQuery = "UPDATE Flights SET Status = @Status WHERE FlightID = @FlightID AND ProviderID = @ProviderID";
+            string updateQuery = "UPDATE Flights SET Status = @Status WHERE FlightID = @FlightID AND AirlineID = @AirlineID";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -59,7 +63,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_FlightProvider
                 SqlCommand cmd = new SqlCommand(updateQuery, conn);
                 cmd.Parameters.AddWithValue("@Status", newStatus);
                 cmd.Parameters.AddWithValue("@FlightID", flightID);
-                cmd.Parameters.AddWithValue("@ProviderID", GlobalUserInfo.ProviderID);
+                cmd.Parameters.AddWithValue("@AirlineID", GlobalUserInfo.AirlineID);
 
                 cmd.ExecuteNonQuery();
                 MessageBox.Show(isCurrentlyEnabled ? "Flight disabled successfully!" : "Flight enabled successfully!");

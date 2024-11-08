@@ -19,10 +19,10 @@ namespace ChuongTrinhQuanLyBookingTour
 
         private void AdminDashboard_Load(object sender, EventArgs e)
         {
-            btn.PerformClick();
+            btnUserList.PerformClick();
         }
 
-        private void btn_Click(object sender, EventArgs e)
+        private void btnAddUser_Click(object sender, EventArgs e)
         {
             uC_AddUsers1.BringToFront();
             uC_AddUsers1.Visible = true;
@@ -31,6 +31,18 @@ namespace ChuongTrinhQuanLyBookingTour
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
+        }
+
+        private void btnUserList_Click(object sender, EventArgs e)
+        {
+            uC_ListUsers1.BringToFront();
+            uC_ListUsers1.Visible = true;
+        }
+
+        private void btnManageHotelBrand_Click(object sender, EventArgs e)
+        {
+            uC_ManageHotelBrand1.BringToFront();
+            uC_ManageHotelBrand1.Visible = true;
         }
     }
 }

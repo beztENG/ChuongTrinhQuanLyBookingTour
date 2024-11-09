@@ -44,5 +44,17 @@ namespace ChuongTrinhQuanLyBookingTour
             uC_ManageHotelBrand1.BringToFront();
             uC_ManageHotelBrand1.Visible = true;
         }
+
+        private void btnManageCompanyTour_Click(object sender, EventArgs e)
+        {
+            uC_ManageTourBrand1.BringToFront();
+            uC_ManageTourBrand1.Visible = true;
+        }
+
+        private void btnManageAirline_Click(object sender, EventArgs e)
+        {
+            uC_ManageAirlineBrand2.BringToFront();
+            uC_ManageAirlineBrand2.Visible = true;
+        }
     }
 }

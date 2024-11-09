@@ -29,6 +29,9 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             txtHotelName = new Guna.UI2.WinForms.Guna2TextBox();
             txtLocation = new Guna.UI2.WinForms.Guna2TextBox();
             txtRating = new Guna.UI2.WinForms.Guna2TextBox();
@@ -36,7 +39,10 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             label3 = new Label();
             label4 = new Label();
             btnSubmit = new Guna.UI2.WinForms.Guna2Button();
+            btnUpdate = new Guna.UI2.WinForms.Guna2Button();
+            dgvHotelBrands = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            ((System.ComponentModel.ISupportInitialize)dgvHotelBrands).BeginInit();
             SuspendLayout();
             // 
             // txtHotelName
@@ -137,10 +143,76 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             btnSubmit.Location = new Point(150, 307);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnSubmit.Size = new Size(200, 30);
+            btnSubmit.Size = new Size(100, 30);
             btnSubmit.TabIndex = 8;
             btnSubmit.Text = "Add Hotel";
             btnSubmit.Click += btnSubmit_Click;
+            // 
+            // btnUpdate
+            // 
+            btnUpdate.CustomizableEdges = customizableEdges7;
+            btnUpdate.Font = new Font("Segoe UI", 9F);
+            btnUpdate.ForeColor = Color.White;
+            btnUpdate.Location = new Point(260, 307);
+            btnUpdate.Name = "btnUpdate";
+            btnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnUpdate.Size = new Size(100, 30);
+            btnUpdate.TabIndex = 9;
+            btnUpdate.Text = "Update";
+            btnUpdate.Click += btnUpdate_Click;
+            // 
+            // dgvHotelBrands
+            // 
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dgvHotelBrands.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dgvHotelBrands.BorderStyle = BorderStyle.Fixed3D;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvHotelBrands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dgvHotelBrands.ColumnHeadersHeight = 4;
+            dgvHotelBrands.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvHotelBrands.DefaultCellStyle = dataGridViewCellStyle3;
+            dgvHotelBrands.GridColor = Color.FromArgb(231, 229, 255);
+            dgvHotelBrands.Location = new Point(400, 26);
+            dgvHotelBrands.Name = "dgvHotelBrands";
+            dgvHotelBrands.RowHeadersVisible = false;
+            dgvHotelBrands.RowHeadersWidth = 51;
+            dgvHotelBrands.Size = new Size(795, 324);
+            dgvHotelBrands.TabIndex = 10;
+            dgvHotelBrands.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
+            dgvHotelBrands.ThemeStyle.AlternatingRowsStyle.Font = null;
+            dgvHotelBrands.ThemeStyle.AlternatingRowsStyle.ForeColor = Color.Empty;
+            dgvHotelBrands.ThemeStyle.AlternatingRowsStyle.SelectionBackColor = Color.Empty;
+            dgvHotelBrands.ThemeStyle.AlternatingRowsStyle.SelectionForeColor = Color.Empty;
+            dgvHotelBrands.ThemeStyle.BackColor = Color.White;
+            dgvHotelBrands.ThemeStyle.GridColor = Color.FromArgb(231, 229, 255);
+            dgvHotelBrands.ThemeStyle.HeaderStyle.BackColor = Color.FromArgb(100, 88, 255);
+            dgvHotelBrands.ThemeStyle.HeaderStyle.BorderStyle = DataGridViewHeaderBorderStyle.None;
+            dgvHotelBrands.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
+            dgvHotelBrands.ThemeStyle.HeaderStyle.ForeColor = Color.White;
+            dgvHotelBrands.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            dgvHotelBrands.ThemeStyle.HeaderStyle.Height = 29;
+            dgvHotelBrands.ThemeStyle.ReadOnly = false;
+            dgvHotelBrands.ThemeStyle.RowsStyle.BackColor = Color.White;
+            dgvHotelBrands.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            dgvHotelBrands.ThemeStyle.RowsStyle.Font = new Font("Segoe UI", 9F);
+            dgvHotelBrands.ThemeStyle.RowsStyle.ForeColor = Color.FromArgb(71, 69, 94);
+            dgvHotelBrands.ThemeStyle.RowsStyle.Height = 29;
+            dgvHotelBrands.ThemeStyle.RowsStyle.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dgvHotelBrands.ThemeStyle.RowsStyle.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dgvHotelBrands.CellContentClick += dgvHotelBrands_CellContentClick;
             // 
             // guna2Elipse1
             // 
@@ -150,6 +222,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(btnUpdate);
+            Controls.Add(dgvHotelBrands);
             Controls.Add(btnSubmit);
             Controls.Add(txtRating);
             Controls.Add(label4);
@@ -158,7 +232,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             Controls.Add(txtHotelName);
             Controls.Add(label1);
             Name = "UC_ManageHotelBrand";
-            Size = new Size(1083, 610);
+            Size = new Size(1264, 610);
+            ((System.ComponentModel.ISupportInitialize)dgvHotelBrands).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -169,6 +244,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
         private Guna.UI2.WinForms.Guna2TextBox txtLocation;
         private Guna.UI2.WinForms.Guna2TextBox txtRating;
         private Guna.UI2.WinForms.Guna2Button btnSubmit;
+        private Guna.UI2.WinForms.Guna2Button btnUpdate; // Update Button
+        private Guna.UI2.WinForms.Guna2DataGridView dgvHotelBrands; // DataGridView
         private Label label1;
         private Label label3;
         private Label label4;

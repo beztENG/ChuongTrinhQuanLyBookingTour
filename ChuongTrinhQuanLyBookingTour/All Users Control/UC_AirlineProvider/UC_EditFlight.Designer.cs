@@ -50,6 +50,8 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dataGridViewFlights = new Guna.UI2.WinForms.Guna2DataGridView();
             btnSaveChanges = new Guna.UI2.WinForms.Guna2Button();
             label7 = new Label();
@@ -69,6 +71,7 @@
             label8 = new Label();
             txtFlightID = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFlights).BeginInit();
             SuspendLayout();
             // 
@@ -95,7 +98,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewFlights.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewFlights.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewFlights.Location = new Point(65, 25);
+            dataGridViewFlights.Location = new Point(65, 72);
             dataGridViewFlights.Name = "dataGridViewFlights";
             dataGridViewFlights.RowHeadersVisible = false;
             dataGridViewFlights.RowHeadersWidth = 51;
@@ -374,10 +377,27 @@
             guna2Elipse1.BorderRadius = 30;
             guna2Elipse1.TargetControl = this;
             // 
+            // txtSearch
+            // 
+            txtSearch.CustomizableEdges = customizableEdges19;
+            txtSearch.DefaultText = "";
+            txtSearch.Font = new Font("Segoe UI", 9F);
+            txtSearch.Location = new Point(65, 31);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderText = "Search by Flight ID or Destination";
+            txtSearch.SelectedText = "";
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtSearch.Size = new Size(250, 30);
+            txtSearch.TabIndex = 0;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // UC_EditFlight
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txtSearch);
             Controls.Add(label8);
             Controls.Add(txtFlightID);
             Controls.Add(btnSaveChanges);
@@ -424,5 +444,6 @@
         private Label label8;
         private Guna.UI2.WinForms.Guna2TextBox txtFlightID;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }
 }

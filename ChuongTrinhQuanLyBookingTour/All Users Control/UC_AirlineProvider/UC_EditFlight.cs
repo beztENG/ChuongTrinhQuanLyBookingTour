@@ -15,30 +15,35 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
         public UC_EditFlight()
         {
             InitializeComponent();
-            
-
         }
+
         public void SetAirlineID(int airlineID)
         {
             this.airlineID = airlineID;
             LoadFlights();
-
         }
 
         public void LoadFlights()
         {
-            dataGridViewFlights.ReadOnly = true;
-            string query = "SELECT FlightID, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime, Cost " +
-                           "FROM Flights WHERE AirlineID = @AirlineID";
-
-            using (SqlConnection connection = new SqlConnection(connectionString))
-            using (SqlCommand command = new SqlCommand(query, connection))
+            try
             {
-                command.Parameters.AddWithValue("@AirlineID", GlobalUserInfo.AirlineID);
-                SqlDataAdapter adapter = new SqlDataAdapter(command);
-                DataTable flightsTable = new DataTable();
-                adapter.Fill(flightsTable);
-                dataGridViewFlights.DataSource = flightsTable;
+                dataGridViewFlights.ReadOnly = true;
+                string query = "SELECT FlightID, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime, Cost, Status " +
+                               "FROM Flights WHERE AirlineID = @AirlineID";
+
+                using (SqlConnection connection = new SqlConnection(connectionString))
+                using (SqlCommand command = new SqlCommand(query, connection))
+                {
+                    command.Parameters.AddWithValue("@AirlineID", this.airlineID);
+                    SqlDataAdapter adapter = new SqlDataAdapter(command);
+                    DataTable flightsTable = new DataTable();
+                    adapter.Fill(flightsTable);
+                    dataGridViewFlights.DataSource = flightsTable;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("An error occurred while loading flights: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
@@ -91,5 +96,43 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
                 MessageBox.Show("Please select a flight to update.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewFlights == null || txtSearch == null)
+            {
+                MessageBox.Show("Controls not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string searchText = txtSearch.Text.ToLower();
+       
+            foreach (DataGridViewRow row in dataGridViewFlights.Rows)
+            {
+                if (row.IsNewRow) continue;
+              
+                if (row.Index == dataGridViewFlights.CurrentRow?.Index) continue;
+
+                bool isVisible = true;
+
+               
+                if (row.Cells["FlightID"].Value != null && row.Cells["Departure"].Value != null && row.Cells["Arrival"].Value != null)
+                {
+                    string flightID = row.Cells["FlightID"].Value.ToString();
+                   
+                    if (flightID == "1")
+                    {
+                        row.Visible = false;
+                        continue;  
+                    }               
+                    isVisible = flightID.ToLower().Contains(searchText) ||
+                                row.Cells["Departure"].Value.ToString().ToLower().Contains(searchText) ||
+                                row.Cells["Arrival"].Value.ToString().ToLower().Contains(searchText);
+                }
+     
+                row.Visible = isVisible;
+            }
+        }
+
+
     }
 }

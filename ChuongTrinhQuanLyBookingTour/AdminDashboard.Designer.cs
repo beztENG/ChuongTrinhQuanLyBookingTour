@@ -201,7 +201,7 @@
             // uC_AddUsers1
             // 
             uC_AddUsers1.BackColor = Color.White;
-            uC_AddUsers1.Location = new Point(279, 44);
+            uC_AddUsers1.Location = new Point(260, 30);
             uC_AddUsers1.Name = "uC_AddUsers1";
             uC_AddUsers1.Size = new Size(1592, 1007);
             uC_AddUsers1.TabIndex = 6;
@@ -232,7 +232,7 @@
             // uC_ListUsers1
             // 
             uC_ListUsers1.BackColor = Color.White;
-            uC_ListUsers1.Location = new Point(279, 44);
+            uC_ListUsers1.Location = new Point(260, 30);
             uC_ListUsers1.Name = "uC_ListUsers1";
             uC_ListUsers1.Size = new Size(1601, 1007);
             uC_ListUsers1.TabIndex = 8;
@@ -244,7 +244,7 @@
             // uC_ManageHotelBrand1
             // 
             uC_ManageHotelBrand1.BackColor = Color.White;
-            uC_ManageHotelBrand1.Location = new Point(279, 44);
+            uC_ManageHotelBrand1.Location = new Point(260, 30);
             uC_ManageHotelBrand1.Name = "uC_ManageHotelBrand1";
             uC_ManageHotelBrand1.Size = new Size(1601, 1007);
             uC_ManageHotelBrand1.TabIndex = 9;
@@ -264,7 +264,7 @@
             // uC_ManageTourBrand1
             // 
             uC_ManageTourBrand1.BackColor = Color.White;
-            uC_ManageTourBrand1.Location = new Point(247, 44);
+            uC_ManageTourBrand1.Location = new Point(260, 30);
             uC_ManageTourBrand1.Name = "uC_ManageTourBrand1";
             uC_ManageTourBrand1.Size = new Size(1601, 1007);
             uC_ManageTourBrand1.TabIndex = 10;
@@ -272,7 +272,7 @@
             // uC_ManageAirlineBrand2
             // 
             uC_ManageAirlineBrand2.BackColor = Color.White;
-            uC_ManageAirlineBrand2.Location = new Point(247, 44);
+            uC_ManageAirlineBrand2.Location = new Point(260, 30);
             uC_ManageAirlineBrand2.Name = "uC_ManageAirlineBrand2";
             uC_ManageAirlineBrand2.Size = new Size(1591, 762);
             uC_ManageAirlineBrand2.TabIndex = 11;

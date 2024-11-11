@@ -81,7 +81,7 @@
             dgvFlights.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             dgvFlights.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvFlights.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvFlights.ThemeStyle.HeaderStyle.Height = 4;
+            dgvFlights.ThemeStyle.HeaderStyle.Height = 29;
             dgvFlights.ThemeStyle.ReadOnly = false;
             dgvFlights.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgvFlights.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;

@@ -104,35 +104,43 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
                 MessageBox.Show("Controls not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string searchText = txtSearch.Text.ToLower();
-       
+
+            string searchText = txtSearch.Text.ToLower().Trim();
+            bool anyRowVisible = false;
+
             foreach (DataGridViewRow row in dataGridViewFlights.Rows)
             {
                 if (row.IsNewRow) continue;
-              
-                if (row.Index == dataGridViewFlights.CurrentRow?.Index) continue;
 
-                bool isVisible = true;
+                if (row.Index == dataGridViewFlights.CurrentCell?.RowIndex)
+                {
+                    row.Visible = true;
+                    continue;
+                }
 
-               
+                bool isVisible = false;
+
                 if (row.Cells["FlightID"].Value != null && row.Cells["Departure"].Value != null && row.Cells["Arrival"].Value != null)
                 {
-                    string flightID = row.Cells["FlightID"].Value.ToString();
-                   
-                    if (flightID == "1")
-                    {
-                        row.Visible = false;
-                        continue;  
-                    }               
-                    isVisible = flightID.ToLower().Contains(searchText) ||
-                                row.Cells["Departure"].Value.ToString().ToLower().Contains(searchText) ||
-                                row.Cells["Arrival"].Value.ToString().ToLower().Contains(searchText);
+                    string flightID = row.Cells["FlightID"].Value.ToString().ToLower();
+                    string departure = row.Cells["Departure"].Value.ToString().ToLower();
+                    string arrival = row.Cells["Arrival"].Value.ToString().ToLower();
+
+                    isVisible = flightID.Contains(searchText) ||
+                                departure.Contains(searchText) ||
+                                arrival.Contains(searchText);
                 }
-     
+
                 row.Visible = isVisible;
+                if (isVisible) anyRowVisible = true;
+            }
+
+            if (!anyRowVisible)
+            {
+                dataGridViewFlights.ClearSelection();
+                dataGridViewFlights.CurrentCell = null;
             }
         }
-
 
     }
 }

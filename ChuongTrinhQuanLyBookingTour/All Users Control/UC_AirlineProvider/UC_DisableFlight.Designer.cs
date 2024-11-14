@@ -34,9 +34,12 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dgvFlights = new Guna.UI2.WinForms.Guna2DataGridView();
             btnToggleFlightStatus = new Guna.UI2.WinForms.Guna2Button();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvFlights).BeginInit();
             SuspendLayout();
             // 
@@ -52,7 +55,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvFlights.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvFlights.ColumnHeadersHeight = 4;
+            dgvFlights.ColumnHeadersHeight = 29;
             dgvFlights.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -63,11 +66,11 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvFlights.DefaultCellStyle = dataGridViewCellStyle3;
             dgvFlights.GridColor = Color.FromArgb(231, 229, 255);
-            dgvFlights.Location = new Point(196, 27);
+            dgvFlights.Location = new Point(196, 64);
             dgvFlights.Name = "dgvFlights";
             dgvFlights.RowHeadersVisible = false;
             dgvFlights.RowHeadersWidth = 51;
-            dgvFlights.Size = new Size(949, 581);
+            dgvFlights.Size = new Size(949, 560);
             dgvFlights.TabIndex = 0;
             dgvFlights.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvFlights.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -100,7 +103,7 @@
             btnToggleFlightStatus.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnToggleFlightStatus.Font = new Font("Segoe UI", 9F);
             btnToggleFlightStatus.ForeColor = Color.White;
-            btnToggleFlightStatus.Location = new Point(552, 647);
+            btnToggleFlightStatus.Location = new Point(558, 656);
             btnToggleFlightStatus.Name = "btnToggleFlightStatus";
             btnToggleFlightStatus.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnToggleFlightStatus.Size = new Size(225, 56);
@@ -113,10 +116,27 @@
             guna2Elipse1.BorderRadius = 30;
             guna2Elipse1.TargetControl = this;
             // 
+            // txtSearch
+            // 
+            txtSearch.CustomizableEdges = customizableEdges3;
+            txtSearch.DefaultText = "";
+            txtSearch.Font = new Font("Segoe UI", 9F);
+            txtSearch.Location = new Point(196, 27);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderText = "Search by Flight ID or Destination";
+            txtSearch.SelectedText = "";
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtSearch.Size = new Size(250, 30);
+            txtSearch.TabIndex = 2;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // UC_DisableFlight
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txtSearch);
             Controls.Add(btnToggleFlightStatus);
             Controls.Add(dgvFlights);
             Name = "UC_DisableFlight";
@@ -130,5 +150,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvFlights;
         private Guna.UI2.WinForms.Guna2Button btnToggleFlightStatus;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }
 }

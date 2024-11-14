@@ -50,6 +50,8 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             txtRoomType = new Guna.UI2.WinForms.Guna2TextBox();
             txtBedType = new Guna.UI2.WinForms.Guna2TextBox();
             txtPrice = new Guna.UI2.WinForms.Guna2TextBox();
@@ -68,6 +70,7 @@
             label7 = new Label();
             txtSearchMaxPrice = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvRooms).BeginInit();
             SuspendLayout();
             // 
@@ -297,7 +300,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dgvRooms.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvRooms.ColumnHeadersHeight = 4;
+            dgvRooms.ColumnHeadersHeight = 29;
             dgvRooms.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -326,7 +329,7 @@
             dgvRooms.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             dgvRooms.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dgvRooms.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dgvRooms.ThemeStyle.HeaderStyle.Height = 4;
+            dgvRooms.ThemeStyle.HeaderStyle.Height = 29;
             dgvRooms.ThemeStyle.ReadOnly = false;
             dgvRooms.ThemeStyle.RowsStyle.BackColor = Color.White;
             dgvRooms.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -372,10 +375,27 @@
             guna2Elipse1.BorderRadius = 30;
             guna2Elipse1.TargetControl = this;
             // 
+            // txtSearch
+            // 
+            txtSearch.CustomizableEdges = customizableEdges19;
+            txtSearch.DefaultText = "";
+            txtSearch.Font = new Font("Segoe UI", 9F);
+            txtSearch.Location = new Point(254, 10);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderText = "Search by Room ID or Room Type or Bed Type or Price..  ";
+            txtSearch.SelectedText = "";
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtSearch.Size = new Size(402, 30);
+            txtSearch.TabIndex = 48;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // UC_EditRoom
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txtSearch);
             Controls.Add(label7);
             Controls.Add(txtSearchMaxPrice);
             Controls.Add(dgvRooms);
@@ -420,5 +440,6 @@
         private Label label7;
         private Guna.UI2.WinForms.Guna2TextBox txtSearchMaxPrice;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }
 }

@@ -74,5 +74,50 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
                 }
             }
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (dataGridViewTours == null || txtSearch == null)
+            {
+                MessageBox.Show("Controls not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string searchText = txtSearch.Text.ToLower().Trim();
+            bool anyRowVisible = false;
+
+            foreach (DataGridViewRow row in dataGridViewTours.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                if (row.Index == dataGridViewTours.CurrentCell?.RowIndex)
+                {
+                    row.Visible = true;
+                    continue;
+                }
+
+                bool isVisible = false;
+
+                if (row.Cells["TourID"].Value != null && row.Cells["TourName"].Value != null)
+                {
+                    string tourID = row.Cells["TourID"].Value.ToString().ToLower();
+                    string tourName = row.Cells["TourName"].Value.ToString().ToLower();
+
+
+                    isVisible = tourID.Contains(searchText) ||
+                                tourName.Contains(searchText);
+                              
+                }
+
+                row.Visible = isVisible;
+                if (isVisible) anyRowVisible = true;
+            }
+
+            if (!anyRowVisible)
+            {
+                dataGridViewTours.ClearSelection();
+                dataGridViewTours.CurrentCell = null;
+            }
+        }
     }
 }

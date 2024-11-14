@@ -13,7 +13,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
         public UC_DisableFlight()
         {
             InitializeComponent();
-            
+
         }
         public void SetAirlineID(int airlineID)
         {
@@ -71,6 +71,51 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
 
             // Refresh the DataGridView
             LoadFlights();
+        }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (dgvFlights == null || txtSearch == null)
+            {
+                MessageBox.Show("Controls not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string searchText = txtSearch.Text.ToLower().Trim();
+            bool anyRowVisible = false;
+
+            foreach (DataGridViewRow row in dgvFlights.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                if (row.Index == dgvFlights.CurrentCell?.RowIndex)
+                {
+                    row.Visible = true;
+                    continue;
+                }
+
+                bool isVisible = false;
+
+                if (row.Cells["FlightID"].Value != null && row.Cells["Departure"].Value != null && row.Cells["Arrival"].Value != null)
+                {
+                    string flightID = row.Cells["FlightID"].Value.ToString().ToLower();
+                    string departure = row.Cells["Departure"].Value.ToString().ToLower();
+                    string arrival = row.Cells["Arrival"].Value.ToString().ToLower();
+
+                    isVisible = flightID.Contains(searchText) ||
+                                departure.Contains(searchText) ||
+                                arrival.Contains(searchText);
+                }
+
+                row.Visible = isVisible;
+                if (isVisible) anyRowVisible = true;
+            }
+
+            if (!anyRowVisible)
+            {
+                dgvFlights.ClearSelection();
+                dgvFlights.CurrentCell = null;
+            }
         }
     }
 }

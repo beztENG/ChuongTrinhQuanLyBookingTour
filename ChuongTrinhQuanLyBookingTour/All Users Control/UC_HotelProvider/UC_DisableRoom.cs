@@ -87,5 +87,52 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_HotelProvider
                 return false;
             }
         }
+
+        private void txtSearch_TextChanged(object sender, EventArgs e)
+        {
+            if (dgvRooms == null || txtSearch == null)
+            {
+                MessageBox.Show("Controls not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string searchText = txtSearch.Text.ToLower().Trim();
+            bool anyRowVisible = false;
+
+            foreach (DataGridViewRow row in dgvRooms.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                if (row.Index == dgvRooms.CurrentCell?.RowIndex)
+                {
+                    row.Visible = true;
+                    continue;
+                }
+
+                bool isVisible = false;
+
+                if (row.Cells["RoomID"].Value != null && row.Cells["RoomType"].Value != null && row.Cells["BedType"].Value != null && row.Cells["Price"].Value != null)
+                {
+                    string roomId = row.Cells["RoomID"].Value.ToString().ToLower();
+                    string roomType = row.Cells["RoomType"].Value.ToString().ToLower();
+                    string bedtype = row.Cells["BedType"].Value.ToString().ToLower();
+                    string price = row.Cells["Price"].Value.ToString().ToLower();
+
+                    isVisible = roomId.Contains(searchText) ||
+                                roomType.Contains(searchText) ||
+                                bedtype.Contains(searchText) ||
+                                price.Contains(searchText);
+                }
+
+                row.Visible = isVisible;
+                if (isVisible) anyRowVisible = true;
+            }
+
+            if (!anyRowVisible)
+            {
+                dgvRooms.ClearSelection();
+                dgvRooms.CurrentCell = null;
+            }
+        }
     }
 }

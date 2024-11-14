@@ -34,9 +34,12 @@
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dgvRooms = new Guna.UI2.WinForms.Guna2DataGridView();
             btnToggleStatus = new Guna.UI2.WinForms.Guna2Button();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)dgvRooms).BeginInit();
             SuspendLayout();
             // 
@@ -63,11 +66,11 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvRooms.DefaultCellStyle = dataGridViewCellStyle3;
             dgvRooms.GridColor = Color.FromArgb(231, 229, 255);
-            dgvRooms.Location = new Point(327, 38);
+            dgvRooms.Location = new Point(327, 65);
             dgvRooms.Name = "dgvRooms";
             dgvRooms.RowHeadersVisible = false;
             dgvRooms.RowHeadersWidth = 51;
-            dgvRooms.Size = new Size(555, 447);
+            dgvRooms.Size = new Size(555, 414);
             dgvRooms.TabIndex = 19;
             dgvRooms.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvRooms.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -113,10 +116,27 @@
             guna2Elipse1.BorderRadius = 30;
             guna2Elipse1.TargetControl = this;
             // 
+            // txtSearch
+            // 
+            txtSearch.CustomizableEdges = customizableEdges3;
+            txtSearch.DefaultText = "";
+            txtSearch.Font = new Font("Segoe UI", 9F);
+            txtSearch.Location = new Point(327, 28);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderText = "Search by Room ID or Room Type or Bed Type or Price..  ";
+            txtSearch.SelectedText = "";
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            txtSearch.Size = new Size(402, 30);
+            txtSearch.TabIndex = 49;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // UC_DisableRoom
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txtSearch);
             Controls.Add(btnToggleStatus);
             Controls.Add(dgvRooms);
             Name = "UC_DisableRoom";
@@ -130,5 +150,6 @@
         private Guna.UI2.WinForms.Guna2DataGridView dgvRooms;
         private Guna.UI2.WinForms.Guna2Button btnToggleStatus;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }
 }

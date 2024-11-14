@@ -52,6 +52,8 @@
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             label8 = new Label();
             label6 = new Label();
             txtDescription = new Guna.UI2.WinForms.Guna2TextBox();
@@ -72,6 +74,7 @@
             pictureBoxTourImage = new Guna.UI2.WinForms.Guna2PictureBox();
             dataGridViewTours = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)pictureBoxTourImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridViewTours).BeginInit();
             SuspendLayout();
@@ -340,7 +343,7 @@
             dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridViewTours.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dataGridViewTours.ColumnHeadersHeight = 4;
+            dataGridViewTours.ColumnHeadersHeight = 29;
             dataGridViewTours.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
             dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = Color.White;
@@ -351,11 +354,11 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dataGridViewTours.DefaultCellStyle = dataGridViewCellStyle3;
             dataGridViewTours.GridColor = Color.FromArgb(231, 229, 255);
-            dataGridViewTours.Location = new Point(882, 66);
+            dataGridViewTours.Location = new Point(605, 66);
             dataGridViewTours.Name = "dataGridViewTours";
             dataGridViewTours.RowHeadersVisible = false;
             dataGridViewTours.RowHeadersWidth = 51;
-            dataGridViewTours.Size = new Size(459, 515);
+            dataGridViewTours.Size = new Size(736, 515);
             dataGridViewTours.TabIndex = 45;
             dataGridViewTours.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dataGridViewTours.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -369,7 +372,7 @@
             dataGridViewTours.ThemeStyle.HeaderStyle.Font = new Font("Segoe UI", 9F);
             dataGridViewTours.ThemeStyle.HeaderStyle.ForeColor = Color.White;
             dataGridViewTours.ThemeStyle.HeaderStyle.HeaightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewTours.ThemeStyle.HeaderStyle.Height = 4;
+            dataGridViewTours.ThemeStyle.HeaderStyle.Height = 29;
             dataGridViewTours.ThemeStyle.ReadOnly = false;
             dataGridViewTours.ThemeStyle.RowsStyle.BackColor = Color.White;
             dataGridViewTours.ThemeStyle.RowsStyle.BorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
@@ -385,10 +388,27 @@
             guna2Elipse1.BorderRadius = 30;
             guna2Elipse1.TargetControl = this;
             // 
+            // txtSearch
+            // 
+            txtSearch.CustomizableEdges = customizableEdges21;
+            txtSearch.DefaultText = "";
+            txtSearch.Font = new Font("Segoe UI", 9F);
+            txtSearch.Location = new Point(605, 29);
+            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Name = "txtSearch";
+            txtSearch.PasswordChar = '\0';
+            txtSearch.PlaceholderText = "Search by Tour ID or Name or Starting..  ";
+            txtSearch.SelectedText = "";
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtSearch.Size = new Size(283, 30);
+            txtSearch.TabIndex = 46;
+            txtSearch.TextChanged += txtSearch_TextChanged;
+            // 
             // UC_EditTour
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(txtSearch);
             Controls.Add(dataGridViewTours);
             Controls.Add(label8);
             Controls.Add(label6);
@@ -438,5 +458,6 @@
         private Guna.UI2.WinForms.Guna2PictureBox pictureBoxTourImage;
         private Guna.UI2.WinForms.Guna2DataGridView dataGridViewTours;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }
 }

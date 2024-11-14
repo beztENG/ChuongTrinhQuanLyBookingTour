@@ -310,10 +310,12 @@ Set status = 1;
 
 select * from Providers
 select * from Users
+select * from Rooms
+select * from Hotels
 select * from Tours
 select * from Flights
 select * from AirlineEmployees
 select * from HotelEmployees
 select * from CompanyTourEmployees
-select * from Hotels
+
 

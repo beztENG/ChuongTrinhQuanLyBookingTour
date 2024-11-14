@@ -68,8 +68,6 @@
             txtCost = new Guna.UI2.WinForms.Guna2TextBox();
             txtArrival = new Guna.UI2.WinForms.Guna2TextBox();
             txtDeparture = new Guna.UI2.WinForms.Guna2TextBox();
-            label8 = new Label();
-            txtFlightID = new Guna.UI2.WinForms.Guna2TextBox();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             txtSearch = new Guna.UI2.WinForms.Guna2TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewFlights).BeginInit();
@@ -342,36 +340,6 @@
             txtDeparture.Size = new Size(250, 22);
             txtDeparture.TabIndex = 19;
             // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(986, 7);
-            label8.Name = "label8";
-            label8.Size = new Size(108, 20);
-            label8.TabIndex = 35;
-            label8.Text = "Mã chuyến bay";
-            // 
-            // txtFlightID
-            // 
-            txtFlightID.CustomizableEdges = customizableEdges17;
-            txtFlightID.DefaultText = "";
-            txtFlightID.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
-            txtFlightID.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
-            txtFlightID.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
-            txtFlightID.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
-            txtFlightID.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFlightID.Font = new Font("Segoe UI", 9F);
-            txtFlightID.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtFlightID.Location = new Point(986, 31);
-            txtFlightID.Margin = new Padding(3, 4, 3, 4);
-            txtFlightID.Name = "txtFlightID";
-            txtFlightID.PasswordChar = '\0';
-            txtFlightID.PlaceholderText = "";
-            txtFlightID.SelectedText = "";
-            txtFlightID.ShadowDecoration.CustomizableEdges = customizableEdges18;
-            txtFlightID.Size = new Size(250, 22);
-            txtFlightID.TabIndex = 34;
-            // 
             // guna2Elipse1
             // 
             guna2Elipse1.BorderRadius = 30;
@@ -379,7 +347,7 @@
             // 
             // txtSearch
             // 
-            txtSearch.CustomizableEdges = customizableEdges19;
+            txtSearch.CustomizableEdges = customizableEdges17;
             txtSearch.DefaultText = "";
             txtSearch.Font = new Font("Segoe UI", 9F);
             txtSearch.Location = new Point(65, 31);
@@ -388,7 +356,7 @@
             txtSearch.PasswordChar = '\0';
             txtSearch.PlaceholderText = "Search by Flight ID or Destination";
             txtSearch.SelectedText = "";
-            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges18;
             txtSearch.Size = new Size(250, 30);
             txtSearch.TabIndex = 0;
             txtSearch.TextChanged += txtSearch_TextChanged;
@@ -398,8 +366,6 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(txtSearch);
-            Controls.Add(label8);
-            Controls.Add(txtFlightID);
             Controls.Add(btnSaveChanges);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -441,8 +407,6 @@
         private Guna.UI2.WinForms.Guna2TextBox txtCost;
         private Guna.UI2.WinForms.Guna2TextBox txtArrival;
         private Guna.UI2.WinForms.Guna2TextBox txtDeparture;
-        private Label label8;
-        private Guna.UI2.WinForms.Guna2TextBox txtFlightID;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2TextBox txtSearch;
     }

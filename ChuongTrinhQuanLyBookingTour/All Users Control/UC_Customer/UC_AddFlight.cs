@@ -24,7 +24,11 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
         // Load airlines from the database into the ComboBox
         private void LoadAirlines()
         {
-            string query = "SELECT DISTINCT a.AirlineID, a.AirlineImage FROM Flights f JOIN Airlines a ON f.AirlineID = a.AirlineID";
+            string query = @"SELECT DISTINCT a.AirlineName, a.AirlineImage 
+                            FROM Airlines a 
+                            INNER JOIN Flights f ON f.AirlineID = a.AirlineID
+                            WHERE a.AirlineImage IS NOT NULL";
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
@@ -33,7 +37,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 da.Fill(dt);
 
                 cmbAirline.DataSource = dt;
-                cmbAirline.DisplayMember = "Airline";
+                cmbAirline.DisplayMember = "AirlineID"; 
                 cmbAirline.ValueMember = "AirlineImage";
             }
         }
@@ -70,7 +74,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void btnSearchFlights_Click(object sender, EventArgs e)
         {
-            string selectedAirline = ((DataRowView)cmbAirline.SelectedItem)?["Airline"].ToString();
+            string selectedAirline = ((DataRowView)cmbAirline.SelectedItem)?["AirlineImage"].ToString();
             string selectedDeparture = cmbDeparture.SelectedItem?.ToString();
             string selectedArrival = cmbArrival.SelectedItem?.ToString();
             DateTime departureDate = dtpDepartureDate.Value; // Lấy ngày đi từ DateTimePicker
@@ -106,18 +110,21 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void LoadFlights(string airline, string departure, string arrival, DateTime departureDate)
         {
-            string query = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
-                     FROM Flights 
-                     WHERE Airline = @Airline 
-                     AND Departure = @Departure 
-                     AND Arrival = @Arrival
-                     AND DepartureDate = @DepartureDate
-                     AND Status = 1"; 
+            string query = @"
+        SELECT f.FlightID, a.AirlineName, f.Departure, f.Arrival, f.DepartureDate, f.ArrivalDate, f.TakeOffTime, f.LandingTime 
+        FROM Flights f
+        JOIN Airlines a ON f.AirlineID = a.AirlineID
+        WHERE f.AirlineID = a.AirlineID 
+        AND f.Departure = Departure
+        AND f.Arrival = Arrival
+        AND f.DepartureDate = DepartureDate
+        AND f.Status = 1
+        ORDER BY f.DepartureDate, f.TakeOffTime";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@Airline", airline);
+                cmd.Parameters.AddWithValue("@AirlineName", airline);
                 cmd.Parameters.AddWithValue("@Departure", departure);
                 cmd.Parameters.AddWithValue("@Arrival", arrival);
                 cmd.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
@@ -141,44 +148,53 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void LoadRoundTripFlights(string airline, string departure, string arrival, DateTime departureDate, DateTime returnDate, string returnDeparture, string returnArrival)
         {
-            string queryOutbound = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
-                             FROM Flights 
-                             WHERE Airline = @Airline 
-                             AND Departure = @Departure 
-                             AND Arrival = @Arrival
-                             AND DepartureDate = @DepartureDate
-                             AND Status = 1"; 
+            string queryOutbound = @"
+        SELECT f.FlightID, a.AirlineName, f.Departure, f.Arrival, f.DepartureDate, f.ArrivalDate, f.TakeOffTime, f.LandingTime 
+        FROM Flights f
+        JOIN Airlines a ON f.AirlineID = a.AirlineID
+        WHERE f.AirlineID = a.AirlineID 
+        AND f.Departure = Departure 
+        AND f.Arrival = Arrival
+        AND f.DepartureDate = DepartureDate
+        AND f.Status = 1
+        ORDER BY f.DepartureDate, f.TakeOffTime";
 
-            string queryReturn = @"SELECT FlightID, Airline, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime 
-                           FROM Flights 
-                           WHERE Airline = @Airline 
-                           AND Departure = @ReturnDeparture 
-                           AND Arrival = @ReturnArrival 
-                           AND DepartureDate = @ReturnDate
-                           AND Status = 1";
+            string queryReturn = @"
+        SELECT f.FlightID, a.AirlineName, f.Departure, f.Arrival, f.DepartureDate, f.ArrivalDate, f.TakeOffTime, f.LandingTime 
+        FROM Flights f
+        JOIN Airlines a ON f.AirlineID = a.AirlineID
+        WHERE f.AirlineID = a.AirlineID 
+        AND f.Departure = ReturnDeparture 
+        AND f.Arrival = ReturnArrival 
+        AND f.DepartureDate = ReturnDate
+        AND f.Status = 1
+        ORDER BY f.DepartureDate, f.TakeOffTime";
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmdOutbound = new SqlCommand(queryOutbound, conn);
                 SqlCommand cmdReturn = new SqlCommand(queryReturn, conn);
 
-                cmdOutbound.Parameters.AddWithValue("@Airline", airline);
+                // Set parameters for the outbound flight
+                cmdOutbound.Parameters.AddWithValue("@AirlineName", airline);
                 cmdOutbound.Parameters.AddWithValue("@Departure", departure);
                 cmdOutbound.Parameters.AddWithValue("@Arrival", arrival);
                 cmdOutbound.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
 
-                cmdReturn.Parameters.AddWithValue("@Airline", airline);
+                // Set parameters for the return flight
+                cmdReturn.Parameters.AddWithValue("@AirlineName", airline);
                 cmdReturn.Parameters.AddWithValue("@ReturnDeparture", returnDeparture);
                 cmdReturn.Parameters.AddWithValue("@ReturnArrival", returnArrival);
                 cmdReturn.Parameters.AddWithValue("@ReturnDate", returnDate.ToString("yyyy-MM-dd"));
 
+                // Load outbound flights
                 SqlDataAdapter daOutbound = new SqlDataAdapter(cmdOutbound);
-                SqlDataAdapter daReturn = new SqlDataAdapter(cmdReturn);
-
                 DataTable dtOutbound = new DataTable();
-                DataTable dtReturn = new DataTable();
-
                 daOutbound.Fill(dtOutbound);
+
+                // Load return flights
+                SqlDataAdapter daReturn = new SqlDataAdapter(cmdReturn);
+                DataTable dtReturn = new DataTable();
                 daReturn.Fill(dtReturn);
 
                 if (dtOutbound.Rows.Count == 0 || dtReturn.Rows.Count == 0)
@@ -192,6 +208,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 }
             }
         }
+
 
         private void dgvFlights_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
@@ -230,7 +247,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
             DataGridViewRow selectedRow = dgvFlights.SelectedRows[0];
             int flightID = (int)selectedRow.Cells["FlightID"].Value;
-            string airline = selectedRow.Cells["Airline"].Value.ToString();
+            string airline = selectedRow.Cells["AirlineName"].Value.ToString();
             DateTime departureDate = (DateTime)selectedRow.Cells["DepartureDate"].Value;
             decimal price = GetFlightCost(flightID);
 
@@ -262,7 +279,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 // Lấy thông tin chuyến về
                 DataGridViewRow selectedReturnRow = dgvReturnFlights.SelectedRows[0];
                 int returnFlightID = (int)selectedReturnRow.Cells["FlightID"].Value;
-                string returnAirline = selectedReturnRow.Cells["Airline"].Value.ToString();
+                string returnAirline = selectedReturnRow.Cells["AirlineName"].Value.ToString();
                 DateTime returnDate = (DateTime)selectedReturnRow.Cells["DepartureDate"].Value;
                 decimal returnPrice = GetFlightCost(returnFlightID);
 

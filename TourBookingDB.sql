@@ -317,5 +317,3 @@ select * from Flights
 select * from AirlineEmployees
 select * from HotelEmployees
 select * from CompanyTourEmployees
-
-

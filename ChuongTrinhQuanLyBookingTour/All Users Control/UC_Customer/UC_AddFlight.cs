@@ -24,7 +24,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
         // Load airlines from the database into the ComboBox
         private void LoadAirlines()
         {
-            string query = "SELECT DISTINCT Airline, AirlineImage FROM Flights";
+            string query = "SELECT DISTINCT a.AirlineID, a.AirlineImage FROM Flights f JOIN Airlines a ON f.AirlineID = a.AirlineID";
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 SqlCommand cmd = new SqlCommand(query, conn);

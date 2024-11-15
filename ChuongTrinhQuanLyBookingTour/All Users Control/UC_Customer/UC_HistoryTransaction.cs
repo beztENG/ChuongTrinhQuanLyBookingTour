@@ -35,9 +35,10 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
             UNION
 
-            SELECT 'Flight' AS BookingType, fb.FlightBookingID AS BookingID, f.Airline AS Name, f.DepartureDate AS BookingDate, fb.Status
+            SELECT 'Flight' AS BookingType, fb.FlightBookingID AS BookingID, a.AirlineName AS Name, f.DepartureDate AS BookingDate, fb.Status
             FROM FlightBookings fb
             JOIN Flights f ON fb.FlightID = f.FlightID
+            JOIN Airlines a ON f.AirlineID = a.AirlineID
             WHERE fb.UserID = @UserID
 
             UNION

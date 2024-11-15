@@ -74,6 +74,7 @@ namespace ChuongTrinhQuanLyBookingTour
             string fullName = txtFullName.Text;
             string email = txtEmail.Text;
             string phone = txtPhone.Text;
+            string role;
 
             if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
@@ -87,7 +88,7 @@ namespace ChuongTrinhQuanLyBookingTour
                 {
                     connection.Open();
 
-                    string query = "INSERT INTO Users (Username, Password, FullName, Email, Phone, Avatar) VALUES (@Username, @Password, @FullName, @Email, @Phone, @Avatar)";
+                    string query = "INSERT INTO Users (Username, Password, FullName, Email, Phone, Avatar, Role) VALUES (@Username, @Password, @FullName, @Email, @Phone, @Avatar, @Role)";
 
                     SqlCommand command = new SqlCommand(query, connection);
                     command.Parameters.AddWithValue("@Username", username);
@@ -96,6 +97,7 @@ namespace ChuongTrinhQuanLyBookingTour
                     command.Parameters.AddWithValue("@Email", email);
                     command.Parameters.AddWithValue("@Phone", phone);
                     command.Parameters.AddWithValue("@Avatar", selectedAvatarFileName);
+                    command.Parameters.AddWithValue("@Role", "Customer");
 
                     int rowsAffected = command.ExecuteNonQuery();
                     if (rowsAffected > 0)

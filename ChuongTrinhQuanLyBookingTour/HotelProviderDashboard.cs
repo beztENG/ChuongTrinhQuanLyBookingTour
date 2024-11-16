@@ -2,11 +2,13 @@
 using System.Data.SqlClient;
 using System.Windows.Forms;
 using ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_HotelProvider;
+using ChuongTrinhQuanLyBookingTour.Helpers;
 
 namespace ChuongTrinhQuanLyBookingTour
 {
     public partial class HotelProviderDashboard : Form
     {
+        private string connectionString = DatabaseHelper.ConnectionString;
         private int hotelId;
 
         public HotelProviderDashboard(int hotelId)
@@ -48,6 +50,38 @@ namespace ChuongTrinhQuanLyBookingTour
             Application.Exit();
         }
 
+        private void btnLogout_Click(object sender, EventArgs e)
+        {
+            if (GlobalUserInfo.UserID == 0)
+            {
+                MessageBox.Show("Không thể đăng xuất vì không có UserID.", "Lỗi Logout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "UPDATE Users SET IsLoggedIn = 0 WHERE UserID = @UserID";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserID", GlobalUserInfo.UserID);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Đã đăng xuất thành công!", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật trạng thái đăng xuất.", "Lỗi Logout");
+                }
+            }
+
+            // Đóng tất cả form và mở lại màn hình đăng nhập
+            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            {
+                form.Close();
+            }
+            new Form1().Show();
+        }
     }
 }

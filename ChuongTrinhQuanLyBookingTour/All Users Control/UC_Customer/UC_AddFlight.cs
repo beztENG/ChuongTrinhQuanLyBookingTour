@@ -24,23 +24,30 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
         // Load airlines from the database into the ComboBox
         private void LoadAirlines()
         {
-            string query = @"SELECT DISTINCT a.AirlineName, a.AirlineImage 
-                            FROM Airlines a 
-                            INNER JOIN Flights f ON f.AirlineID = a.AirlineID
-                            WHERE a.AirlineImage IS NOT NULL";
+            string query = @"
+        SELECT a.AirlineID, a.AirlineName, a.AirlineImage 
+        FROM Airlines a 
+        WHERE a.AirlineImage IS NOT NULL";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlDataAdapter da = new SqlDataAdapter(query, conn);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
 
-                cmbAirline.DataSource = dt;
-                cmbAirline.DisplayMember = "AirlineID"; 
-                cmbAirline.ValueMember = "AirlineImage";
+                    cmbAirline.DataSource = dt;
+                    cmbAirline.DisplayMember = "AirlineName"; // Hiển thị tên hãng bay
+                    cmbAirline.ValueMember = "AirlineImage"; // Lấy giá trị là ảnh
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải danh sách hãng bay: " + ex.Message);
             }
         }
+
 
         private void cmbAirline_SelectedIndexChanged_1(object sender, EventArgs e)
         {
@@ -74,7 +81,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void btnSearchFlights_Click(object sender, EventArgs e)
         {
-            string selectedAirline = ((DataRowView)cmbAirline.SelectedItem)?["AirlineImage"].ToString();
+            string selectedAirline = ((DataRowView)cmbAirline.SelectedItem)?["AirlineName"].ToString();
             string selectedDeparture = cmbDeparture.SelectedItem?.ToString();
             string selectedArrival = cmbArrival.SelectedItem?.ToString();
             DateTime departureDate = dtpDepartureDate.Value; // Lấy ngày đi từ DateTimePicker
@@ -110,41 +117,47 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
 
         private void LoadFlights(string airline, string departure, string arrival, DateTime departureDate)
         {
+            System.Diagnostics.Debug.WriteLine($"Airline: {airline}, Departure: {departure}, Arrival: {arrival}, DepartureDate: {departureDate}");
             string query = @"
         SELECT f.FlightID, a.AirlineName, f.Departure, f.Arrival, f.DepartureDate, f.ArrivalDate, f.TakeOffTime, f.LandingTime 
         FROM Flights f
         JOIN Airlines a ON f.AirlineID = a.AirlineID
-        WHERE f.AirlineID = a.AirlineID 
-        AND f.Departure = Departure
-        AND f.Arrival = Arrival
-        AND f.DepartureDate = DepartureDate
+        WHERE a.AirlineName = @AirlineName
+        AND f.Departure = @Departure
+        AND f.Arrival = @Arrival
+        AND f.DepartureDate = @DepartureDate
         AND f.Status = 1
         ORDER BY f.DepartureDate, f.TakeOffTime";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand(query, conn);
-                cmd.Parameters.AddWithValue("@AirlineName", airline);
-                cmd.Parameters.AddWithValue("@Departure", departure);
-                cmd.Parameters.AddWithValue("@Arrival", arrival);
-                cmd.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
-
-                SqlDataAdapter da = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                da.Fill(dt);
-
-                if (dt.Rows.Count == 0)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("No available flights found.");
-                }
-                else
-                {
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@AirlineName", airline);
+                    cmd.Parameters.AddWithValue("@Departure", departure);
+                    cmd.Parameters.AddWithValue("@Arrival", arrival);
+                    cmd.Parameters.AddWithValue("@DepartureDate",departureDate.ToString("yyyy-MM-dd"));
+
+                    SqlDataAdapter da = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    da.Fill(dt);
+
+                    if (dt.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy chuyến bay phù hợp.");
+                    }
+
                     dgvFlights.DataSource = dt;
+                    dgvFlights.AutoResizeColumns();
                 }
-
-                dgvFlights.AutoResizeColumns();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải chuyến bay: " + ex.Message);
             }
         }
+
 
         private void LoadRoundTripFlights(string airline, string departure, string arrival, DateTime departureDate, DateTime returnDate, string returnDeparture, string returnArrival)
         {
@@ -152,10 +165,10 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
         SELECT f.FlightID, a.AirlineName, f.Departure, f.Arrival, f.DepartureDate, f.ArrivalDate, f.TakeOffTime, f.LandingTime 
         FROM Flights f
         JOIN Airlines a ON f.AirlineID = a.AirlineID
-        WHERE f.AirlineID = a.AirlineID 
-        AND f.Departure = Departure 
-        AND f.Arrival = Arrival
-        AND f.DepartureDate = DepartureDate
+        WHERE a.AirlineName = @AirlineName
+        AND f.Departure = @Departure
+        AND f.Arrival = @Arrival
+        AND f.DepartureDate = @DepartureDate
         AND f.Status = 1
         ORDER BY f.DepartureDate, f.TakeOffTime";
 
@@ -163,51 +176,54 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
         SELECT f.FlightID, a.AirlineName, f.Departure, f.Arrival, f.DepartureDate, f.ArrivalDate, f.TakeOffTime, f.LandingTime 
         FROM Flights f
         JOIN Airlines a ON f.AirlineID = a.AirlineID
-        WHERE f.AirlineID = a.AirlineID 
-        AND f.Departure = ReturnDeparture 
-        AND f.Arrival = ReturnArrival 
-        AND f.DepartureDate = ReturnDate
+        WHERE a.AirlineName = @AirlineName
+        AND f.Departure = @ReturnDeparture
+        AND f.Arrival = @ReturnArrival
+        AND f.DepartureDate = @ReturnDate
         AND f.Status = 1
         ORDER BY f.DepartureDate, f.TakeOffTime";
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmdOutbound = new SqlCommand(queryOutbound, conn);
-                SqlCommand cmdReturn = new SqlCommand(queryReturn, conn);
-
-                // Set parameters for the outbound flight
-                cmdOutbound.Parameters.AddWithValue("@AirlineName", airline);
-                cmdOutbound.Parameters.AddWithValue("@Departure", departure);
-                cmdOutbound.Parameters.AddWithValue("@Arrival", arrival);
-                cmdOutbound.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
-
-                // Set parameters for the return flight
-                cmdReturn.Parameters.AddWithValue("@AirlineName", airline);
-                cmdReturn.Parameters.AddWithValue("@ReturnDeparture", returnDeparture);
-                cmdReturn.Parameters.AddWithValue("@ReturnArrival", returnArrival);
-                cmdReturn.Parameters.AddWithValue("@ReturnDate", returnDate.ToString("yyyy-MM-dd"));
-
-                // Load outbound flights
-                SqlDataAdapter daOutbound = new SqlDataAdapter(cmdOutbound);
-                DataTable dtOutbound = new DataTable();
-                daOutbound.Fill(dtOutbound);
-
-                // Load return flights
-                SqlDataAdapter daReturn = new SqlDataAdapter(cmdReturn);
-                DataTable dtReturn = new DataTable();
-                daReturn.Fill(dtReturn);
-
-                if (dtOutbound.Rows.Count == 0 || dtReturn.Rows.Count == 0)
+                using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    MessageBox.Show("No suitable flights found for the round trip.");
-                }
-                else
-                {
+                    // Chuyến đi
+                    SqlCommand cmdOutbound = new SqlCommand(queryOutbound, conn);
+                    cmdOutbound.Parameters.AddWithValue("@AirlineName", airline);
+                    cmdOutbound.Parameters.AddWithValue("@Departure", departure);
+                    cmdOutbound.Parameters.AddWithValue("@Arrival", arrival);
+                    cmdOutbound.Parameters.AddWithValue("@DepartureDate", departureDate.ToString("yyyy-MM-dd"));
+
+                    SqlDataAdapter daOutbound = new SqlDataAdapter(cmdOutbound);
+                    DataTable dtOutbound = new DataTable();
+                    daOutbound.Fill(dtOutbound);
+
+                    // Chuyến về
+                    SqlCommand cmdReturn = new SqlCommand(queryReturn, conn);
+                    cmdReturn.Parameters.AddWithValue("@AirlineName", airline);
+                    cmdReturn.Parameters.AddWithValue("@ReturnDeparture", returnDeparture);
+                    cmdReturn.Parameters.AddWithValue("@ReturnArrival", returnArrival);
+                    cmdReturn.Parameters.AddWithValue("@ReturnDate", returnDate.ToString("yyyy-MM-dd"));
+
+                    SqlDataAdapter daReturn = new SqlDataAdapter(cmdReturn);
+                    DataTable dtReturn = new DataTable();
+                    daReturn.Fill(dtReturn);
+
                     dgvFlights.DataSource = dtOutbound;
                     dgvReturnFlights.DataSource = dtReturn;
+
+                    if (dtOutbound.Rows.Count == 0 || dtReturn.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Không tìm thấy chuyến bay phù hợp cho cả chiều đi và chiều về.");
+                    }
                 }
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Lỗi khi tải chuyến bay khứ hồi: " + ex.Message);
+            }
         }
+
 
 
         private void dgvFlights_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
@@ -223,6 +239,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
                 }
             }
         }
+
 
         private void LoadAttribute()
         {

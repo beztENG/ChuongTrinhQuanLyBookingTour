@@ -17,6 +17,15 @@ namespace ChuongTrinhQuanLyBookingTour.Helpers
         public static string AirlineName { get; set; }
         public static string AirlineImage { get; set; }
 
-    
+        public static void Clear()
+        {
+            UserID = 0;
+            UserRole = string.Empty;
+            HotelID = 0;
+            AirlineID = 0;
+            CompanyID = 0;
+            ProviderID = 0;
+        }
+
     }
 }

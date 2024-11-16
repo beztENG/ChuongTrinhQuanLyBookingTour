@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AirlineProviderDashboard));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnDisableFlight = new Guna.UI2.WinForms.Guna2Button();
             label1 = new Label();
@@ -57,22 +59,24 @@
             uC_HotelProviderInformation1 = new All_Users_Control.UC_HotelProvider.UC_HotelProviderInformation();
             uC_EditFlight2 = new All_Users_Control.UC_AirlineProvider.UC_EditFlight();
             uC_DisableFlight1 = new All_Users_Control.UC_AirlineProvider.UC_DisableFlight();
+            btnLogout = new Guna.UI2.WinForms.Guna2Button();
             guna2GradientPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // guna2GradientPanel1
             // 
             guna2GradientPanel1.BackColor = Color.White;
+            guna2GradientPanel1.Controls.Add(btnLogout);
             guna2GradientPanel1.Controls.Add(btnDisableFlight);
             guna2GradientPanel1.Controls.Add(label1);
             guna2GradientPanel1.Controls.Add(btnProfile);
             guna2GradientPanel1.Controls.Add(btnEditFlight);
             guna2GradientPanel1.Controls.Add(btnAddFlight);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges9;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges11;
             guna2GradientPanel1.Dock = DockStyle.Left;
             guna2GradientPanel1.Location = new Point(0, 0);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2GradientPanel1.Size = new Size(231, 1102);
             guna2GradientPanel1.TabIndex = 3;
             // 
@@ -80,7 +84,7 @@
             // 
             btnDisableFlight.BorderRadius = 18;
             btnDisableFlight.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnDisableFlight.CustomizableEdges = customizableEdges1;
+            btnDisableFlight.CustomizableEdges = customizableEdges3;
             btnDisableFlight.DisabledState.BorderColor = Color.DarkGray;
             btnDisableFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDisableFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -88,9 +92,9 @@
             btnDisableFlight.FillColor = Color.FromArgb(192, 192, 255);
             btnDisableFlight.Font = new Font("Segoe UI", 9F);
             btnDisableFlight.ForeColor = Color.White;
-            btnDisableFlight.Location = new Point(24, 666);
+            btnDisableFlight.Location = new Point(24, 478);
             btnDisableFlight.Name = "btnDisableFlight";
-            btnDisableFlight.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnDisableFlight.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnDisableFlight.Size = new Size(180, 116);
             btnDisableFlight.TabIndex = 8;
             btnDisableFlight.Text = "Ẩn chuyến bay";
@@ -110,7 +114,7 @@
             // 
             btnProfile.BorderRadius = 18;
             btnProfile.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnProfile.CustomizableEdges = customizableEdges3;
+            btnProfile.CustomizableEdges = customizableEdges5;
             btnProfile.DisabledState.BorderColor = Color.DarkGray;
             btnProfile.DisabledState.CustomBorderColor = Color.DarkGray;
             btnProfile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -118,9 +122,9 @@
             btnProfile.FillColor = Color.FromArgb(192, 192, 255);
             btnProfile.Font = new Font("Segoe UI", 9F);
             btnProfile.ForeColor = Color.White;
-            btnProfile.Location = new Point(24, 942);
+            btnProfile.Location = new Point(24, 641);
             btnProfile.Name = "btnProfile";
-            btnProfile.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnProfile.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnProfile.Size = new Size(180, 116);
             btnProfile.TabIndex = 6;
             btnProfile.Text = "Hồ sơ cá nhân";
@@ -130,7 +134,7 @@
             // 
             btnEditFlight.BorderRadius = 18;
             btnEditFlight.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnEditFlight.CustomizableEdges = customizableEdges5;
+            btnEditFlight.CustomizableEdges = customizableEdges7;
             btnEditFlight.DisabledState.BorderColor = Color.DarkGray;
             btnEditFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -138,9 +142,9 @@
             btnEditFlight.FillColor = Color.FromArgb(192, 192, 255);
             btnEditFlight.Font = new Font("Segoe UI", 9F);
             btnEditFlight.ForeColor = Color.White;
-            btnEditFlight.Location = new Point(24, 415);
+            btnEditFlight.Location = new Point(24, 317);
             btnEditFlight.Name = "btnEditFlight";
-            btnEditFlight.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnEditFlight.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnEditFlight.Size = new Size(180, 116);
             btnEditFlight.TabIndex = 4;
             btnEditFlight.Text = "Sửa các chuyến bay";
@@ -150,7 +154,7 @@
             // 
             btnAddFlight.BorderRadius = 18;
             btnAddFlight.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnAddFlight.CustomizableEdges = customizableEdges7;
+            btnAddFlight.CustomizableEdges = customizableEdges9;
             btnAddFlight.DisabledState.BorderColor = Color.DarkGray;
             btnAddFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -160,7 +164,7 @@
             btnAddFlight.ForeColor = Color.White;
             btnAddFlight.Location = new Point(24, 155);
             btnAddFlight.Name = "btnAddFlight";
-            btnAddFlight.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnAddFlight.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnAddFlight.Size = new Size(180, 116);
             btnAddFlight.TabIndex = 3;
             btnAddFlight.Text = "Thêm chuyến bay";
@@ -168,7 +172,7 @@
             // 
             // btnExit
             // 
-            btnExit.CustomizableEdges = customizableEdges11;
+            btnExit.CustomizableEdges = customizableEdges13;
             btnExit.DisabledState.BorderColor = Color.DarkGray;
             btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
             btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -180,7 +184,7 @@
             btnExit.ImageSize = new Size(35, 35);
             btnExit.Location = new Point(1871, 0);
             btnExit.Name = "btnExit";
-            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnExit.Size = new Size(59, 56);
             btnExit.TabIndex = 4;
             btnExit.Click += btnExit_Click;
@@ -237,6 +241,25 @@
             uC_DisableFlight1.Size = new Size(1638, 1014);
             uC_DisableFlight1.TabIndex = 9;
             // 
+            // btnLogout
+            // 
+            btnLogout.BorderRadius = 10;
+            btnLogout.CustomizableEdges = customizableEdges1;
+            btnLogout.DisabledState.BorderColor = Color.DarkGray;
+            btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnLogout.FillColor = Color.FromArgb(33, 150, 243);
+            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(41, 1002);
+            btnLogout.Name = "btnLogout";
+            btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnLogout.Size = new Size(153, 65);
+            btnLogout.TabIndex = 13;
+            btnLogout.Text = "Đăng Xuất";
+            btnLogout.Click += btnLogout_Click;
+            // 
             // AirlineProviderDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -276,5 +299,6 @@
         private All_Users_Control.UC_HotelProvider.UC_HotelProviderInformation uC_HotelProviderInformation1;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse4;
         private All_Users_Control.UC_AirlineProvider.UC_EditFlight uC_EditFlight2;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

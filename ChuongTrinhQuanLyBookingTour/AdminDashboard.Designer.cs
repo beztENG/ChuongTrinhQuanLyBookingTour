@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
@@ -41,10 +41,13 @@
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminDashboard));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
+            btnLogout = new Guna.UI2.WinForms.Guna2Button();
             btnManageAirline = new Guna.UI2.WinForms.Guna2Button();
             btnManageCompanyTour = new Guna.UI2.WinForms.Guna2Button();
             btnManageHotelBrand = new Guna.UI2.WinForms.Guna2Button();
@@ -69,25 +72,45 @@
             // guna2GradientPanel1
             // 
             guna2GradientPanel1.BackColor = Color.White;
+            guna2GradientPanel1.Controls.Add(btnLogout);
             guna2GradientPanel1.Controls.Add(btnManageAirline);
             guna2GradientPanel1.Controls.Add(btnManageCompanyTour);
             guna2GradientPanel1.Controls.Add(btnManageHotelBrand);
             guna2GradientPanel1.Controls.Add(btnAddUser);
             guna2GradientPanel1.Controls.Add(label1);
             guna2GradientPanel1.Controls.Add(btnUserList);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges11;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges13;
             guna2GradientPanel1.Dock = DockStyle.Left;
             guna2GradientPanel1.Location = new Point(0, 0);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges14;
             guna2GradientPanel1.Size = new Size(231, 1102);
             guna2GradientPanel1.TabIndex = 5;
+            // 
+            // btnLogout
+            // 
+            btnLogout.BorderRadius = 10;
+            btnLogout.CustomizableEdges = customizableEdges1;
+            btnLogout.DisabledState.BorderColor = Color.DarkGray;
+            btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnLogout.FillColor = Color.FromArgb(33, 150, 243);
+            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(36, 946);
+            btnLogout.Name = "btnLogout";
+            btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnLogout.Size = new Size(153, 65);
+            btnLogout.TabIndex = 12;
+            btnLogout.Text = "Đăng Xuất";
+            btnLogout.Click += btnLogout_Click;
             // 
             // btnManageAirline
             // 
             btnManageAirline.BorderRadius = 18;
             btnManageAirline.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnManageAirline.CustomizableEdges = customizableEdges1;
+            btnManageAirline.CustomizableEdges = customizableEdges3;
             btnManageAirline.DisabledState.BorderColor = Color.DarkGray;
             btnManageAirline.DisabledState.CustomBorderColor = Color.DarkGray;
             btnManageAirline.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -95,9 +118,9 @@
             btnManageAirline.FillColor = Color.FromArgb(192, 192, 255);
             btnManageAirline.Font = new Font("Segoe UI", 9F);
             btnManageAirline.ForeColor = Color.White;
-            btnManageAirline.Location = new Point(25, 935);
+            btnManageAirline.Location = new Point(25, 788);
             btnManageAirline.Name = "btnManageAirline";
-            btnManageAirline.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnManageAirline.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnManageAirline.Size = new Size(180, 116);
             btnManageAirline.TabIndex = 11;
             btnManageAirline.Text = "Manage Airline";
@@ -107,7 +130,7 @@
             // 
             btnManageCompanyTour.BorderRadius = 18;
             btnManageCompanyTour.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnManageCompanyTour.CustomizableEdges = customizableEdges3;
+            btnManageCompanyTour.CustomizableEdges = customizableEdges5;
             btnManageCompanyTour.DisabledState.BorderColor = Color.DarkGray;
             btnManageCompanyTour.DisabledState.CustomBorderColor = Color.DarkGray;
             btnManageCompanyTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -115,9 +138,9 @@
             btnManageCompanyTour.FillColor = Color.FromArgb(192, 192, 255);
             btnManageCompanyTour.Font = new Font("Segoe UI", 9F);
             btnManageCompanyTour.ForeColor = Color.White;
-            btnManageCompanyTour.Location = new Point(25, 751);
+            btnManageCompanyTour.Location = new Point(25, 632);
             btnManageCompanyTour.Name = "btnManageCompanyTour";
-            btnManageCompanyTour.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnManageCompanyTour.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnManageCompanyTour.Size = new Size(180, 116);
             btnManageCompanyTour.TabIndex = 10;
             btnManageCompanyTour.Text = "Manage Company Tour";
@@ -127,7 +150,7 @@
             // 
             btnManageHotelBrand.BorderRadius = 18;
             btnManageHotelBrand.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnManageHotelBrand.CustomizableEdges = customizableEdges5;
+            btnManageHotelBrand.CustomizableEdges = customizableEdges7;
             btnManageHotelBrand.DisabledState.BorderColor = Color.DarkGray;
             btnManageHotelBrand.DisabledState.CustomBorderColor = Color.DarkGray;
             btnManageHotelBrand.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -135,9 +158,9 @@
             btnManageHotelBrand.FillColor = Color.FromArgb(192, 192, 255);
             btnManageHotelBrand.Font = new Font("Segoe UI", 9F);
             btnManageHotelBrand.ForeColor = Color.White;
-            btnManageHotelBrand.Location = new Point(25, 543);
+            btnManageHotelBrand.Location = new Point(25, 474);
             btnManageHotelBrand.Name = "btnManageHotelBrand";
-            btnManageHotelBrand.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnManageHotelBrand.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnManageHotelBrand.Size = new Size(180, 116);
             btnManageHotelBrand.TabIndex = 9;
             btnManageHotelBrand.Text = "Manage Hotel";
@@ -147,7 +170,7 @@
             // 
             btnAddUser.BorderRadius = 18;
             btnAddUser.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnAddUser.CustomizableEdges = customizableEdges7;
+            btnAddUser.CustomizableEdges = customizableEdges9;
             btnAddUser.DisabledState.BorderColor = Color.DarkGray;
             btnAddUser.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddUser.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -155,9 +178,9 @@
             btnAddUser.FillColor = Color.FromArgb(192, 192, 255);
             btnAddUser.Font = new Font("Segoe UI", 9F);
             btnAddUser.ForeColor = Color.White;
-            btnAddUser.Location = new Point(25, 350);
+            btnAddUser.Location = new Point(25, 304);
             btnAddUser.Name = "btnAddUser";
-            btnAddUser.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnAddUser.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnAddUser.Size = new Size(180, 116);
             btnAddUser.TabIndex = 8;
             btnAddUser.Text = "Add User Provider";
@@ -177,7 +200,7 @@
             // 
             btnUserList.BorderRadius = 18;
             btnUserList.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnUserList.CustomizableEdges = customizableEdges9;
+            btnUserList.CustomizableEdges = customizableEdges11;
             btnUserList.DisabledState.BorderColor = Color.DarkGray;
             btnUserList.DisabledState.CustomBorderColor = Color.DarkGray;
             btnUserList.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -187,7 +210,7 @@
             btnUserList.ForeColor = Color.White;
             btnUserList.Location = new Point(25, 134);
             btnUserList.Name = "btnUserList";
-            btnUserList.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnUserList.ShadowDecoration.CustomizableEdges = customizableEdges12;
             btnUserList.Size = new Size(180, 116);
             btnUserList.TabIndex = 3;
             btnUserList.Text = "View List User";
@@ -208,7 +231,7 @@
             // 
             // btnExit
             // 
-            btnExit.CustomizableEdges = customizableEdges13;
+            btnExit.CustomizableEdges = customizableEdges15;
             btnExit.DisabledState.BorderColor = Color.DarkGray;
             btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
             btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -218,9 +241,9 @@
             btnExit.ForeColor = Color.White;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
             btnExit.ImageSize = new Size(35, 35);
-            btnExit.Location = new Point(1877, 12);
+            btnExit.Location = new Point(1871, 0);
             btnExit.Name = "btnExit";
-            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges14;
+            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges16;
             btnExit.Size = new Size(59, 56);
             btnExit.TabIndex = 7;
             btnExit.Click += btnExit_Click;
@@ -264,17 +287,17 @@
             // uC_ManageTourBrand1
             // 
             uC_ManageTourBrand1.BackColor = Color.White;
-            uC_ManageTourBrand1.Location = new Point(260, 30);
+            uC_ManageTourBrand1.Location = new Point(260, 44);
             uC_ManageTourBrand1.Name = "uC_ManageTourBrand1";
-            uC_ManageTourBrand1.Size = new Size(1601, 1007);
+            uC_ManageTourBrand1.Size = new Size(1601, 993);
             uC_ManageTourBrand1.TabIndex = 10;
             // 
             // uC_ManageAirlineBrand2
             // 
             uC_ManageAirlineBrand2.BackColor = Color.White;
-            uC_ManageAirlineBrand2.Location = new Point(260, 30);
+            uC_ManageAirlineBrand2.Location = new Point(260, 44);
             uC_ManageAirlineBrand2.Name = "uC_ManageAirlineBrand2";
-            uC_ManageAirlineBrand2.Size = new Size(1591, 762);
+            uC_ManageAirlineBrand2.Size = new Size(1591, 748);
             uC_ManageAirlineBrand2.TabIndex = 11;
             // 
             // AdminDashboard
@@ -320,5 +343,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse6;
         private All_Users_Control.UC_Admin.UC_ManageAirlineBrand uC_ManageAirlineBrand2;
         private All_Users_Control.UC_Admin.UC_ManageTourBrand uC_ManageTourBrand1;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

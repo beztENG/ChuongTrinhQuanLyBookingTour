@@ -199,9 +199,18 @@ VALUES
 
 INSERT INTO Flights (AirlineID, Departure, Arrival, DepartureDate, ArrivalDate, TakeOffTime, LandingTime, Cost, FlightImage)
 VALUES 
-(1, 'Hanoi', 'Ho Chi Minh City', '2025-01-01', '2025-01-05', '09:00', '11:00', 350.00, 'vietnam_airlines.jpg'),
-(2, 'Danang', 'Hanoi', '2025-01-12', '2025-01-15', '14:00', '16:00', 800.00, 'vietjet_air.jpg'),
-(3, 'Ho Chi Minh City', 'Phu Quoc', '2025-01-15', '2025-01-20', '07:30', '09:00', 1000.00, 'bamboo_airways.jpg');
+(1, 'Hanoi', 'Ho Chi Minh City', '2025-1-1', '2025-1-5', '09:00', '11:00', 350.00, 'vietnam_airlines.jpg'),
+(1, 'Hanoi', 'Ho Chi Minh City', '2025-1-3', '2025-1-8', '11:00', '13:00', 700.00, 'vietnam_airlines.jpg'),
+(2, 'Danang', 'Hanoi', '2025-1-12', '2025-1-15', '14:00', '16:00', 800.00, 'vietjet_air.jpg'),
+(3, 'Ho Chi Minh City', 'Phu Quoc', '2025-1-15', '2025-1-20', '07:30', '09:00', 1000.00, 'bamboo_airways.jpg'),
+(1, 'Hanoi', 'Ho Chi Minh City', '2024-11-01', '2024-11-01', '08:00', '10:00', 1500.00, 'vietnam_airlines.jpg'),
+(1, 'Ho Chi Minh City', 'Hanoi', '2024-11-05', '2024-11-05', '09:00', '11:00', 1500.00, 'vietnam_airlines.jpg'),
+(1, 'Hanoi', 'Danang', '2024-11-03', '2024-11-03', '13:00', '14:30', 1000.00, 'vietnam_airlines.jpg'),
+(1, 'Danang', 'Ho Chi Minh City', '2024-11-04', '2024-11-04', '15:00', '17:00', 1300.00, 'vietnam_airlines.jpg'),
+(2, 'Hanoi', 'Phu Quoc', '2024-11-02', '2024-11-02', '06:30', '09:00', 1200.00, 'vietjet_air.jpg'),
+(2, 'Phu Quoc', 'Hanoi', '2024-11-06', '2024-11-06', '10:00', '12:30', 1200.00, 'vietjet_air.jpg'),
+(3, 'Hanoi', 'Ho Chi Minh City', '2024-11-13', '2024-11-13', '19:00', '21:00', 1600.00, 'bamboo_airways.jpg'),
+(3, 'Danang', 'Phu Quoc', '2024-11-14', '2024-11-14', '17:00', '19:30', 1400.00, 'bamboo_airways.jpg');
 
 
 INSERT INTO CompanyTours (CompanyName, CompanyImage)
@@ -307,7 +316,9 @@ ADD status BIT DEFAULT 1;
 
 Update Tours
 Set status = 1;
-
+ALTER TABLE Users ADD IsLoggedIn BIT DEFAULT 0;
+UPDATE Users SET IsLoggedIn = 0 WHERE UserID = 13
+SELECT Username, Role FROM Users WHERE IsLoggedIn = 1
 select * from Providers
 select * from Users
 select * from Rooms

@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Data;
 using System.Data.SqlClient;
 using System.Windows.Forms;
@@ -13,7 +13,70 @@ namespace ChuongTrinhQuanLyBookingTour
         public Form1()
         {
             InitializeComponent();
+
+            var loginStatus = LoginHelper.GetLoginStatus();
+            if (loginStatus.HasValue)
+            {
+                string username = loginStatus.Value.username;
+                string role = loginStatus.Value.role;
+
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    // Lấy UserID từ database
+                    string query = "SELECT UserID FROM Users WHERE Username = @Username";
+                    SqlCommand cmd = new SqlCommand(query, conn);
+                    cmd.Parameters.AddWithValue("@Username", username);
+
+                    object result = cmd.ExecuteScalar();
+                    if (result != null)
+                    {
+                        GlobalUserInfo.UserID = Convert.ToInt32(result);
+                        GlobalUserInfo.UserRole = role;
+
+                        // Chuyển hướng đến giao diện tương ứng
+                        switch (role)
+                        {
+                            case "Admin":
+                                AdminDashboard adminDashboard = new AdminDashboard();
+                                this.Hide();
+                                adminDashboard.Show();
+                                break;
+                            case "Customer":
+                                Dashboard customerDashboard = new Dashboard();
+                                this.Hide();
+                                customerDashboard.Show();
+                                break;
+                            case "HotelProvider":
+                                HotelProviderDashboard hotelDashboard = new HotelProviderDashboard(GlobalUserInfo.HotelID);
+                                this.Hide();
+                                hotelDashboard.Show();
+                                break;
+                            case "AirlineProvider":
+                                AirlineProviderDashboard airlineDashboard = new AirlineProviderDashboard(GlobalUserInfo.AirlineID);
+                                this.Hide();
+                                airlineDashboard.Show();
+                                break;
+                            case "CompanyTourProvider":
+                                CompanyTourProviderDashboard companytourDashboard = new CompanyTourProviderDashboard(GlobalUserInfo.CompanyID);
+                                this.Hide();
+                                companytourDashboard.Show();
+                                break;
+                            default:
+                                break;
+                        }
+
+                        this.Hide();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Không tìm thấy thông tin người dùng.", "Lỗi");
+                    }
+                }
+            }
         }
+
 
         private void btnExit_Click(object sender, EventArgs e)
         {
@@ -22,13 +85,28 @@ namespace ChuongTrinhQuanLyBookingTour
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            string username = txtUsername.Text;
-            string password = txtPassword.Text;
+            string username = txtUsername.Text.Trim();
+            string password = txtPassword.Text.Trim();
 
             if (ValidateLogin(username, password, out string role))
             {
+                bool alwaysLogin = ckbAlwaysLogin.Checked;
+                // Lưu trạng thái đăng nhập trong database
+                if (alwaysLogin)
+                {
+                    using (SqlConnection conn = new SqlConnection(connectionString))
+                    {
+                        conn.Open();
+                        string query = "UPDATE Users SET IsLoggedIn = 1 WHERE Username = @Username";
+                        SqlCommand cmd = new SqlCommand(query, conn);
+                        cmd.Parameters.AddWithValue("@Username", username);
+                        cmd.ExecuteNonQuery();
+                    }
+                }
+
                 labelError.Visible = false;
 
+                // Điều hướng đến Dashboard theo vai trò
                 switch (role)
                 {
                     case "Admin":
@@ -36,31 +114,26 @@ namespace ChuongTrinhQuanLyBookingTour
                         this.Hide();
                         adminDashboard.Show();
                         break;
-
                     case "Customer":
                         Dashboard customerDashboard = new Dashboard();
                         this.Hide();
                         customerDashboard.Show();
                         break;
-
                     case "HotelProvider":
                         HotelProviderDashboard hotelDashboard = new HotelProviderDashboard(GlobalUserInfo.HotelID);
                         this.Hide();
                         hotelDashboard.Show();
                         break;
-
                     case "AirlineProvider":
                         AirlineProviderDashboard airlineDashboard = new AirlineProviderDashboard(GlobalUserInfo.AirlineID);
                         this.Hide();
                         airlineDashboard.Show();
                         break;
-
                     case "CompanyTourProvider":
                         CompanyTourProviderDashboard companytourDashboard = new CompanyTourProviderDashboard(GlobalUserInfo.CompanyID);
                         this.Hide();
                         companytourDashboard.Show();
                         break;
-
                     default:
                         MessageBox.Show("Unauthorized role!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         break;
@@ -72,6 +145,8 @@ namespace ChuongTrinhQuanLyBookingTour
                 txtPassword.Clear();
             }
         }
+
+
 
         private bool ValidateLogin(string username, string password, out string role)
         {
@@ -90,10 +165,9 @@ namespace ChuongTrinhQuanLyBookingTour
 
                 if (reader.Read())
                 {
-                    int userID = reader.GetInt32(0);
+                    GlobalUserInfo.UserID = reader.GetInt32(0); // Lấy UserID từ kết quả truy vấn
                     role = reader.GetString(1);
 
-                    GlobalUserInfo.UserID = userID;
                     GlobalUserInfo.UserRole = role;
 
                     reader.Close();

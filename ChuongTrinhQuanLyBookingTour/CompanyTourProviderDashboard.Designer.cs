@@ -29,19 +29,21 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CompanyTourProviderDashboard));
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             guna2GradientPanel1 = new Guna.UI2.WinForms.Guna2GradientPanel();
             btnDisableTour = new Guna.UI2.WinForms.Guna2Button();
             label1 = new Label();
@@ -56,22 +58,24 @@
             guna2Elipse3 = new Guna.UI2.WinForms.Guna2Elipse(components);
             uC_DisableTour1 = new All_Users_Control.UC_CompanyTourProvider.UC_DisableTour();
             uC_HotelProviderInformation1 = new All_Users_Control.UC_HotelProvider.UC_HotelProviderInformation();
+            btnLogout = new Guna.UI2.WinForms.Guna2Button();
             guna2GradientPanel1.SuspendLayout();
             SuspendLayout();
             // 
             // guna2GradientPanel1
             // 
             guna2GradientPanel1.BackColor = Color.White;
+            guna2GradientPanel1.Controls.Add(btnLogout);
             guna2GradientPanel1.Controls.Add(btnDisableTour);
             guna2GradientPanel1.Controls.Add(label1);
             guna2GradientPanel1.Controls.Add(btnProfile);
             guna2GradientPanel1.Controls.Add(btnEditTour);
             guna2GradientPanel1.Controls.Add(btnAddNewTour);
-            guna2GradientPanel1.CustomizableEdges = customizableEdges9;
+            guna2GradientPanel1.CustomizableEdges = customizableEdges11;
             guna2GradientPanel1.Dock = DockStyle.Left;
             guna2GradientPanel1.Location = new Point(0, 0);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
-            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges12;
             guna2GradientPanel1.Size = new Size(231, 1102);
             guna2GradientPanel1.TabIndex = 4;
             guna2GradientPanel1.Paint += guna2GradientPanel1_Paint;
@@ -80,7 +84,7 @@
             // 
             btnDisableTour.BorderRadius = 18;
             btnDisableTour.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnDisableTour.CustomizableEdges = customizableEdges1;
+            btnDisableTour.CustomizableEdges = customizableEdges3;
             btnDisableTour.DisabledState.BorderColor = Color.DarkGray;
             btnDisableTour.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDisableTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -88,9 +92,9 @@
             btnDisableTour.FillColor = Color.FromArgb(192, 192, 255);
             btnDisableTour.Font = new Font("Segoe UI", 9F);
             btnDisableTour.ForeColor = Color.White;
-            btnDisableTour.Location = new Point(24, 666);
+            btnDisableTour.Location = new Point(28, 453);
             btnDisableTour.Name = "btnDisableTour";
-            btnDisableTour.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnDisableTour.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnDisableTour.Size = new Size(180, 116);
             btnDisableTour.TabIndex = 8;
             btnDisableTour.Text = "Ẩn chuyến đi";
@@ -110,7 +114,7 @@
             // 
             btnProfile.BorderRadius = 18;
             btnProfile.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnProfile.CustomizableEdges = customizableEdges3;
+            btnProfile.CustomizableEdges = customizableEdges5;
             btnProfile.DisabledState.BorderColor = Color.DarkGray;
             btnProfile.DisabledState.CustomBorderColor = Color.DarkGray;
             btnProfile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -118,9 +122,9 @@
             btnProfile.FillColor = Color.FromArgb(192, 192, 255);
             btnProfile.Font = new Font("Segoe UI", 9F);
             btnProfile.ForeColor = Color.White;
-            btnProfile.Location = new Point(24, 942);
+            btnProfile.Location = new Point(28, 613);
             btnProfile.Name = "btnProfile";
-            btnProfile.ShadowDecoration.CustomizableEdges = customizableEdges4;
+            btnProfile.ShadowDecoration.CustomizableEdges = customizableEdges6;
             btnProfile.Size = new Size(180, 116);
             btnProfile.TabIndex = 6;
             btnProfile.Text = "Hồ sơ cá nhân";
@@ -130,7 +134,7 @@
             // 
             btnEditTour.BorderRadius = 18;
             btnEditTour.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnEditTour.CustomizableEdges = customizableEdges5;
+            btnEditTour.CustomizableEdges = customizableEdges7;
             btnEditTour.DisabledState.BorderColor = Color.DarkGray;
             btnEditTour.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -138,9 +142,9 @@
             btnEditTour.FillColor = Color.FromArgb(192, 192, 255);
             btnEditTour.Font = new Font("Segoe UI", 9F);
             btnEditTour.ForeColor = Color.White;
-            btnEditTour.Location = new Point(24, 415);
+            btnEditTour.Location = new Point(24, 305);
             btnEditTour.Name = "btnEditTour";
-            btnEditTour.ShadowDecoration.CustomizableEdges = customizableEdges6;
+            btnEditTour.ShadowDecoration.CustomizableEdges = customizableEdges8;
             btnEditTour.Size = new Size(180, 116);
             btnEditTour.TabIndex = 4;
             btnEditTour.Text = "Sửa các chuyến đi";
@@ -150,7 +154,7 @@
             // 
             btnAddNewTour.BorderRadius = 18;
             btnAddNewTour.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            btnAddNewTour.CustomizableEdges = customizableEdges7;
+            btnAddNewTour.CustomizableEdges = customizableEdges9;
             btnAddNewTour.DisabledState.BorderColor = Color.DarkGray;
             btnAddNewTour.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddNewTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -160,7 +164,7 @@
             btnAddNewTour.ForeColor = Color.White;
             btnAddNewTour.Location = new Point(24, 155);
             btnAddNewTour.Name = "btnAddNewTour";
-            btnAddNewTour.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnAddNewTour.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnAddNewTour.Size = new Size(180, 116);
             btnAddNewTour.TabIndex = 3;
             btnAddNewTour.Text = "Thêm chuyến đi";
@@ -173,7 +177,7 @@
             // 
             // btnExit
             // 
-            btnExit.CustomizableEdges = customizableEdges11;
+            btnExit.CustomizableEdges = customizableEdges13;
             btnExit.DisabledState.BorderColor = Color.DarkGray;
             btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
             btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
@@ -185,7 +189,7 @@
             btnExit.ImageSize = new Size(35, 35);
             btnExit.Location = new Point(1871, 12);
             btnExit.Name = "btnExit";
-            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            btnExit.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnExit.Size = new Size(59, 56);
             btnExit.TabIndex = 5;
             btnExit.Click += btnExit_Click;
@@ -232,6 +236,25 @@
             uC_HotelProviderInformation1.Size = new Size(1382, 1014);
             uC_HotelProviderInformation1.TabIndex = 9;
             // 
+            // btnLogout
+            // 
+            btnLogout.BorderRadius = 10;
+            btnLogout.CustomizableEdges = customizableEdges1;
+            btnLogout.DisabledState.BorderColor = Color.DarkGray;
+            btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
+            btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
+            btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
+            btnLogout.FillColor = Color.FromArgb(33, 150, 243);
+            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.ForeColor = Color.White;
+            btnLogout.Location = new Point(39, 974);
+            btnLogout.Name = "btnLogout";
+            btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges2;
+            btnLogout.Size = new Size(153, 65);
+            btnLogout.TabIndex = 14;
+            btnLogout.Text = "Đăng Xuất";
+            btnLogout.Click += btnLogout_Click;
+            // 
             // CompanyTourProviderDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -270,5 +293,6 @@
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse3;
         private All_Users_Control.UC_CompanyTourProvider.UC_DisableTour uC_DisableTour1;
         private All_Users_Control.UC_HotelProvider.UC_HotelProviderInformation uC_HotelProviderInformation1;
+        private Guna.UI2.WinForms.Guna2Button btnLogout;
     }
 }

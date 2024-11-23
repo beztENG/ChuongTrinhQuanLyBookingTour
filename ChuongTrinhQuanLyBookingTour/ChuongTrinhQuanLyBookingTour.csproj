@@ -20,6 +20,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Update="All Users Control\UC_CompanyTourProvider\UC_PayementApprovalTour.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="All Users Control\UC_HotelProvider\UC_PayementApprovalHotel.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

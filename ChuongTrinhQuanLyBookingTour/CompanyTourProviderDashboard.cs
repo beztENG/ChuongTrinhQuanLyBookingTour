@@ -98,5 +98,11 @@ namespace ChuongTrinhQuanLyBookingTour
             }
             new Form1().Show();
         }
+
+        private void btnApproval_Click(object sender, EventArgs e)
+        {
+            uC_PayementApprovalTour1.BringToFront();
+            uC_PayementApprovalTour1.Visible = true;
+        }
     }
 }

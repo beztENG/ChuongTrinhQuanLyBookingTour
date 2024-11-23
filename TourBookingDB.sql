@@ -44,7 +44,7 @@ CREATE TABLE HotelBookings (
     RoomID INT NOT NULL,
     BookingDate DATETIME NOT NULL,
     CheckInDate DATE NOT NULL, 
-    Status VARCHAR(20) DEFAULT 'Active',
+    Status VARCHAR(20) DEFAULT 'Pending Approval',
     PaymentStatus VARCHAR(20) DEFAULT 'Pending',
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (HotelID) REFERENCES Hotels(HotelID),
@@ -76,11 +76,12 @@ CREATE TABLE FlightBookings (
     UserID INT NOT NULL,
     FlightID INT NOT NULL,
     BookingDate DATETIME NOT NULL,
-    Status VARCHAR(20) DEFAULT 'Active',
+    Status VARCHAR(20) DEFAULT 'Pending Approval',
     PaymentStatus VARCHAR(20) DEFAULT 'Pending',
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (FlightID) REFERENCES Flights(FlightID),
 );
+
 
 CREATE TABLE CompanyTours(
 	CompanyID INT PRIMARY KEY IDENTITY(1,1),
@@ -101,12 +102,13 @@ CREATE TABLE Tours (
 	FOREIGN KEY (CompanyID) REFERENCES CompanyTours(CompanyID)
 );
 
+
 CREATE TABLE TourBookings (
     TourBookingID INT PRIMARY KEY IDENTITY(1,1),
     TourID INT NOT NULL,
     UserID INT NOT NULL,
     BookingDate DATETIME NOT NULL,
-    Status VARCHAR(20) DEFAULT 'Active',
+    Status VARCHAR(20) DEFAULT 'Pending Approval',
     PaymentStatus VARCHAR(20) DEFAULT 'Pending',
     FOREIGN KEY (TourID) REFERENCES Tours(TourID),
     FOREIGN KEY (UserID) REFERENCES Users(UserID)
@@ -139,12 +141,50 @@ CREATE TABLE AirlineEmployees (
     FOREIGN KEY (AirlineID) REFERENCES Airlines(AirlineID)
 );
 
+
+
 CREATE TABLE CompanyTourEmployees (
     EmployeeID INT PRIMARY KEY IDENTITY(1,1),
     UserID INT NOT NULL,
     CompanyID INT NOT NULL,
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (CompanyID) REFERENCES CompanyTours(CompanyID)
+);
+
+CREATE TABLE FlightBookingApprovals (
+    ApprovalID INT PRIMARY KEY IDENTITY(1,1),
+    FlightBookingID INT NOT NULL, 
+    EmployeeID INT NOT NULL,
+	AirlineID INT NOT NULL,
+    ApprovalStatus VARCHAR(20) DEFAULT 'Pending', 
+    ApprovalDate DATETIME,
+	FOREIGN KEY (AirlineID) REFERENCES Airlines(AirlineID),
+    FOREIGN KEY (FlightBookingID) REFERENCES FlightBookings(FlightBookingID),
+    FOREIGN KEY (EmployeeID) REFERENCES AirlineEmployees(EmployeeID)
+);
+
+CREATE TABLE HotelBookingApprovals (
+    ApprovalID INT PRIMARY KEY IDENTITY(1,1),
+    BookingID INT NOT NULL, 
+    EmployeeID INT NOT NULL,
+	HotelID INT NOT NULL,
+    ApprovalStatus VARCHAR(20) DEFAULT 'Pending', 
+    ApprovalDate DATETIME,
+	FOREIGN KEY (HotelID) REFERENCES Hotels(HotelID),
+    FOREIGN KEY (BookingID) REFERENCES HotelBookings(BookingID),
+    FOREIGN KEY (EmployeeID) REFERENCES AirlineEmployees(EmployeeID)
+);
+
+CREATE TABLE TourBookingApprovals (
+    ApprovalID INT PRIMARY KEY IDENTITY(1,1),
+    TourBookingID INT NOT NULL, 
+    EmployeeID INT NOT NULL,
+	CompanyID INT NOT NULL,
+    ApprovalStatus VARCHAR(20) DEFAULT 'Pending', 
+    ApprovalDate DATETIME,
+	FOREIGN KEY (CompanyID) REFERENCES CompanyTours(CompanyID),
+    FOREIGN KEY (TourBookingID) REFERENCES TourBookings(TourBookingID),
+    FOREIGN KEY (EmployeeID) REFERENCES AirlineEmployees(EmployeeID)
 );
 
 
@@ -327,4 +367,64 @@ select * from Tours
 select * from Flights
 select * from AirlineEmployees
 select * from HotelEmployees
-select * from CompanyTourEmployees
+select * from AirlineEmployees
+
+select * from FlightBookings
+
+
+
+INSERT INTO FlightBookingApprovals (FlightBookingID, EmployeeID, AirlineID, ApprovalStatus, ApprovalDate)
+SELECT 
+    fb.FlightBookingID,
+    ae.EmployeeID,
+    f.AirlineID,
+    'Pending Approval',
+    NULL       
+FROM FlightBookings fb
+JOIN Flights f ON fb.FlightID = f.FlightID
+JOIN AirlineEmployees ae ON ae.AirlineID = f.AirlineID
+WHERE NOT EXISTS (
+    SELECT 1 
+    FROM FlightBookingApprovals fba 
+    WHERE fba.FlightBookingID = fb.FlightBookingID
+);
+
+SELECT f.FlightBookingID, f.UserID, f.FlightID, f.BookingDate, f.Status AS BookingStatus, 
+       a.EmployeeID, a.ApprovalStatus
+FROM FlightBookings f
+LEFT JOIN FlightBookingApprovals a ON f.FlightBookingID = a.FlightBookingID
+INNER JOIN Flights fl ON f.FlightID = fl.FlightID
+WHERE fl.AirlineID = 1 AND a.ApprovalStatus = 'Pending Approval';
+
+select * from FlightBookingApprovals
+select * from FlightBookings
+select * from HotelBookingApprovals
+select * from HotelBookings
+select * from TourBookingApprovals
+select * from TourBookings
+
+
+SELECT 'Tour' AS BookingType, tb.TourBookingID, CONCAT(t.TourName, ' - ', ct.CompanyName) AS Name, t.StartingDate AS BookingDate, ta.ApprovalStatus AS Status
+FROM 
+    TourBookings tb
+JOIN 
+    Tours t ON tb.TourID = t.TourID
+JOIN 
+    CompanyTours ct ON t.CompanyID = ct.CompanyID
+JOIN 
+    TourBookingApprovals ta ON ta.TourBookingID = tb.TourBookingID
+WHERE 
+    tb.UserID = 1
+
+ SELECT f.FlightBookingID, f.UserID, f.FlightID, f.BookingDate, f.Status AS BookingStatus, 
+        a.EmployeeID, a.ApprovalStatus
+ FROM FlightBookings f
+ LEFT JOIN FlightBookingApprovals a ON f.FlightBookingID = a.FlightBookingID
+ INNER JOIN Flights fl ON f.FlightID = fl.FlightID
+ WHERE fl.AirlineID = @AirlineID AND a.ApprovalStatus = 'Pending Approval'
+
+SELECT tb.TourBookingID, tb.UserID, tb.TourID, tb.BookingDate, tb.Status AS BookingStatus, tba.EmployeeID, tba.ApprovalStatus
+ FROM TourBookings tb
+ LEFT JOIN TourBookingApprovals tba ON tb.TourBookingID = tba.TourBookingID
+ INNER JOIN Tours t ON tb.TourID = t.TourID
+ WHERE t.CompanyID = @CompanyID AND tba.ApprovalStatus = 'Pending Approval'

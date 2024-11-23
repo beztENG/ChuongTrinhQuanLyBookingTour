@@ -10,6 +10,7 @@
         // Thông tin chuyến bay
         public int? FlightID { get; set; } // FlightID sẽ null nếu là dịch vụ hotel
         public string Airline { get; set; }
+        public int AirlineID { get; set; }
         public DateTime? DepartureDate { get; set; }
 
         // Thông tin khách sạn

@@ -28,25 +28,40 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control
         public void LoadBookingHistory()
         {
             string query = @"
-            SELECT 'Hotel' AS BookingType, hb.BookingID, h.HotelName AS Name, hb.CheckInDate AS BookingDate, hb.Status
-            FROM HotelBookings hb
-            JOIN Hotels h ON hb.HotelID = h.HotelID
-            WHERE hb.UserID = @UserID
+            SELECT 'Room' AS BookingType, hb.BookingID, CONCAT(h.HotelName, ' - ', r.RoomType) AS Name, hb.CheckInDate AS BookingDate, ha.ApprovalStatus AS Status
+            FROM 
+                HotelBookings hb
+            JOIN 
+                Rooms r ON hb.RoomID = r.RoomID
+            JOIN 
+                Hotels h ON hb.HotelID = h.HotelID
+            JOIN 
+                HotelBookingApprovals ha ON ha.BookingID = hb.BookingID
+            WHERE 
+                hb.UserID = @UserID
 
             UNION
 
-            SELECT 'Flight' AS BookingType, fb.FlightBookingID AS BookingID, a.AirlineName AS Name, f.DepartureDate AS BookingDate, fb.Status
+            SELECT 'Flight' AS BookingType, fb.FlightBookingID AS BookingID, a.AirlineName AS Name, f.DepartureDate AS BookingDate, fa.ApprovalStatus AS Status
             FROM FlightBookings fb
             JOIN Flights f ON fb.FlightID = f.FlightID
             JOIN Airlines a ON f.AirlineID = a.AirlineID
+            JOIN FlightBookingApprovals fa ON fb.FlightBookingID = fa.FlightBookingID
             WHERE fb.UserID = @UserID
 
             UNION
 
-            SELECT 'Tour' AS BookingType, tb.TourBookingID AS BookingID, t.TourName AS Name, t.StartingDate AS BookingDate, tb.Status
-            FROM TourBookings tb
-            JOIN Tours t ON tb.TourID = t.TourID
-            WHERE tb.UserID = @UserID";
+           SELECT 'Tour' AS BookingType, tb.TourBookingID, CONCAT(t.TourName, ' - ', ct.CompanyName) AS Name, t.StartingDate AS BookingDate, ta.ApprovalStatus AS Status
+            FROM 
+                TourBookings tb
+            JOIN 
+                Tours t ON tb.TourID = t.TourID
+            JOIN 
+                CompanyTours ct ON t.CompanyID = ct.CompanyID
+            JOIN 
+                TourBookingApprovals ta ON ta.TourBookingID = tb.TourBookingID
+            WHERE 
+                tb.UserID = @UserID";
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {

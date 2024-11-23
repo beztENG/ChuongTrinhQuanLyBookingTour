@@ -83,5 +83,11 @@ namespace ChuongTrinhQuanLyBookingTour
             }
             new Form1().Show();
         }
+
+        private void btnApproval_Click(object sender, EventArgs e)
+        {
+          uC_PayementApprovalHotel1.BringToFront();
+          uC_PayementApprovalHotel1.Visible = true;
+        }
     }
 }

@@ -71,8 +71,7 @@ namespace ChuongTrinhQuanLyBookingTour
                 }
             }
             else
-            {
-                // Nếu chưa đăng nhập -> mở Form1 (form đăng nhập)
+            {       
                 Application.Run(new Form1());
             }
         }

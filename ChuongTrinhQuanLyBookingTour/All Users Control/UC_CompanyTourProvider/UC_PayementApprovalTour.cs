@@ -27,14 +27,13 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
                     conn.Open();
 
                     int companyTourID = GlobalUserInfo.CompanyID;
-           
 
                     string query = @"
                         SELECT tb.TourBookingID, tb.UserID, tb.TourID, tb.BookingDate, tb.Status AS BookingStatus, tba.EmployeeID, tba.ApprovalStatus
-                         FROM TourBookings tb
-                         LEFT JOIN TourBookingApprovals tba ON tb.TourBookingID = tba.TourBookingID
-                         INNER JOIN Tours t ON tb.TourID = t.TourID
-                         WHERE t.CompanyID = @CompanyID AND tba.ApprovalStatus = 'Pending Approval'";
+                        FROM TourBookings tb
+                        LEFT JOIN TourBookingApprovals tba ON tb.TourBookingID = tba.TourBookingID
+                        INNER JOIN Tours t ON tb.TourID = t.TourID
+                        WHERE t.CompanyID = @CompanyID AND tba.ApprovalStatus = 'Pending Approval';";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@CompanyID", companyTourID);
@@ -62,31 +61,51 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
                 return;
             }
 
-            int bookingID = Convert.ToInt32(dgvOrders.SelectedRows[0].Cells["BookingID"].Value);
+            int bookingID = Convert.ToInt32(dgvOrders.SelectedRows[0].Cells["TourBookingID"].Value);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string updateQuery = @"
-                        UPDATE TourBookingApprovals
-                        SET ApprovalStatus = 'Approved'
-                        WHERE TourBookingID = @TourBookingID";
 
-                    SqlCommand cmd = new SqlCommand(updateQuery, conn);
-                    cmd.Parameters.AddWithValue("@TourBookingID", bookingID);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    // Bắt đầu giao dịch
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Cập nhật trạng thái trong bảng TourBookingApprovals
+                            string updateApprovalQuery = @"
+                                UPDATE TourBookingApprovals
+                                SET ApprovalStatus = 'Approved'
+                                WHERE TourBookingID = @TourBookingID;";
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Request approved successfully.");
-                        LoadApprovalRequests(); // Reload requests after approval
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error approving request.");
+                            SqlCommand cmdApproval = new SqlCommand(updateApprovalQuery, conn, transaction);
+                            cmdApproval.Parameters.AddWithValue("@TourBookingID", bookingID);
+                            cmdApproval.ExecuteNonQuery();
+
+                            // Cập nhật trạng thái trong bảng TourBookings
+                            string updateBookingQuery = @"
+                                UPDATE TourBookings
+                                SET Status = 'Approved'
+                                WHERE TourBookingID = @TourBookingID;";
+
+                            SqlCommand cmdBooking = new SqlCommand(updateBookingQuery, conn, transaction);
+                            cmdBooking.Parameters.AddWithValue("@TourBookingID", bookingID);
+                            cmdBooking.ExecuteNonQuery();
+
+                            // Commit giao dịch
+                            transaction.Commit();
+
+                            MessageBox.Show("Request approved successfully.");
+                            LoadApprovalRequests(); // Reload requests after approval
+                        }
+                        catch
+                        {
+                            // Rollback nếu có lỗi
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -105,31 +124,51 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_CompanyTourProvider
                 return;
             }
 
-            int bookingID = Convert.ToInt32(dgvOrders.SelectedRows[0].Cells["BookingID"].Value);
+            int bookingID = Convert.ToInt32(dgvOrders.SelectedRows[0].Cells["TourBookingID"].Value);
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string updateQuery = @"
-                        UPDATE TourBookingApprovals
-                        SET ApprovalStatus = 'Rejected'
-                        WHERE TourBookingID = @TourBookingID";
 
-                    SqlCommand cmd = new SqlCommand(updateQuery, conn);
-                    cmd.Parameters.AddWithValue("@TourBookingID", bookingID);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    // Bắt đầu giao dịch
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Cập nhật trạng thái trong bảng TourBookingApprovals
+                            string updateApprovalQuery = @"
+                                UPDATE TourBookingApprovals
+                                SET ApprovalStatus = 'Rejected'
+                                WHERE TourBookingID = @TourBookingID;";
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Request rejected successfully.");
-                        LoadApprovalRequests(); // Reload requests after rejection
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error rejecting request.");
+                            SqlCommand cmdApproval = new SqlCommand(updateApprovalQuery, conn, transaction);
+                            cmdApproval.Parameters.AddWithValue("@TourBookingID", bookingID);
+                            cmdApproval.ExecuteNonQuery();
+
+                            // Cập nhật trạng thái trong bảng TourBookings
+                            string updateBookingQuery = @"
+                                UPDATE TourBookings
+                                SET Status = 'Rejected'
+                                WHERE TourBookingID = @TourBookingID;";
+
+                            SqlCommand cmdBooking = new SqlCommand(updateBookingQuery, conn, transaction);
+                            cmdBooking.Parameters.AddWithValue("@TourBookingID", bookingID);
+                            cmdBooking.ExecuteNonQuery();
+
+                            // Commit giao dịch
+                            transaction.Commit();
+
+                            MessageBox.Show("Request rejected successfully.");
+                            LoadApprovalRequests(); // Reload requests after rejection
+                        }
+                        catch
+                        {
+                            // Rollback nếu có lỗi
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
                 }
                 catch (Exception ex)

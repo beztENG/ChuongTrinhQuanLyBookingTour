@@ -93,5 +93,11 @@ namespace ChuongTrinhQuanLyBookingTour
             }
             new Form1().Show();
         }
+
+        private void guna2Button1_Click(object sender, EventArgs e)
+        {
+            analyzeBrandForm1.BringToFront();
+            analyzeBrandForm1.Visible = true;
+        }
     }
 }

@@ -10,6 +10,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_HotelProvider
     {
         private string connectionString = DatabaseHelper.ConnectionString;
         private int employeeID = GlobalUserInfo.UserID;
+
         public UC_PayementApprovalHotel()
         {
             InitializeComponent();
@@ -27,15 +28,13 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_HotelProvider
 
                     int hotelID = GlobalUserInfo.HotelID;
 
-                  
-
                     string query = @"
                         SELECT hb.BookingID, hb.UserID, hb.HotelID, hb.BookingDate, hb.Status AS BookingStatus, 
                                hba.EmployeeID, hba.ApprovalStatus
                         FROM HotelBookings hb
                         LEFT JOIN HotelBookingApprovals hba ON hb.BookingID = hba.BookingID
                         INNER JOIN Hotels ht ON hb.HotelID = ht.HotelID
-                        WHERE ht.HotelID = @HotelID AND hba.ApprovalStatus = 'Pending Approval'";
+                        WHERE ht.HotelID = @HotelID AND hba.ApprovalStatus = 'Pending Approval';";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@HotelID", hotelID);
@@ -70,24 +69,44 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_HotelProvider
                 try
                 {
                     conn.Open();
-                    string updateQuery = @"
-                        UPDATE HotelBookingApprovals
-                        SET ApprovalStatus = 'Approved'
-                        WHERE BookingID = @BookingID";
 
-                    SqlCommand cmd = new SqlCommand(updateQuery, conn);
-                    cmd.Parameters.AddWithValue("@BookingID", bookingID);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    // Bắt đầu giao dịch
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Cập nhật trạng thái trong bảng HotelBookingApprovals
+                            string updateApprovalQuery = @"
+                                UPDATE HotelBookingApprovals
+                                SET ApprovalStatus = 'Approved'
+                                WHERE BookingID = @BookingID;";
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Request approved successfully.");
-                        LoadApprovalRequests(); // Reload requests after approval
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error approving request.");
+                            SqlCommand cmdApproval = new SqlCommand(updateApprovalQuery, conn, transaction);
+                            cmdApproval.Parameters.AddWithValue("@BookingID", bookingID);
+                            cmdApproval.ExecuteNonQuery();
+
+                            // Cập nhật trạng thái trong bảng HotelBookings
+                            string updateBookingQuery = @"
+                                UPDATE HotelBookings
+                                SET Status = 'Approved'
+                                WHERE BookingID = @BookingID;";
+
+                            SqlCommand cmdBooking = new SqlCommand(updateBookingQuery, conn, transaction);
+                            cmdBooking.Parameters.AddWithValue("@BookingID", bookingID);
+                            cmdBooking.ExecuteNonQuery();
+
+                            // Commit giao dịch
+                            transaction.Commit();
+
+                            MessageBox.Show("Request approved successfully.");
+                            LoadApprovalRequests(); // Reload requests after approval
+                        }
+                        catch
+                        {
+                            // Rollback nếu có lỗi
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -113,24 +132,44 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_HotelProvider
                 try
                 {
                     conn.Open();
-                    string updateQuery = @"
-                        UPDATE HotelBookingApprovals
-                        SET ApprovalStatus = 'Rejected'
-                        WHERE BookingID = @BookingID";
 
-                    SqlCommand cmd = new SqlCommand(updateQuery, conn);
-                    cmd.Parameters.AddWithValue("@BookingID", bookingID);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
+                    // Bắt đầu giao dịch
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Cập nhật trạng thái trong bảng HotelBookingApprovals
+                            string updateApprovalQuery = @"
+                                UPDATE HotelBookingApprovals
+                                SET ApprovalStatus = 'Rejected'
+                                WHERE BookingID = @BookingID;";
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Request rejected successfully.");
-                        LoadApprovalRequests(); // Reload requests after rejection
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error rejecting request.");
+                            SqlCommand cmdApproval = new SqlCommand(updateApprovalQuery, conn, transaction);
+                            cmdApproval.Parameters.AddWithValue("@BookingID", bookingID);
+                            cmdApproval.ExecuteNonQuery();
+
+                            // Cập nhật trạng thái trong bảng HotelBookings
+                            string updateBookingQuery = @"
+                                UPDATE HotelBookings
+                                SET Status = 'Rejected'
+                                WHERE BookingID = @BookingID;";
+
+                            SqlCommand cmdBooking = new SqlCommand(updateBookingQuery, conn, transaction);
+                            cmdBooking.Parameters.AddWithValue("@BookingID", bookingID);
+                            cmdBooking.ExecuteNonQuery();
+
+                            // Commit giao dịch
+                            transaction.Commit();
+
+                            MessageBox.Show("Request rejected successfully.");
+                            LoadApprovalRequests(); // Reload requests after rejection
+                        }
+                        catch
+                        {
+                            // Rollback nếu có lỗi
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -139,7 +178,5 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_HotelProvider
                 }
             }
         }
-
-
     }
 }

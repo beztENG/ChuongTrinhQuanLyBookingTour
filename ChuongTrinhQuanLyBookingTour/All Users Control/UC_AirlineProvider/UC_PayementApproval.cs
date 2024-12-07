@@ -10,13 +10,14 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
     {
         private string connectionString = DatabaseHelper.ConnectionString;
         private int employeeID = GlobalUserInfo.UserID;
+
         public UC_PayementApproval()
         {
             InitializeComponent();
-            LoadApprovalRequests(); // Tải danh sách yêu cầu cần phê duyệt khi trang được tạo
+            LoadApprovalRequests(); 
         }
 
-        // Phương thức tải danh sách yêu cầu thanh toán từ cơ sở dữ liệu
+        
         private void LoadApprovalRequests()
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -24,17 +25,16 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
                 try
                 {
                     conn.Open();
-                
+
                     int airlineID = GlobalUserInfo.AirlineID;
 
-
                     string query = @"
-                SELECT f.FlightBookingID, f.UserID, f.FlightID, f.BookingDate, f.Status AS BookingStatus, 
-                       a.EmployeeID, a.ApprovalStatus
-                FROM FlightBookings f
-                LEFT JOIN FlightBookingApprovals a ON f.FlightBookingID = a.FlightBookingID
-                INNER JOIN Flights fl ON f.FlightID = fl.FlightID
-                WHERE fl.AirlineID = @AirlineID AND a.ApprovalStatus = 'Pending Approval'";
+                        SELECT f.FlightBookingID, f.UserID, f.FlightID, f.BookingDate, f.Status AS BookingStatus, 
+                               a.EmployeeID, a.ApprovalStatus
+                        FROM FlightBookings f
+                        LEFT JOIN FlightBookingApprovals a ON f.FlightBookingID = a.FlightBookingID
+                        INNER JOIN Flights fl ON f.FlightID = fl.FlightID
+                        WHERE fl.AirlineID = @AirlineID AND a.ApprovalStatus = 'Pending Approval';";
 
                     SqlCommand cmd = new SqlCommand(query, conn);
                     cmd.Parameters.AddWithValue("@AirlineID", airlineID);
@@ -53,7 +53,6 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
             }
         }
 
-
         // Phê duyệt yêu cầu thanh toán
         private void btnApprove_Click(object sender, EventArgs e)
         {
@@ -64,32 +63,50 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
             }
 
             int bookingID = Convert.ToInt32(dgvOrders.SelectedRows[0].Cells["FlightBookingID"].Value);
-            
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string updateQuery = @"
-                        UPDATE FlightBookingApprovals
-                        SET ApprovalStatus = 'Approved'
-                        WHERE FlightBookingID = @FlightBookingID";
 
-                    SqlCommand cmd = new SqlCommand(updateQuery, conn);
-                    cmd.Parameters.AddWithValue("@FlightBookingID", bookingID);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                   
+                    // Bắt đầu giao dịch
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Cập nhật trạng thái trong bảng FlightBookingApprovals
+                            string updateApprovalQuery = @"
+                                UPDATE FlightBookingApprovals
+                                SET ApprovalStatus = 'Approved'
+                                WHERE FlightBookingID = @FlightBookingID;";
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Request approved successfully.");
-                        LoadApprovalRequests();  // Reload requests after approval
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error approving request.");
+                            SqlCommand cmdApproval = new SqlCommand(updateApprovalQuery, conn, transaction);
+                            cmdApproval.Parameters.AddWithValue("@FlightBookingID", bookingID);
+                            cmdApproval.ExecuteNonQuery();
+
+                            // Cập nhật trạng thái trong bảng FlightBookings
+                            string updateBookingQuery = @"
+                                UPDATE FlightBookings
+                                SET Status = 'Approved'
+                                WHERE FlightBookingID = @FlightBookingID;";
+
+                            SqlCommand cmdBooking = new SqlCommand(updateBookingQuery, conn, transaction);
+                            cmdBooking.Parameters.AddWithValue("@FlightBookingID", bookingID);
+                            cmdBooking.ExecuteNonQuery();
+
+                            // Commit giao dịch
+                            transaction.Commit();
+
+                            MessageBox.Show("Request approved successfully.");
+                            LoadApprovalRequests(); // Reload requests after approval
+                        }
+                        catch
+                        {
+                            // Rollback nếu có lỗi
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -109,32 +126,50 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
             }
 
             int bookingID = Convert.ToInt32(dgvOrders.SelectedRows[0].Cells["FlightBookingID"].Value);
-           
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 try
                 {
                     conn.Open();
-                    string updateQuery = @"
-                        UPDATE FlightBookingApprovals
-                        SET ApprovalStatus = 'Rejected'
-                        WHERE FlightBookingID = @FlightBookingID";
 
-                    SqlCommand cmd = new SqlCommand(updateQuery, conn);
-                    cmd.Parameters.AddWithValue("@FlightBookingID", bookingID);
-                    cmd.Parameters.AddWithValue("@EmployeeID", employeeID);
-                  
+                    // Bắt đầu giao dịch
+                    using (SqlTransaction transaction = conn.BeginTransaction())
+                    {
+                        try
+                        {
+                            // Cập nhật trạng thái trong bảng FlightBookingApprovals
+                            string updateApprovalQuery = @"
+                                UPDATE FlightBookingApprovals
+                                SET ApprovalStatus = 'Rejected'
+                                WHERE FlightBookingID = @FlightBookingID;";
 
-                    int rowsAffected = cmd.ExecuteNonQuery();
-                    if (rowsAffected > 0)
-                    {
-                        MessageBox.Show("Request rejected successfully.");
-                        LoadApprovalRequests();
-                    }
-                    else
-                    {
-                        MessageBox.Show("Error rejecting request.");
+                            SqlCommand cmdApproval = new SqlCommand(updateApprovalQuery, conn, transaction);
+                            cmdApproval.Parameters.AddWithValue("@FlightBookingID", bookingID);
+                            cmdApproval.ExecuteNonQuery();
+
+                            // Cập nhật trạng thái trong bảng FlightBookings
+                            string updateBookingQuery = @"
+                                UPDATE FlightBookings
+                                SET Status = 'Rejected'
+                                WHERE FlightBookingID = @FlightBookingID;";
+
+                            SqlCommand cmdBooking = new SqlCommand(updateBookingQuery, conn, transaction);
+                            cmdBooking.Parameters.AddWithValue("@FlightBookingID", bookingID);
+                            cmdBooking.ExecuteNonQuery();
+
+                            // Commit giao dịch
+                            transaction.Commit();
+
+                            MessageBox.Show("Request rejected successfully.");
+                            LoadApprovalRequests(); // Reload requests after rejection
+                        }
+                        catch
+                        {
+                            // Rollback nếu có lỗi
+                            transaction.Rollback();
+                            throw;
+                        }
                     }
                 }
                 catch (Exception ex)
@@ -143,7 +178,5 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_AirlineProvider
                 }
             }
         }
-
-   
     }
 }

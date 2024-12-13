@@ -428,3 +428,19 @@ SELECT tb.TourBookingID, tb.UserID, tb.TourID, tb.BookingDate, tb.Status AS Book
  LEFT JOIN TourBookingApprovals tba ON tb.TourBookingID = tba.TourBookingID
  INNER JOIN Tours t ON tb.TourID = t.TourID
  WHERE t.CompanyID = @CompanyID AND tba.ApprovalStatus = 'Pending Approval'
+
+select * from HotelBookings
+
+SELECT h.HotelName AS Brand, COUNT(hb.BookingID) AS ApprovedOrders
+FROM HotelBookings hb
+JOIN Rooms r ON hb.RoomID = r.RoomID
+JOIN Hotels h ON r.HotelID = h.HotelID
+WHERE hb.Status = 'Approved'
+GROUP BY h.HotelName;
+
+ SELECT a.AirlineName AS Brand, COUNT(fb.FlightBookingID) AS ApprovedOrders
+ FROM FlightBookings fb
+ JOIN Flights f ON fb.FlightID = f.FlightID
+ JOIN Airlines a ON f.AirlineID = a.AirlineID
+ WHERE fb.Status = 'Approved'
+ GROUP BY a.AirlineName;

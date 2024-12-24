@@ -57,6 +57,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             pbCompanyImage = new Guna2PictureBox();
             btnSelectImage = new Guna2Button();
             guna2Elipse1 = new Guna2Elipse(components);
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvTourBrands).BeginInit();
             ((System.ComponentModel.ISupportInitialize)pbCompanyImage).BeginInit();
             SuspendLayout();
@@ -83,7 +84,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvTourBrands.DefaultCellStyle = dataGridViewCellStyle3;
             dgvTourBrands.GridColor = Color.FromArgb(231, 229, 255);
-            dgvTourBrands.Location = new Point(20, 20);
+            dgvTourBrands.Location = new Point(94, 105);
             dgvTourBrands.MultiSelect = false;
             dgvTourBrands.Name = "dgvTourBrands";
             dgvTourBrands.RowHeadersVisible = false;
@@ -115,7 +116,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             // 
             // lblCompanyName
             // 
-            lblCompanyName.Location = new Point(20, 347);
+            lblCompanyName.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblCompanyName.Location = new Point(225, 475);
             lblCompanyName.Name = "lblCompanyName";
             lblCompanyName.Size = new Size(100, 30);
             lblCompanyName.TabIndex = 1;
@@ -123,67 +125,76 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             // 
             // txtCompanyName
             // 
+            txtCompanyName.BorderRadius = 5;
             txtCompanyName.CustomizableEdges = customizableEdges1;
             txtCompanyName.DefaultText = "";
-            txtCompanyName.Font = new Font("Segoe UI", 9F);
-            txtCompanyName.Location = new Point(130, 347);
-            txtCompanyName.Margin = new Padding(3, 4, 3, 4);
+            txtCompanyName.Font = new Font("Montserrat", 10.2F);
+            txtCompanyName.Location = new Point(359, 469);
+            txtCompanyName.Margin = new Padding(4, 5, 4, 5);
             txtCompanyName.Name = "txtCompanyName";
             txtCompanyName.PasswordChar = '\0';
             txtCompanyName.PlaceholderText = "Enter company name";
             txtCompanyName.SelectedText = "";
             txtCompanyName.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtCompanyName.Size = new Size(200, 30);
+            txtCompanyName.Size = new Size(275, 36);
             txtCompanyName.TabIndex = 3;
             // 
             // btnAdd
             // 
+            btnAdd.BorderRadius = 10;
             btnAdd.CustomizableEdges = customizableEdges3;
-            btnAdd.Font = new Font("Segoe UI", 9F);
+            btnAdd.FillColor = Color.DarkTurquoise;
+            btnAdd.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnAdd.ForeColor = Color.White;
-            btnAdd.Location = new Point(20, 400);
+            btnAdd.Location = new Point(387, 617);
             btnAdd.Name = "btnAdd";
             btnAdd.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnAdd.Size = new Size(100, 40);
+            btnAdd.Size = new Size(132, 46);
             btnAdd.TabIndex = 5;
             btnAdd.Text = "Add";
             btnAdd.Click += BtnAdd_Click;
             // 
             // btnUpdate
             // 
+            btnUpdate.BorderRadius = 10;
             btnUpdate.CustomizableEdges = customizableEdges5;
-            btnUpdate.Font = new Font("Segoe UI", 9F);
+            btnUpdate.FillColor = Color.DarkTurquoise;
+            btnUpdate.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(130, 400);
+            btnUpdate.Location = new Point(540, 617);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnUpdate.Size = new Size(100, 40);
+            btnUpdate.Size = new Size(132, 46);
             btnUpdate.TabIndex = 6;
             btnUpdate.Text = "Update";
             btnUpdate.Click += BtnUpdate_Click;
             // 
             // btnDelete
             // 
+            btnDelete.BorderRadius = 10;
             btnDelete.CustomizableEdges = customizableEdges7;
-            btnDelete.Font = new Font("Segoe UI", 9F);
+            btnDelete.FillColor = Color.Red;
+            btnDelete.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnDelete.ForeColor = Color.White;
-            btnDelete.Location = new Point(240, 400);
+            btnDelete.Location = new Point(694, 617);
             btnDelete.Name = "btnDelete";
             btnDelete.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnDelete.Size = new Size(100, 40);
+            btnDelete.Size = new Size(132, 46);
             btnDelete.TabIndex = 7;
             btnDelete.Text = "Delete";
             btnDelete.Click += BtnDelete_Click;
             // 
             // btnClear
             // 
+            btnClear.BorderRadius = 10;
             btnClear.CustomizableEdges = customizableEdges9;
-            btnClear.Font = new Font("Segoe UI", 9F);
+            btnClear.FillColor = Color.DarkTurquoise;
+            btnClear.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnClear.ForeColor = Color.White;
-            btnClear.Location = new Point(350, 400);
+            btnClear.Location = new Point(845, 617);
             btnClear.Name = "btnClear";
             btnClear.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            btnClear.Size = new Size(100, 40);
+            btnClear.Size = new Size(132, 46);
             btnClear.TabIndex = 8;
             btnClear.Text = "Clear";
             btnClear.Click += BtnClear_Click;
@@ -192,7 +203,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             // 
             pbCompanyImage.CustomizableEdges = customizableEdges11;
             pbCompanyImage.ImageRotate = 0F;
-            pbCompanyImage.Location = new Point(510, 347);
+            pbCompanyImage.Location = new Point(956, 432);
             pbCompanyImage.Name = "pbCompanyImage";
             pbCompanyImage.ShadowDecoration.CustomizableEdges = customizableEdges12;
             pbCompanyImage.Size = new Size(100, 100);
@@ -202,10 +213,11 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             // 
             // btnSelectImage
             // 
+            btnSelectImage.BorderRadius = 10;
             btnSelectImage.CustomizableEdges = customizableEdges13;
-            btnSelectImage.Font = new Font("Segoe UI", 9F);
+            btnSelectImage.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSelectImage.ForeColor = Color.White;
-            btnSelectImage.Location = new Point(620, 347);
+            btnSelectImage.Location = new Point(956, 538);
             btnSelectImage.Name = "btnSelectImage";
             btnSelectImage.ShadowDecoration.CustomizableEdges = customizableEdges14;
             btnSelectImage.Size = new Size(100, 30);
@@ -217,10 +229,21 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             // 
             guna2Elipse1.TargetControl = this;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Montserrat", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(387, 41);
+            label1.Name = "label1";
+            label1.Size = new Size(565, 39);
+            label1.TabIndex = 9;
+            label1.Text = "ADD TOUR PROVIDER INFORMATION";
+            // 
             // UC_ManageTourBrand
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label1);
             Controls.Add(dgvTourBrands);
             Controls.Add(lblCompanyName);
             Controls.Add(txtCompanyName);
@@ -235,8 +258,10 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             ((System.ComponentModel.ISupportInitialize)dgvTourBrands).EndInit();
             ((System.ComponentModel.ISupportInitialize)pbCompanyImage).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         private Guna2Elipse guna2Elipse1;
+        private Label label1;
     }
 }

@@ -154,6 +154,7 @@
             // 
             // pictureBoxAvatar
             // 
+            pictureBoxAvatar.BackColor = Color.Transparent;
             pictureBoxAvatar.ImageRotate = 0F;
             pictureBoxAvatar.Location = new Point(200, 90);
             pictureBoxAvatar.Name = "pictureBoxAvatar";
@@ -273,7 +274,7 @@
             Controls.Add(guna2GroupBoxPassword);
             Controls.Add(guna2GroupBoxPersonalInfo);
             Name = "UC_HotelProviderInformation";
-            Size = new Size(1106, 642);
+            Size = new Size(1423, 642);
             guna2GroupBoxPersonalInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxAvatar).EndInit();
             guna2GroupBoxPassword.ResumeLayout(false);

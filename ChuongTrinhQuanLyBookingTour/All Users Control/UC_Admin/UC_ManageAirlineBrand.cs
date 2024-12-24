@@ -210,5 +210,10 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
                 }
             }
         }
+
+        private void UC_ManageAirlineBrand_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -61,16 +61,17 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Century", 18F, FontStyle.Bold);
+            label1.Font = new Font("Montserrat", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(110, 58);
             label1.Name = "label1";
-            label1.Size = new Size(220, 35);
+            label1.Size = new Size(239, 41);
             label1.TabIndex = 0;
             label1.Text = "Đặt chuyến đi";
             // 
             // cmbStarting
             // 
             cmbStarting.BackColor = Color.Transparent;
+            cmbStarting.BorderRadius = 5;
             cmbStarting.CustomizableEdges = customizableEdges1;
             cmbStarting.DrawMode = DrawMode.OwnerDrawFixed;
             cmbStarting.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -88,26 +89,27 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Font = new Font("Century Gothic", 10.8F);
-            label2.Location = new Point(110, 206);
+            label2.Font = new Font("Montserrat", 12F);
+            label2.Location = new Point(108, 199);
             label2.Name = "label2";
-            label2.Size = new Size(72, 21);
+            label2.Size = new Size(91, 27);
             label2.TabIndex = 2;
             label2.Text = "Điểm đi";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Font = new Font("Century Gothic", 10.8F);
-            label3.Location = new Point(110, 287);
+            label3.Font = new Font("Montserrat", 12F);
+            label3.Location = new Point(110, 280);
             label3.Name = "label3";
-            label3.Size = new Size(88, 21);
+            label3.Size = new Size(112, 27);
             label3.TabIndex = 4;
             label3.Text = "Điểm đến";
             // 
             // cmbDestination
             // 
             cmbDestination.BackColor = Color.Transparent;
+            cmbDestination.BorderRadius = 5;
             cmbDestination.CustomizableEdges = customizableEdges3;
             cmbDestination.DrawMode = DrawMode.OwnerDrawFixed;
             cmbDestination.DropDownStyle = ComboBoxStyle.DropDownList;
@@ -125,17 +127,19 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Century Gothic", 10.8F);
-            label4.Location = new Point(110, 376);
+            label4.Font = new Font("Montserrat", 12F);
+            label4.Location = new Point(110, 370);
             label4.Name = "label4";
-            label4.Size = new Size(78, 21);
+            label4.Size = new Size(89, 27);
             label4.TabIndex = 5;
             label4.Text = "Ngày đi";
             // 
             // dtpStartDate
             // 
+            dtpStartDate.BorderRadius = 5;
             dtpStartDate.Checked = true;
             dtpStartDate.CustomizableEdges = customizableEdges5;
+            dtpStartDate.FillColor = Color.Turquoise;
             dtpStartDate.Font = new Font("Segoe UI", 9F);
             dtpStartDate.Format = DateTimePickerFormat.Long;
             dtpStartDate.Location = new Point(110, 400);
@@ -149,8 +153,10 @@
             // 
             // dtpReturnDate
             // 
+            dtpReturnDate.BorderRadius = 5;
             dtpReturnDate.Checked = true;
             dtpReturnDate.CustomizableEdges = customizableEdges7;
+            dtpReturnDate.FillColor = Color.Turquoise;
             dtpReturnDate.Font = new Font("Segoe UI", 9F);
             dtpReturnDate.Format = DateTimePickerFormat.Long;
             dtpReturnDate.Location = new Point(110, 492);
@@ -165,10 +171,10 @@
             // label5
             // 
             label5.AutoSize = true;
-            label5.Font = new Font("Century Gothic", 10.8F);
-            label5.Location = new Point(110, 468);
+            label5.Font = new Font("Montserrat", 12F);
+            label5.Location = new Point(110, 462);
             label5.Name = "label5";
-            label5.Size = new Size(94, 21);
+            label5.Size = new Size(110, 27);
             label5.TabIndex = 7;
             label5.Text = "Ngày đến";
             // 
@@ -185,7 +191,7 @@
             btnSearchTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnSearchTour.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnSearchTour.FillColor = Color.White;
-            btnSearchTour.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            btnSearchTour.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSearchTour.ForeColor = Color.Black;
             btnSearchTour.Location = new Point(119, 656);
             btnSearchTour.Name = "btnSearchTour";
@@ -198,10 +204,10 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Font = new Font("Century", 18F, FontStyle.Bold);
+            label8.Font = new Font("Montserrat", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.Location = new Point(1128, 49);
             label8.Name = "label8";
-            label8.Size = new Size(221, 35);
+            label8.Size = new Size(241, 41);
             label8.TabIndex = 22;
             label8.Text = "Các chuyến đi";
             // 
@@ -218,7 +224,7 @@
             btnBookTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnBookTour.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
             btnBookTour.FillColor = Color.White;
-            btnBookTour.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
+            btnBookTour.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnBookTour.ForeColor = Color.Black;
             btnBookTour.Location = new Point(1138, 775);
             btnBookTour.Name = "btnBookTour";

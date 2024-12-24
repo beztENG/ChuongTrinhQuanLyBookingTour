@@ -14,16 +14,10 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel guna2LabelMethod;
         private Label lblBookingType;
         private Label lblAirline;
-        private Label lblDepartureDate;
         private Label lblHotelID;
-        private Label lblRoomID;
-        private Label lblCheckInDate;
         private Label lblPrice;
         private Label lblTourName;
-        private Label lblStartingDate;
         private Label lblReturnDate;
-        private Label lblStarting;
-        private Label lblDestination;
 
 
         /// <summary>
@@ -62,71 +56,27 @@
             guna2LabelAmount = new Guna.UI2.WinForms.Guna2HtmlLabel();
             guna2ButtonSubmit = new Guna.UI2.WinForms.Guna2Button();
             guna2ButtonCancel = new Guna.UI2.WinForms.Guna2Button();
+            lblBookingType = new Label();
+            lblHotelID = new Label();
+            lblPrice = new Label();
+            lblAirline = new Label();
+            lblTourName = new Label();
+            lblReturnDate = new Label();
+            lblStartingDate = new Label();
+            lblDestination = new Label();
+            lblStarting = new Label();
+            lblDepartureDate = new Label();
+            lblCheckInDate = new Label();
+            lblRoomID = new Label();
             SuspendLayout();
-           
-
-            // Khởi tạo các label mới
-            this.lblBookingType = new System.Windows.Forms.Label();
-            this.lblHotelID = new System.Windows.Forms.Label();
-            this.lblRoomID = new System.Windows.Forms.Label();
-            this.lblCheckInDate = new System.Windows.Forms.Label();
-            this.lblPrice = new System.Windows.Forms.Label();
-            this.lblAirline = new System.Windows.Forms.Label();
-            this.lblDepartureDate = new System.Windows.Forms.Label();
-            this.lblTourName = new System.Windows.Forms.Label();
-            this.lblStarting = new System.Windows.Forms.Label();
-            this.lblDestination = new System.Windows.Forms.Label();
-            this.lblStartingDate = new System.Windows.Forms.Label();
-            this.lblReturnDate = new System.Windows.Forms.Label();
-
-            // Thiết lập thuộc tính cho các label
-
-            this.lblHotelID.AutoSize = true;
-            this.lblRoomID.AutoSize = true;
-            this.lblCheckInDate.AutoSize = true;
-            this.lblPrice.AutoSize = true;
-            this.lblAirline.AutoSize = true;
-            this.lblDepartureDate.AutoSize = true;
-            this.lblTourName.AutoSize = true;
-            this.lblStarting.AutoSize = true;
-            this.lblDestination.AutoSize = true;
-            this.lblStartingDate.AutoSize = true;
-            this.lblReturnDate.AutoSize = true;
-
-            // Đặt vị trí cho các label
-            this.lblBookingType.Location = new System.Drawing.Point(20,20);
-            this.lblHotelID.Location = new System.Drawing.Point(20, 50);
-            this.lblRoomID.Location = new System.Drawing.Point(20, 80);
-            this.lblCheckInDate.Location = new System.Drawing.Point(20, 110);       
-            this.lblAirline.Location = new System.Drawing.Point(20, 50);
-            this.lblDepartureDate.Location = new System.Drawing.Point(20, 80);
-            this.lblTourName.Location = new System.Drawing.Point(20, 50);
-            this.lblStarting.Location = new System.Drawing.Point(20, 80);
-            this.lblDestination.Location = new System.Drawing.Point(20, 110);
-            this.lblStartingDate.Location = new System.Drawing.Point(20, 140);
-            this.lblReturnDate.Location = new System.Drawing.Point(20, 170);
-            this.lblPrice.Location = new System.Drawing.Point(20, 200);
-            // Thêm các label vào form
-            this.Controls.Add(this.lblBookingType);
-            this.Controls.Add(this.lblHotelID);
-            this.Controls.Add(this.lblRoomID);
-            this.Controls.Add(this.lblCheckInDate);
-            this.Controls.Add(this.lblPrice);
-            this.Controls.Add(this.lblAirline);
-            this.Controls.Add(this.lblDepartureDate);
-            this.Controls.Add(this.lblTourName);
-            this.Controls.Add(this.lblStarting);
-            this.Controls.Add(this.lblDestination);
-            this.Controls.Add(this.lblStartingDate);
-            this.Controls.Add(this.lblReturnDate);
             // 
             // guna2LabelTitle
             // 
             guna2LabelTitle.BackColor = Color.Transparent;
-            guna2LabelTitle.Font = new Font("Arial", 18F, FontStyle.Bold);
-            guna2LabelTitle.Location = new Point(150, 12);
+            guna2LabelTitle.Font = new Font("Montserrat", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            guna2LabelTitle.Location = new Point(356, 12);
             guna2LabelTitle.Name = "guna2LabelTitle";
-            guna2LabelTitle.Size = new Size(209, 37);
+            guna2LabelTitle.Size = new Size(237, 43);
             guna2LabelTitle.TabIndex = 0;
             guna2LabelTitle.Text = "Payment Form";
             // 
@@ -152,10 +102,10 @@
             // guna2LabelMethod
             // 
             guna2LabelMethod.BackColor = Color.Transparent;
-            guna2LabelMethod.Font = new Font("Arial", 12F);
+            guna2LabelMethod.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             guna2LabelMethod.Location = new Point(100, 70);
             guna2LabelMethod.Name = "guna2LabelMethod";
-            guna2LabelMethod.Size = new Size(152, 25);
+            guna2LabelMethod.Size = new Size(183, 29);
             guna2LabelMethod.TabIndex = 1;
             guna2LabelMethod.Text = "Payment Method";
             // 
@@ -179,36 +129,36 @@
             // guna2LabelAmount
             // 
             guna2LabelAmount.BackColor = Color.Transparent;
-            guna2LabelAmount.Font = new Font("Arial", 12F);
+            guna2LabelAmount.Font = new Font("Montserrat SemiBold", 12F, FontStyle.Bold);
             guna2LabelAmount.Location = new Point(100, 150);
             guna2LabelAmount.Name = "guna2LabelAmount";
-            guna2LabelAmount.Size = new Size(69, 25);
+            guna2LabelAmount.Size = new Size(88, 29);
             guna2LabelAmount.TabIndex = 2;
             guna2LabelAmount.Text = "Amount";
             // 
             // guna2ButtonSubmit
             // 
-            guna2ButtonSubmit.BorderRadius = 8;
+            guna2ButtonSubmit.BorderRadius = 10;
             guna2ButtonSubmit.CustomizableEdges = customizableEdges5;
-            guna2ButtonSubmit.FillColor = Color.SeaGreen;
-            guna2ButtonSubmit.Font = new Font("Arial", 12F);
+            guna2ButtonSubmit.FillColor = Color.DarkTurquoise;
+            guna2ButtonSubmit.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             guna2ButtonSubmit.ForeColor = Color.White;
-            guna2ButtonSubmit.Location = new Point(100, 250);
+            guna2ButtonSubmit.Location = new Point(213, 295);
             guna2ButtonSubmit.Name = "guna2ButtonSubmit";
             guna2ButtonSubmit.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            guna2ButtonSubmit.Size = new Size(130, 45);
+            guna2ButtonSubmit.Size = new Size(219, 45);
             guna2ButtonSubmit.TabIndex = 5;
             guna2ButtonSubmit.Text = "Submit Payment";
             guna2ButtonSubmit.Click += guna2ButtonSubmit_Click;
             // 
             // guna2ButtonCancel
             // 
-            guna2ButtonCancel.BorderRadius = 8;
+            guna2ButtonCancel.BorderRadius = 10;
             guna2ButtonCancel.CustomizableEdges = customizableEdges7;
-            guna2ButtonCancel.FillColor = Color.Tomato;
-            guna2ButtonCancel.Font = new Font("Arial", 12F);
+            guna2ButtonCancel.FillColor = Color.Red;
+            guna2ButtonCancel.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             guna2ButtonCancel.ForeColor = Color.White;
-            guna2ButtonCancel.Location = new Point(270, 250);
+            guna2ButtonCancel.Location = new Point(576, 295);
             guna2ButtonCancel.Name = "guna2ButtonCancel";
             guna2ButtonCancel.ShadowDecoration.CustomizableEdges = customizableEdges8;
             guna2ButtonCancel.Size = new Size(130, 45);
@@ -216,11 +166,129 @@
             guna2ButtonCancel.Text = "Cancel";
             guna2ButtonCancel.Click += guna2ButtonCancel_Click;
             // 
+            // lblBookingType
+            // 
+            lblBookingType.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblBookingType.Location = new Point(560, 82);
+            lblBookingType.Name = "lblBookingType";
+            lblBookingType.Size = new Size(100, 23);
+            lblBookingType.TabIndex = 0;
+            // 
+            // lblHotelID
+            // 
+            lblHotelID.AutoSize = true;
+            lblHotelID.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblHotelID.Location = new Point(560, 112);
+            lblHotelID.Name = "lblHotelID";
+            lblHotelID.Size = new Size(0, 24);
+            lblHotelID.TabIndex = 1;
+            // 
+            // lblPrice
+            // 
+            lblPrice.AutoSize = true;
+            lblPrice.Location = new Point(494, 250);
+            lblPrice.Name = "lblPrice";
+            lblPrice.Size = new Size(0, 20);
+            lblPrice.TabIndex = 4;
+            // 
+            // lblAirline
+            // 
+            lblAirline.AutoSize = true;
+            lblAirline.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblAirline.Location = new Point(560, 112);
+            lblAirline.Name = "lblAirline";
+            lblAirline.Size = new Size(0, 24);
+            lblAirline.TabIndex = 5;
+            // 
+            // lblTourName
+            // 
+            lblTourName.AutoSize = true;
+            lblTourName.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblTourName.Location = new Point(560, 112);
+            lblTourName.Name = "lblTourName";
+            lblTourName.Size = new Size(0, 24);
+            lblTourName.TabIndex = 7;
+            // 
+            // lblReturnDate
+            // 
+            lblReturnDate.AutoSize = true;
+            lblReturnDate.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblReturnDate.Location = new Point(560, 245);
+            lblReturnDate.Name = "lblReturnDate";
+            lblReturnDate.Size = new Size(0, 24);
+            lblReturnDate.TabIndex = 11;
+            // 
+            // lblStartingDate
+            // 
+            lblStartingDate.AutoSize = true;
+            lblStartingDate.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblStartingDate.Location = new Point(560, 215);
+            lblStartingDate.Name = "lblStartingDate";
+            lblStartingDate.Size = new Size(0, 24);
+            lblStartingDate.TabIndex = 10;
+            // 
+            // lblDestination
+            // 
+            lblDestination.AutoSize = true;
+            lblDestination.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblDestination.Location = new Point(560, 185);
+            lblDestination.Name = "lblDestination";
+            lblDestination.Size = new Size(0, 24);
+            lblDestination.TabIndex = 9;
+            // 
+            // lblStarting
+            // 
+            lblStarting.AutoSize = true;
+            lblStarting.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblStarting.Location = new Point(560, 155);
+            lblStarting.Name = "lblStarting";
+            lblStarting.Size = new Size(0, 24);
+            lblStarting.TabIndex = 8;
+            // 
+            // lblDepartureDate
+            // 
+            lblDepartureDate.AutoSize = true;
+            lblDepartureDate.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblDepartureDate.Location = new Point(560, 155);
+            lblDepartureDate.Name = "lblDepartureDate";
+            lblDepartureDate.Size = new Size(0, 24);
+            lblDepartureDate.TabIndex = 6;
+            // 
+            // lblCheckInDate
+            // 
+            lblCheckInDate.AutoSize = true;
+            lblCheckInDate.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblCheckInDate.Location = new Point(560, 185);
+            lblCheckInDate.Name = "lblCheckInDate";
+            lblCheckInDate.Size = new Size(0, 24);
+            lblCheckInDate.TabIndex = 3;
+            // 
+            // lblRoomID
+            // 
+            lblRoomID.AutoSize = true;
+            lblRoomID.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold);
+            lblRoomID.Location = new Point(560, 155);
+            lblRoomID.Name = "lblRoomID";
+            lblRoomID.Size = new Size(0, 24);
+            lblRoomID.TabIndex = 2;
+            // 
             // Payment
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(500, 400);
+            ClientSize = new Size(931, 400);
+            Controls.Add(lblBookingType);
+            Controls.Add(lblHotelID);
+            Controls.Add(lblRoomID);
+            Controls.Add(lblCheckInDate);
+            Controls.Add(lblPrice);
+            Controls.Add(lblAirline);
+            Controls.Add(lblDepartureDate);
+            Controls.Add(lblTourName);
+            Controls.Add(lblStarting);
+            Controls.Add(lblDestination);
+            Controls.Add(lblStartingDate);
+            Controls.Add(lblReturnDate);
             Controls.Add(guna2LabelTitle);
             Controls.Add(guna2LabelMethod);
             Controls.Add(guna2LabelAmount);
@@ -230,6 +298,7 @@
             Controls.Add(guna2ButtonCancel);
             Name = "Payment";
             Text = "Payment";
+            Load += Payment_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -237,12 +306,19 @@
         #endregion
 
         // Event handler for the Submit button
-       
+
 
         // Event handler for the Cancel button
         private void guna2ButtonCancel_Click(object sender, EventArgs e)
         {
             this.Close();  // Close the form when Cancel is clicked
         }
+
+        private Label lblStartingDate;
+        private Label lblDestination;
+        private Label lblStarting;
+        private Label lblDepartureDate;
+        private Label lblCheckInDate;
+        private Label lblRoomID;
     }
 }

@@ -126,5 +126,14 @@ namespace ChuongTrinhQuanLyBookingTour
             loginForm.Show();
         }
 
+        private void txtPhone_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Register_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

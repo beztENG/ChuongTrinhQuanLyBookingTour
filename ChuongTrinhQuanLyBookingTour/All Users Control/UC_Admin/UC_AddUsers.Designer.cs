@@ -29,22 +29,22 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges13 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges14 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges15 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges16 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges49 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges50 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges51 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges52 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges53 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges54 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges55 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges56 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges57 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges58 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges59 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges60 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges61 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges62 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges63 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges64 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             lblUsername = new Guna.UI2.WinForms.Guna2HtmlLabel();
             txtUsername = new Guna.UI2.WinForms.Guna2TextBox();
             lblPassword = new Guna.UI2.WinForms.Guna2HtmlLabel();
@@ -61,189 +61,206 @@
             cmbAssociation = new Guna.UI2.WinForms.Guna2ComboBox();
             btnAddUser = new Guna.UI2.WinForms.Guna2Button();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            label1 = new Label();
             SuspendLayout();
             // 
             // lblUsername
             // 
             lblUsername.BackColor = Color.Transparent;
-            lblUsername.Location = new Point(30, 20);
+            lblUsername.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            lblUsername.Location = new Point(207, 349);
             lblUsername.Name = "lblUsername";
-            lblUsername.Size = new Size(72, 22);
+            lblUsername.Size = new Size(117, 29);
             lblUsername.TabIndex = 0;
             lblUsername.Text = "Username:";
             // 
             // txtUsername
             // 
-            txtUsername.CustomizableEdges = customizableEdges1;
+            txtUsername.BorderRadius = 5;
+            txtUsername.CustomizableEdges = customizableEdges49;
             txtUsername.DefaultText = "";
-            txtUsername.Font = new Font("Segoe UI", 9F);
-            txtUsername.Location = new Point(231, 20);
-            txtUsername.Margin = new Padding(3, 4, 3, 4);
+            txtUsername.Font = new Font("Montserrat", 10.2F);
+            txtUsername.Location = new Point(341, 349);
+            txtUsername.Margin = new Padding(4, 5, 4, 5);
             txtUsername.Name = "txtUsername";
             txtUsername.PasswordChar = '\0';
             txtUsername.PlaceholderText = "Enter Username";
             txtUsername.SelectedText = "";
-            txtUsername.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtUsername.Size = new Size(250, 36);
+            txtUsername.ShadowDecoration.CustomizableEdges = customizableEdges50;
+            txtUsername.Size = new Size(343, 43);
             txtUsername.TabIndex = 1;
             // 
             // lblPassword
             // 
             lblPassword.BackColor = Color.Transparent;
-            lblPassword.Location = new Point(30, 70);
+            lblPassword.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            lblPassword.Location = new Point(207, 409);
             lblPassword.Name = "lblPassword";
-            lblPassword.Size = new Size(68, 22);
+            lblPassword.Size = new Size(112, 29);
             lblPassword.TabIndex = 2;
             lblPassword.Text = "Password:";
             // 
             // txtPassword
             // 
-            txtPassword.CustomizableEdges = customizableEdges3;
+            txtPassword.BorderRadius = 5;
+            txtPassword.CustomizableEdges = customizableEdges51;
             txtPassword.DefaultText = "";
-            txtPassword.Font = new Font("Segoe UI", 9F);
-            txtPassword.Location = new Point(231, 70);
-            txtPassword.Margin = new Padding(3, 4, 3, 4);
+            txtPassword.Font = new Font("Montserrat", 10.2F);
+            txtPassword.Location = new Point(341, 409);
+            txtPassword.Margin = new Padding(4, 5, 4, 5);
             txtPassword.Name = "txtPassword";
             txtPassword.PasswordChar = '*';
             txtPassword.PlaceholderText = "Enter Password";
             txtPassword.SelectedText = "";
-            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtPassword.Size = new Size(250, 36);
+            txtPassword.ShadowDecoration.CustomizableEdges = customizableEdges52;
+            txtPassword.Size = new Size(343, 43);
             txtPassword.TabIndex = 3;
             // 
             // lblFullName
             // 
             lblFullName.BackColor = Color.Transparent;
-            lblFullName.Location = new Point(30, 120);
+            lblFullName.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            lblFullName.Location = new Point(207, 469);
             lblFullName.Name = "lblFullName";
-            lblFullName.Size = new Size(73, 22);
+            lblFullName.Size = new Size(115, 29);
             lblFullName.TabIndex = 4;
             lblFullName.Text = "Full Name:";
             // 
             // txtFullName
             // 
-            txtFullName.CustomizableEdges = customizableEdges5;
+            txtFullName.BorderRadius = 5;
+            txtFullName.CustomizableEdges = customizableEdges53;
             txtFullName.DefaultText = "";
-            txtFullName.Font = new Font("Segoe UI", 9F);
-            txtFullName.Location = new Point(231, 120);
-            txtFullName.Margin = new Padding(3, 4, 3, 4);
+            txtFullName.Font = new Font("Montserrat", 10.2F);
+            txtFullName.Location = new Point(341, 469);
+            txtFullName.Margin = new Padding(4, 5, 4, 5);
             txtFullName.Name = "txtFullName";
             txtFullName.PasswordChar = '\0';
             txtFullName.PlaceholderText = "Enter Full Name";
             txtFullName.SelectedText = "";
-            txtFullName.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtFullName.Size = new Size(250, 36);
+            txtFullName.ShadowDecoration.CustomizableEdges = customizableEdges54;
+            txtFullName.Size = new Size(343, 43);
             txtFullName.TabIndex = 5;
             // 
             // lblEmail
             // 
             lblEmail.BackColor = Color.Transparent;
-            lblEmail.Location = new Point(30, 170);
+            lblEmail.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            lblEmail.Location = new Point(207, 529);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(43, 22);
+            lblEmail.Size = new Size(66, 29);
             lblEmail.TabIndex = 6;
             lblEmail.Text = "Email:";
             // 
             // txtEmail
             // 
-            txtEmail.CustomizableEdges = customizableEdges7;
+            txtEmail.BorderRadius = 5;
+            txtEmail.CustomizableEdges = customizableEdges55;
             txtEmail.DefaultText = "";
-            txtEmail.Font = new Font("Segoe UI", 9F);
-            txtEmail.Location = new Point(231, 170);
-            txtEmail.Margin = new Padding(3, 4, 3, 4);
+            txtEmail.Font = new Font("Montserrat", 10.2F);
+            txtEmail.Location = new Point(341, 529);
+            txtEmail.Margin = new Padding(4, 5, 4, 5);
             txtEmail.Name = "txtEmail";
             txtEmail.PasswordChar = '\0';
             txtEmail.PlaceholderText = "Enter Email";
             txtEmail.SelectedText = "";
-            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            txtEmail.Size = new Size(250, 36);
+            txtEmail.ShadowDecoration.CustomizableEdges = customizableEdges56;
+            txtEmail.Size = new Size(343, 43);
             txtEmail.TabIndex = 7;
             // 
             // lblPhone
             // 
             lblPhone.BackColor = Color.Transparent;
-            lblPhone.Location = new Point(30, 220);
+            lblPhone.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            lblPhone.Location = new Point(740, 349);
             lblPhone.Name = "lblPhone";
-            lblPhone.Size = new Size(47, 22);
+            lblPhone.Size = new Size(77, 29);
             lblPhone.TabIndex = 8;
             lblPhone.Text = "Phone:";
             // 
             // txtPhone
             // 
-            txtPhone.CustomizableEdges = customizableEdges9;
+            txtPhone.BorderRadius = 5;
+            txtPhone.CustomizableEdges = customizableEdges57;
             txtPhone.DefaultText = "";
-            txtPhone.Font = new Font("Segoe UI", 9F);
-            txtPhone.Location = new Point(231, 220);
-            txtPhone.Margin = new Padding(3, 4, 3, 4);
+            txtPhone.Font = new Font("Montserrat", 10.2F);
+            txtPhone.Location = new Point(887, 349);
+            txtPhone.Margin = new Padding(4, 5, 4, 5);
             txtPhone.Name = "txtPhone";
             txtPhone.PasswordChar = '\0';
             txtPhone.PlaceholderText = "Enter Phone";
             txtPhone.SelectedText = "";
-            txtPhone.ShadowDecoration.CustomizableEdges = customizableEdges10;
-            txtPhone.Size = new Size(250, 36);
+            txtPhone.ShadowDecoration.CustomizableEdges = customizableEdges58;
+            txtPhone.Size = new Size(343, 43);
             txtPhone.TabIndex = 9;
             // 
             // lblRole
             // 
             lblRole.BackColor = Color.Transparent;
-            lblRole.Location = new Point(30, 270);
+            lblRole.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            lblRole.Location = new Point(740, 409);
             lblRole.Name = "lblRole";
-            lblRole.Size = new Size(36, 22);
+            lblRole.Size = new Size(55, 29);
             lblRole.TabIndex = 10;
             lblRole.Text = "Role:";
             // 
             // cmbRole
             // 
             cmbRole.BackColor = Color.Transparent;
-            cmbRole.CustomizableEdges = customizableEdges11;
+            cmbRole.BorderRadius = 5;
+            cmbRole.CustomizableEdges = customizableEdges59;
             cmbRole.DrawMode = DrawMode.OwnerDrawFixed;
             cmbRole.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbRole.FocusedColor = Color.Empty;
-            cmbRole.Font = new Font("Segoe UI", 10F);
+            cmbRole.Font = new Font("Montserrat", 10.2F);
             cmbRole.ForeColor = Color.FromArgb(68, 88, 112);
             cmbRole.ItemHeight = 30;
             cmbRole.Items.AddRange(new object[] { "HotelProvider", "AirlineProvider", "CompanyTourProvider" });
-            cmbRole.Location = new Point(231, 270);
+            cmbRole.Location = new Point(887, 409);
             cmbRole.Name = "cmbRole";
-            cmbRole.ShadowDecoration.CustomizableEdges = customizableEdges12;
-            cmbRole.Size = new Size(250, 36);
+            cmbRole.ShadowDecoration.CustomizableEdges = customizableEdges60;
+            cmbRole.Size = new Size(343, 36);
             cmbRole.TabIndex = 11;
             cmbRole.SelectedIndexChanged += cmbRole_SelectedIndexChanged;
             // 
             // lblAssociation
             // 
             lblAssociation.BackColor = Color.Transparent;
-            lblAssociation.Location = new Point(30, 320);
+            lblAssociation.Font = new Font("Montserrat", 12F, FontStyle.Bold);
+            lblAssociation.Location = new Point(740, 469);
             lblAssociation.Name = "lblAssociation";
-            lblAssociation.Size = new Size(187, 22);
+            lblAssociation.Size = new Size(90, 29);
             lblAssociation.TabIndex = 12;
-            lblAssociation.Text = "Assign to Hotel/Flight/Tour:";
+            lblAssociation.Text = "Provide:";
             // 
             // cmbAssociation
             // 
             cmbAssociation.BackColor = Color.Transparent;
-            cmbAssociation.CustomizableEdges = customizableEdges13;
+            cmbAssociation.BorderRadius = 5;
+            cmbAssociation.CustomizableEdges = customizableEdges61;
             cmbAssociation.DrawMode = DrawMode.OwnerDrawFixed;
             cmbAssociation.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAssociation.FocusedColor = Color.Empty;
-            cmbAssociation.Font = new Font("Segoe UI", 10F);
+            cmbAssociation.Font = new Font("Montserrat", 10.2F);
             cmbAssociation.ForeColor = Color.FromArgb(68, 88, 112);
             cmbAssociation.ItemHeight = 30;
-            cmbAssociation.Location = new Point(231, 320);
+            cmbAssociation.Location = new Point(887, 469);
             cmbAssociation.Name = "cmbAssociation";
-            cmbAssociation.ShadowDecoration.CustomizableEdges = customizableEdges14;
-            cmbAssociation.Size = new Size(250, 36);
+            cmbAssociation.ShadowDecoration.CustomizableEdges = customizableEdges62;
+            cmbAssociation.Size = new Size(343, 36);
             cmbAssociation.TabIndex = 13;
             // 
             // btnAddUser
             // 
-            btnAddUser.CustomizableEdges = customizableEdges15;
-            btnAddUser.Font = new Font("Segoe UI", 9F);
+            btnAddUser.BorderRadius = 10;
+            btnAddUser.CustomizableEdges = customizableEdges63;
+            btnAddUser.FillColor = Color.DarkTurquoise;
+            btnAddUser.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddUser.ForeColor = Color.White;
-            btnAddUser.Location = new Point(150, 370);
+            btnAddUser.Location = new Point(598, 597);
             btnAddUser.Name = "btnAddUser";
-            btnAddUser.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnAddUser.Size = new Size(250, 36);
+            btnAddUser.ShadowDecoration.CustomizableEdges = customizableEdges64;
+            btnAddUser.Size = new Size(227, 53);
             btnAddUser.TabIndex = 14;
             btnAddUser.Text = "Add User";
             btnAddUser.Click += btnAddUser_Click;
@@ -253,10 +270,22 @@
             guna2Elipse1.BorderRadius = 30;
             guna2Elipse1.TargetControl = this;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Montserrat", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(514, 235);
+            label1.Name = "label1";
+            label1.Size = new Size(395, 39);
+            label1.TabIndex = 15;
+            label1.Text = "ADD INFORMATION USER";
+            label1.Click += label1_Click;
+            // 
             // UC_AddUsers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label1);
             Controls.Add(lblUsername);
             Controls.Add(txtUsername);
             Controls.Add(lblPassword);
@@ -296,5 +325,6 @@
         private Guna.UI2.WinForms.Guna2HtmlLabel lblRole;
         private Guna.UI2.WinForms.Guna2HtmlLabel lblAssociation;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Label label1;
     }
 }

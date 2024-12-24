@@ -70,12 +70,13 @@
             // 
             // btnExit
             // 
+            btnExit.BackColor = Color.Transparent;
             btnExit.CustomizableEdges = customizableEdges1;
             btnExit.DisabledState.BorderColor = Color.DarkGray;
             btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
             btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnExit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnExit.FillColor = Color.FromArgb(192, 192, 255);
+            btnExit.FillColor = Color.Turquoise;
             btnExit.Font = new Font("Segoe UI", 9F);
             btnExit.ForeColor = Color.White;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
@@ -114,10 +115,10 @@
             btnApproval.DisabledState.CustomBorderColor = Color.DarkGray;
             btnApproval.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnApproval.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnApproval.FillColor = Color.FromArgb(192, 192, 255);
-            btnApproval.Font = new Font("Segoe UI", 9F);
+            btnApproval.FillColor = Color.DarkTurquoise;
+            btnApproval.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnApproval.ForeColor = Color.White;
-            btnApproval.Location = new Point(25, 632);
+            btnApproval.Location = new Point(24, 610);
             btnApproval.Name = "btnApproval";
             btnApproval.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnApproval.Size = new Size(180, 116);
@@ -133,13 +134,13 @@
             btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
             btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnLogout.FillColor = Color.FromArgb(33, 150, 243);
-            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.FillColor = Color.Red;
+            btnLogout.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(41, 980);
+            btnLogout.Location = new Point(41, 945);
             btnLogout.Name = "btnLogout";
             btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnLogout.Size = new Size(153, 65);
+            btnLogout.Size = new Size(145, 49);
             btnLogout.TabIndex = 14;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.Click += btnLogout_Click;
@@ -153,8 +154,8 @@
             btnDisableRoom.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDisableRoom.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnDisableRoom.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnDisableRoom.FillColor = Color.FromArgb(192, 192, 255);
-            btnDisableRoom.Font = new Font("Segoe UI", 9F);
+            btnDisableRoom.FillColor = Color.DarkTurquoise;
+            btnDisableRoom.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnDisableRoom.ForeColor = Color.White;
             btnDisableRoom.Location = new Point(24, 456);
             btnDisableRoom.Name = "btnDisableRoom";
@@ -183,10 +184,10 @@
             btnProfile.DisabledState.CustomBorderColor = Color.DarkGray;
             btnProfile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnProfile.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnProfile.FillColor = Color.FromArgb(192, 192, 255);
-            btnProfile.Font = new Font("Segoe UI", 9F);
+            btnProfile.FillColor = Color.DarkTurquoise;
+            btnProfile.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnProfile.ForeColor = Color.White;
-            btnProfile.Location = new Point(24, 819);
+            btnProfile.Location = new Point(24, 768);
             btnProfile.Name = "btnProfile";
             btnProfile.ShadowDecoration.CustomizableEdges = customizableEdges10;
             btnProfile.Size = new Size(180, 116);
@@ -203,8 +204,8 @@
             btnEditRoom.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditRoom.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnEditRoom.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnEditRoom.FillColor = Color.FromArgb(192, 192, 255);
-            btnEditRoom.Font = new Font("Segoe UI", 9F);
+            btnEditRoom.FillColor = Color.DarkTurquoise;
+            btnEditRoom.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnEditRoom.ForeColor = Color.White;
             btnEditRoom.Location = new Point(24, 311);
             btnEditRoom.Name = "btnEditRoom";
@@ -223,8 +224,8 @@
             btnAddRoom.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddRoom.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddRoom.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddRoom.FillColor = Color.FromArgb(192, 192, 255);
-            btnAddRoom.Font = new Font("Segoe UI", 9F);
+            btnAddRoom.FillColor = Color.DarkTurquoise;
+            btnAddRoom.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnAddRoom.ForeColor = Color.White;
             btnAddRoom.Location = new Point(24, 155);
             btnAddRoom.Name = "btnAddRoom";
@@ -281,9 +282,9 @@
             // uC_HotelProviderInformation1
             // 
             uC_HotelProviderInformation1.BackColor = Color.White;
-            uC_HotelProviderInformation1.Location = new Point(293, 44);
+            uC_HotelProviderInformation1.Location = new Point(255, 29);
             uC_HotelProviderInformation1.Name = "uC_HotelProviderInformation1";
-            uC_HotelProviderInformation1.Size = new Size(1382, 1000);
+            uC_HotelProviderInformation1.Size = new Size(1584, 1049);
             uC_HotelProviderInformation1.TabIndex = 6;
             // 
             // guna2Elipse5
@@ -293,16 +294,17 @@
             // uC_PayementApprovalHotel1
             // 
             uC_PayementApprovalHotel1.BackColor = Color.White;
-            uC_PayementApprovalHotel1.Location = new Point(293, 44);
+            uC_PayementApprovalHotel1.Location = new Point(335, 44);
             uC_PayementApprovalHotel1.Name = "uC_PayementApprovalHotel1";
-            uC_PayementApprovalHotel1.Size = new Size(1500, 625);
+            uC_PayementApprovalHotel1.Size = new Size(1345, 629);
             uC_PayementApprovalHotel1.TabIndex = 7;
+            uC_PayementApprovalHotel1.Load += uC_PayementApprovalHotel1_Load;
             // 
             // HotelProviderDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 192, 255);
+            BackColor = Color.Turquoise;
             ClientSize = new Size(1942, 1102);
             Controls.Add(uC_PayementApprovalHotel1);
             Controls.Add(uC_HotelProviderInformation1);

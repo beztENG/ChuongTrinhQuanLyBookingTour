@@ -104,5 +104,7 @@ namespace ChuongTrinhQuanLyBookingTour
             uC_PayementApprovalTour1.BringToFront();
             uC_PayementApprovalTour1.Visible = true;
         }
+
+      
     }
 }

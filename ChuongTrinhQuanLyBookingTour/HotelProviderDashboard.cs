@@ -86,8 +86,13 @@ namespace ChuongTrinhQuanLyBookingTour
 
         private void btnApproval_Click(object sender, EventArgs e)
         {
-          uC_PayementApprovalHotel1.BringToFront();
-          uC_PayementApprovalHotel1.Visible = true;
+            uC_PayementApprovalHotel1.BringToFront();
+            uC_PayementApprovalHotel1.Visible = true;
+        }
+
+        private void uC_PayementApprovalHotel1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

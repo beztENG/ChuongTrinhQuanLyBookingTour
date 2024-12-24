@@ -90,7 +90,7 @@
             guna2GradientPanel1.Location = new Point(0, 0);
             guna2GradientPanel1.Name = "guna2GradientPanel1";
             guna2GradientPanel1.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            guna2GradientPanel1.Size = new Size(231, 1102);
+            guna2GradientPanel1.Size = new Size(227, 1102);
             guna2GradientPanel1.TabIndex = 5;
             // 
             // guna2Button1
@@ -102,8 +102,8 @@
             guna2Button1.DisabledState.CustomBorderColor = Color.DarkGray;
             guna2Button1.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             guna2Button1.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            guna2Button1.FillColor = Color.FromArgb(192, 192, 255);
-            guna2Button1.Font = new Font("Segoe UI", 9F);
+            guna2Button1.FillColor = Color.DarkTurquoise;
+            guna2Button1.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2Button1.ForeColor = Color.White;
             guna2Button1.Location = new Point(25, 71);
             guna2Button1.Name = "guna2Button1";
@@ -121,13 +121,13 @@
             btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
             btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnLogout.FillColor = Color.FromArgb(33, 150, 243);
-            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.FillColor = Color.Red;
+            btnLogout.Font = new Font("Montserrat Medium", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(36, 946);
+            btnLogout.Location = new Point(25, 958);
             btnLogout.Name = "btnLogout";
             btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnLogout.Size = new Size(153, 65);
+            btnLogout.Size = new Size(180, 37);
             btnLogout.TabIndex = 12;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.Click += btnLogout_Click;
@@ -141,8 +141,8 @@
             btnManageAirline.DisabledState.CustomBorderColor = Color.DarkGray;
             btnManageAirline.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnManageAirline.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnManageAirline.FillColor = Color.FromArgb(192, 192, 255);
-            btnManageAirline.Font = new Font("Segoe UI", 9F);
+            btnManageAirline.FillColor = Color.DarkTurquoise;
+            btnManageAirline.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManageAirline.ForeColor = Color.White;
             btnManageAirline.Location = new Point(25, 788);
             btnManageAirline.Name = "btnManageAirline";
@@ -161,8 +161,8 @@
             btnManageCompanyTour.DisabledState.CustomBorderColor = Color.DarkGray;
             btnManageCompanyTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnManageCompanyTour.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnManageCompanyTour.FillColor = Color.FromArgb(192, 192, 255);
-            btnManageCompanyTour.Font = new Font("Segoe UI", 9F);
+            btnManageCompanyTour.FillColor = Color.DarkTurquoise;
+            btnManageCompanyTour.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManageCompanyTour.ForeColor = Color.White;
             btnManageCompanyTour.Location = new Point(25, 632);
             btnManageCompanyTour.Name = "btnManageCompanyTour";
@@ -181,8 +181,8 @@
             btnManageHotelBrand.DisabledState.CustomBorderColor = Color.DarkGray;
             btnManageHotelBrand.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnManageHotelBrand.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnManageHotelBrand.FillColor = Color.FromArgb(192, 192, 255);
-            btnManageHotelBrand.Font = new Font("Segoe UI", 9F);
+            btnManageHotelBrand.FillColor = Color.DarkTurquoise;
+            btnManageHotelBrand.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnManageHotelBrand.ForeColor = Color.White;
             btnManageHotelBrand.Location = new Point(25, 474);
             btnManageHotelBrand.Name = "btnManageHotelBrand";
@@ -201,8 +201,8 @@
             btnAddUser.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddUser.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddUser.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddUser.FillColor = Color.FromArgb(192, 192, 255);
-            btnAddUser.Font = new Font("Segoe UI", 9F);
+            btnAddUser.FillColor = Color.DarkTurquoise;
+            btnAddUser.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddUser.ForeColor = Color.White;
             btnAddUser.Location = new Point(25, 304);
             btnAddUser.Name = "btnAddUser";
@@ -215,12 +215,12 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(76, 28);
+            label1.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 28);
             label1.Name = "label1";
-            label1.Size = new Size(69, 24);
+            label1.Size = new Size(201, 24);
             label1.TabIndex = 7;
-            label1.Text = "Admin";
+            label1.Text = "Admin Managerment";
             // 
             // btnUserList
             // 
@@ -231,8 +231,8 @@
             btnUserList.DisabledState.CustomBorderColor = Color.DarkGray;
             btnUserList.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnUserList.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnUserList.FillColor = Color.FromArgb(192, 192, 255);
-            btnUserList.Font = new Font("Segoe UI", 9F);
+            btnUserList.FillColor = Color.DarkTurquoise;
+            btnUserList.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnUserList.ForeColor = Color.White;
             btnUserList.Location = new Point(25, 151);
             btnUserList.Name = "btnUserList";
@@ -262,7 +262,7 @@
             btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
             btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnExit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnExit.FillColor = Color.FromArgb(192, 192, 255);
+            btnExit.FillColor = Color.Turquoise;
             btnExit.Font = new Font("Segoe UI", 9F);
             btnExit.ForeColor = Color.White;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
@@ -343,7 +343,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 192, 255);
+            BackColor = Color.Turquoise;
             ClientSize = new Size(1942, 1102);
             Controls.Add(analyzeBrandForm1);
             Controls.Add(uC_ManageAirlineBrand2);

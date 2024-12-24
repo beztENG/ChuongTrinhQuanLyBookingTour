@@ -21,17 +21,17 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges17 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges18 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges19 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges20 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges21 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges22 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges23 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges24 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
             txtHotelName = new Guna.UI2.WinForms.Guna2TextBox();
             txtLocation = new Guna.UI2.WinForms.Guna2TextBox();
             txtRating = new Guna.UI2.WinForms.Guna2TextBox();
@@ -42,154 +42,164 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             btnUpdate = new Guna.UI2.WinForms.Guna2Button();
             dgvHotelBrands = new Guna.UI2.WinForms.Guna2DataGridView();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvHotelBrands).BeginInit();
             SuspendLayout();
             // 
             // txtHotelName
             // 
-            txtHotelName.CustomizableEdges = customizableEdges1;
+            txtHotelName.BorderRadius = 5;
+            txtHotelName.CustomizableEdges = customizableEdges17;
             txtHotelName.DefaultText = "";
             txtHotelName.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtHotelName.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtHotelName.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtHotelName.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtHotelName.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtHotelName.Font = new Font("Segoe UI", 9F);
+            txtHotelName.Font = new Font("Montserrat", 10.2F);
             txtHotelName.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtHotelName.Location = new Point(150, 50);
-            txtHotelName.Margin = new Padding(3, 4, 3, 4);
+            txtHotelName.Location = new Point(130, 135);
+            txtHotelName.Margin = new Padding(4, 5, 4, 5);
             txtHotelName.Name = "txtHotelName";
             txtHotelName.PasswordChar = '\0';
             txtHotelName.PlaceholderText = "Enter hotel name";
             txtHotelName.SelectedText = "";
-            txtHotelName.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtHotelName.Size = new Size(200, 22);
+            txtHotelName.ShadowDecoration.CustomizableEdges = customizableEdges18;
+            txtHotelName.Size = new Size(275, 34);
             txtHotelName.TabIndex = 0;
             // 
             // txtLocation
             // 
-            txtLocation.CustomizableEdges = customizableEdges3;
+            txtLocation.BorderRadius = 5;
+            txtLocation.CustomizableEdges = customizableEdges19;
             txtLocation.DefaultText = "";
             txtLocation.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtLocation.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtLocation.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtLocation.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtLocation.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLocation.Font = new Font("Segoe UI", 9F);
+            txtLocation.Font = new Font("Montserrat", 10.2F);
             txtLocation.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLocation.Location = new Point(150, 137);
-            txtLocation.Margin = new Padding(3, 4, 3, 4);
+            txtLocation.Location = new Point(488, 135);
+            txtLocation.Margin = new Padding(4, 5, 4, 5);
             txtLocation.Name = "txtLocation";
             txtLocation.PasswordChar = '\0';
             txtLocation.PlaceholderText = "Enter location";
             txtLocation.SelectedText = "";
-            txtLocation.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtLocation.Size = new Size(200, 22);
+            txtLocation.ShadowDecoration.CustomizableEdges = customizableEdges20;
+            txtLocation.Size = new Size(275, 34);
             txtLocation.TabIndex = 4;
             // 
             // txtRating
             // 
-            txtRating.CustomizableEdges = customizableEdges5;
+            txtRating.BorderRadius = 5;
+            txtRating.CustomizableEdges = customizableEdges21;
             txtRating.DefaultText = "";
             txtRating.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
             txtRating.DisabledState.FillColor = Color.FromArgb(226, 226, 226);
             txtRating.DisabledState.ForeColor = Color.FromArgb(138, 138, 138);
             txtRating.DisabledState.PlaceholderForeColor = Color.FromArgb(138, 138, 138);
             txtRating.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtRating.Font = new Font("Segoe UI", 9F);
+            txtRating.Font = new Font("Montserrat", 10.2F);
             txtRating.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtRating.Location = new Point(150, 227);
-            txtRating.Margin = new Padding(3, 4, 3, 4);
+            txtRating.Location = new Point(846, 135);
+            txtRating.Margin = new Padding(4, 5, 4, 5);
             txtRating.Name = "txtRating";
             txtRating.PasswordChar = '\0';
             txtRating.PlaceholderText = "Enter rating (1-5)";
             txtRating.SelectedText = "";
-            txtRating.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            txtRating.Size = new Size(200, 22);
+            txtRating.ShadowDecoration.CustomizableEdges = customizableEdges22;
+            txtRating.Size = new Size(275, 34);
             txtRating.TabIndex = 6;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(150, 26);
+            label1.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
+            label1.Location = new Point(130, 106);
             label1.Name = "label1";
-            label1.Size = new Size(93, 20);
+            label1.Size = new Size(120, 24);
             label1.TabIndex = 1;
             label1.Text = "Hotel Name:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(150, 113);
+            label3.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
+            label3.Location = new Point(488, 106);
             label3.Name = "label3";
-            label3.Size = new Size(69, 20);
+            label3.Size = new Size(90, 24);
             label3.TabIndex = 5;
             label3.Text = "Location:";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(150, 203);
+            label4.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
+            label4.Location = new Point(846, 106);
             label4.Name = "label4";
-            label4.Size = new Size(55, 20);
+            label4.Size = new Size(73, 24);
             label4.TabIndex = 7;
             label4.Text = "Rating:";
+            label4.Click += label4_Click;
             // 
             // btnSubmit
             // 
-            btnSubmit.CustomizableEdges = customizableEdges7;
-            btnSubmit.Font = new Font("Segoe UI", 9F);
+            btnSubmit.BorderRadius = 5;
+            btnSubmit.CustomizableEdges = customizableEdges23;
+            btnSubmit.FillColor = Color.DarkTurquoise;
+            btnSubmit.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(150, 307);
+            btnSubmit.Location = new Point(467, 519);
             btnSubmit.Name = "btnSubmit";
-            btnSubmit.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnSubmit.Size = new Size(100, 30);
+            btnSubmit.ShadowDecoration.CustomizableEdges = customizableEdges24;
+            btnSubmit.Size = new Size(142, 44);
             btnSubmit.TabIndex = 8;
             btnSubmit.Text = "Add Hotel";
             btnSubmit.Click += btnSubmit_Click;
             // 
             // btnUpdate
             // 
-            btnUpdate.CustomizableEdges = customizableEdges7;
-            btnUpdate.Font = new Font("Segoe UI", 9F);
+            btnUpdate.BorderRadius = 5;
+
+            btnUpdate.FillColor = Color.DarkTurquoise;
+            btnUpdate.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(260, 307);
+            btnUpdate.Location = new Point(641, 519);
             btnUpdate.Name = "btnUpdate";
-            btnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnUpdate.Size = new Size(100, 30);
+            btnUpdate.Size = new Size(142, 44);
             btnUpdate.TabIndex = 9;
             btnUpdate.Text = "Update";
             btnUpdate.Click += btnUpdate_Click;
             // 
             // dgvHotelBrands
             // 
-            dataGridViewCellStyle1.BackColor = Color.White;
-            dgvHotelBrands.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = Color.White;
+            dgvHotelBrands.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             dgvHotelBrands.BorderStyle = BorderStyle.Fixed3D;
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
-            dgvHotelBrands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
-            dgvHotelBrands.ColumnHeadersHeight = 4;
-            dgvHotelBrands.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.EnableResizing;
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = Color.White;
-            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
-            dgvHotelBrands.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle8.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.ForeColor = Color.White;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.True;
+            dgvHotelBrands.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dgvHotelBrands.ColumnHeadersHeight = 29;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = Color.White;
+            dataGridViewCellStyle9.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle9.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle9.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle9.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.False;
+            dgvHotelBrands.DefaultCellStyle = dataGridViewCellStyle9;
             dgvHotelBrands.GridColor = Color.FromArgb(231, 229, 255);
-            dgvHotelBrands.Location = new Point(400, 26);
+            dgvHotelBrands.Location = new Point(130, 177);
             dgvHotelBrands.Name = "dgvHotelBrands";
             dgvHotelBrands.RowHeadersVisible = false;
             dgvHotelBrands.RowHeadersWidth = 51;
-            dgvHotelBrands.Size = new Size(795, 324);
+            dgvHotelBrands.Size = new Size(991, 316);
             dgvHotelBrands.TabIndex = 10;
             dgvHotelBrands.ThemeStyle.AlternatingRowsStyle.BackColor = Color.White;
             dgvHotelBrands.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -218,10 +228,21 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             // 
             guna2Elipse1.TargetControl = this;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Montserrat", 16.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(338, 49);
+            label2.Name = "label2";
+            label2.Size = new Size(581, 39);
+            label2.TabIndex = 11;
+            label2.Text = "ADD HOTEL PROVIDER INFORMATION";
+            // 
             // UC_ManageHotelBrand
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label2);
             Controls.Add(btnUpdate);
             Controls.Add(dgvHotelBrands);
             Controls.Add(btnSubmit);
@@ -250,5 +271,6 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
         private Label label3;
         private Label label4;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Label label2;
     }
 }

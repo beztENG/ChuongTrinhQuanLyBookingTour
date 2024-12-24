@@ -30,15 +30,15 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges7 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges8 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges9 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges10 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges11 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
-            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges12 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges1 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges2 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges3 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges4 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges5 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
+            Guna.UI2.WinForms.Suite.CustomizableEdges customizableEdges6 = new Guna.UI2.WinForms.Suite.CustomizableEdges();
             dgvOrders = new Guna.UI2.WinForms.Guna2DataGridView();
             btnApprove = new Guna.UI2.WinForms.Guna2Button();
             btnReject = new Guna.UI2.WinForms.Guna2Button();
@@ -52,25 +52,25 @@
             // 
             dgvOrders.AllowUserToAddRows = false;
             dgvOrders.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = Color.White;
-            dgvOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = Color.FromArgb(100, 88, 255);
-            dataGridViewCellStyle5.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle5.ForeColor = Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = DataGridViewTriState.True;
-            dgvOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = Color.White;
+            dgvOrders.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = Color.FromArgb(100, 88, 255);
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = Color.White;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
+            dgvOrders.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dgvOrders.ColumnHeadersHeight = 29;
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = Color.White;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.SelectionBackColor = Color.FromArgb(231, 229, 255);
-            dataGridViewCellStyle6.SelectionForeColor = Color.FromArgb(71, 69, 94);
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dgvOrders.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = Color.White;
+            dataGridViewCellStyle3.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle3.ForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.SelectionBackColor = Color.FromArgb(231, 229, 255);
+            dataGridViewCellStyle3.SelectionForeColor = Color.FromArgb(71, 69, 94);
+            dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
+            dgvOrders.DefaultCellStyle = dataGridViewCellStyle3;
             dgvOrders.GridColor = Color.FromArgb(231, 229, 255);
             dgvOrders.Location = new Point(20, 20);
             dgvOrders.Name = "dgvOrders";
@@ -103,12 +103,14 @@
             // 
             // btnApprove
             // 
-            btnApprove.CustomizableEdges = customizableEdges7;
-            btnApprove.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnApprove.BorderRadius = 5;
+            btnApprove.CustomizableEdges = customizableEdges1;
+            btnApprove.FillColor = Color.DarkTurquoise;
+            btnApprove.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnApprove.ForeColor = Color.White;
             btnApprove.Location = new Point(20, 440);
             btnApprove.Name = "btnApprove";
-            btnApprove.ShadowDecoration.CustomizableEdges = customizableEdges8;
+            btnApprove.ShadowDecoration.CustomizableEdges = customizableEdges2;
             btnApprove.Size = new Size(120, 45);
             btnApprove.TabIndex = 1;
             btnApprove.Text = "Approve";
@@ -116,12 +118,14 @@
             // 
             // btnReject
             // 
-            btnReject.CustomizableEdges = customizableEdges9;
-            btnReject.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnReject.BorderRadius = 5;
+            btnReject.CustomizableEdges = customizableEdges3;
+            btnReject.FillColor = Color.Red;
+            btnReject.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnReject.ForeColor = Color.White;
             btnReject.Location = new Point(160, 440);
             btnReject.Name = "btnReject";
-            btnReject.ShadowDecoration.CustomizableEdges = customizableEdges10;
+            btnReject.ShadowDecoration.CustomizableEdges = customizableEdges4;
             btnReject.Size = new Size(120, 45);
             btnReject.TabIndex = 2;
             btnReject.Text = "Reject";
@@ -129,9 +133,9 @@
             // 
             // txtOrderDetails
             // 
-            txtOrderDetails.CustomizableEdges = customizableEdges11;
+            txtOrderDetails.CustomizableEdges = customizableEdges5;
             txtOrderDetails.DefaultText = "";
-            txtOrderDetails.Font = new Font("Segoe UI", 9F);
+            txtOrderDetails.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             txtOrderDetails.Location = new Point(20, 340);
             txtOrderDetails.Margin = new Padding(3, 4, 3, 4);
             txtOrderDetails.Multiline = true;
@@ -140,16 +144,16 @@
             txtOrderDetails.PlaceholderText = "Order Details";
             txtOrderDetails.ReadOnly = true;
             txtOrderDetails.SelectedText = "";
-            txtOrderDetails.ShadowDecoration.CustomizableEdges = customizableEdges12;
+            txtOrderDetails.ShadowDecoration.CustomizableEdges = customizableEdges6;
             txtOrderDetails.Size = new Size(800, 80);
             txtOrderDetails.TabIndex = 2;
             // 
             // lblOrderDetails
             // 
-            lblOrderDetails.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            lblOrderDetails.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lblOrderDetails.Location = new Point(20, 310);
             lblOrderDetails.Name = "lblOrderDetails";
-            lblOrderDetails.Size = new Size(120, 25);
+            lblOrderDetails.Size = new Size(134, 25);
             lblOrderDetails.TabIndex = 3;
             lblOrderDetails.Text = "Order Details";
             // 

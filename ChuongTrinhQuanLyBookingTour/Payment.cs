@@ -16,7 +16,7 @@ namespace ChuongTrinhQuanLyBookingTour
             InitializeComponent();
             _bookingInfo = bookingInfo;
 
-           
+
             DisplayBookingInfo();
         }
 
@@ -33,9 +33,9 @@ namespace ChuongTrinhQuanLyBookingTour
                 lblBookingType.Text = "Hotel Booking";
                 lblHotelID.Text = $"Hotel ID: {_bookingInfo.HotelID}";
                 lblRoomID.Text = $"Room ID: {_bookingInfo.RoomID}";
-                lblCheckInDate.Text = $"Check-in Date: {_bookingInfo.CheckInDate?.ToShortDateString()}";      
+                lblCheckInDate.Text = $"Check-in Date: {_bookingInfo.CheckInDate?.ToShortDateString()}";
             }
-            else if(_bookingInfo.BookingType == "Tour")
+            else if (_bookingInfo.BookingType == "Tour")
             {
                 lblBookingType.Text = "Tour Booking";
                 lblTourName.Text = $"Tour Name: {_bookingInfo.TourName}";
@@ -50,7 +50,7 @@ namespace ChuongTrinhQuanLyBookingTour
 
             // Chặn người dùng nhập vào giá
             guna2TextBoxAmount.Text = _bookingInfo.Price.ToString("F2");
-            guna2TextBoxAmount.Enabled = false; 
+            guna2TextBoxAmount.Enabled = false;
         }
         private void guna2ButtonSubmit_Click(object sender, EventArgs e)
         {
@@ -65,7 +65,7 @@ namespace ChuongTrinhQuanLyBookingTour
 
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
-                SqlTransaction transaction = null; 
+                SqlTransaction transaction = null;
                 SqlCommand bookingCmd = null;
                 SqlCommand approvalCmd = null;
                 int bookingID = 0;
@@ -73,9 +73,9 @@ namespace ChuongTrinhQuanLyBookingTour
                 try
                 {
                     conn.Open();
-                    transaction = conn.BeginTransaction();  
-                   
-                    
+                    transaction = conn.BeginTransaction();
+
+
                     if (_bookingInfo.BookingType == "Flight")
                     {
                         string airlineQuery = "SELECT AirlineID FROM Flights WHERE FlightID = @FlightID";
@@ -96,7 +96,7 @@ namespace ChuongTrinhQuanLyBookingTour
                         INSERT INTO FlightBookings (UserID, FlightID, BookingDate, PaymentStatus, Status) 
                         OUTPUT INSERTED.FlightBookingID 
                         VALUES (@UserID, @FlightID, @BookingDate, 'Paid', 'Pending Approval')";
-                        bookingCmd = new SqlCommand(flightBookingQuery, conn, transaction); 
+                        bookingCmd = new SqlCommand(flightBookingQuery, conn, transaction);
                         bookingCmd.Parameters.AddWithValue("@UserID", _bookingInfo.UserID);
                         bookingCmd.Parameters.AddWithValue("@FlightID", _bookingInfo.FlightID);
                         bookingCmd.Parameters.AddWithValue("@BookingDate", DateTime.Now);
@@ -104,7 +104,7 @@ namespace ChuongTrinhQuanLyBookingTour
                         bookingID = (int)bookingCmd.ExecuteScalar();
                         MessageBox.Show($"AirlineID: {_bookingInfo.AirlineID}");
 
-                       
+
                         string getEmployeesQuery = "SELECT EmployeeID FROM AirlineEmployees WHERE AirlineID = @AirlineID";
                         SqlCommand getEmployeesCmd = new SqlCommand(getEmployeesQuery, conn, transaction);
                         getEmployeesCmd.Parameters.AddWithValue("@AirlineID", _bookingInfo.AirlineID);
@@ -239,6 +239,11 @@ namespace ChuongTrinhQuanLyBookingTour
         private void btnCancel_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void Payment_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

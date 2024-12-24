@@ -95,8 +95,8 @@
             btnApproval.DisabledState.CustomBorderColor = Color.DarkGray;
             btnApproval.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnApproval.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnApproval.FillColor = Color.FromArgb(192, 192, 255);
-            btnApproval.Font = new Font("Segoe UI", 9F);
+            btnApproval.FillColor = Color.DarkTurquoise;
+            btnApproval.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnApproval.ForeColor = Color.White;
             btnApproval.Location = new Point(24, 651);
             btnApproval.Name = "btnApproval";
@@ -114,13 +114,13 @@
             btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
             btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnLogout.FillColor = Color.FromArgb(33, 150, 243);
-            btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnLogout.FillColor = Color.Red;
+            btnLogout.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(41, 1002);
+            btnLogout.Location = new Point(41, 973);
             btnLogout.Name = "btnLogout";
             btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnLogout.Size = new Size(153, 65);
+            btnLogout.Size = new Size(155, 65);
             btnLogout.TabIndex = 13;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.Click += btnLogout_Click;
@@ -134,8 +134,8 @@
             btnDisableFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnDisableFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnDisableFlight.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnDisableFlight.FillColor = Color.FromArgb(192, 192, 255);
-            btnDisableFlight.Font = new Font("Segoe UI", 9F);
+            btnDisableFlight.FillColor = Color.DarkTurquoise;
+            btnDisableFlight.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnDisableFlight.ForeColor = Color.White;
             btnDisableFlight.Location = new Point(24, 478);
             btnDisableFlight.Name = "btnDisableFlight";
@@ -164,8 +164,8 @@
             btnProfile.DisabledState.CustomBorderColor = Color.DarkGray;
             btnProfile.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnProfile.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnProfile.FillColor = Color.FromArgb(192, 192, 255);
-            btnProfile.Font = new Font("Segoe UI", 9F);
+            btnProfile.FillColor = Color.DarkTurquoise;
+            btnProfile.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnProfile.ForeColor = Color.White;
             btnProfile.Location = new Point(24, 818);
             btnProfile.Name = "btnProfile";
@@ -184,8 +184,8 @@
             btnEditFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnEditFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnEditFlight.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnEditFlight.FillColor = Color.FromArgb(192, 192, 255);
-            btnEditFlight.Font = new Font("Segoe UI", 9F);
+            btnEditFlight.FillColor = Color.DarkTurquoise;
+            btnEditFlight.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnEditFlight.ForeColor = Color.White;
             btnEditFlight.Location = new Point(24, 317);
             btnEditFlight.Name = "btnEditFlight";
@@ -204,8 +204,8 @@
             btnAddFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddFlight.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddFlight.FillColor = Color.FromArgb(192, 192, 255);
-            btnAddFlight.Font = new Font("Segoe UI", 9F);
+            btnAddFlight.FillColor = Color.DarkTurquoise;
+            btnAddFlight.Font = new Font("Montserrat", 10.2F, FontStyle.Bold);
             btnAddFlight.ForeColor = Color.White;
             btnAddFlight.Location = new Point(24, 155);
             btnAddFlight.Name = "btnAddFlight";
@@ -295,14 +295,14 @@
             uC_PayementApproval1.BackColor = Color.White;
             uC_PayementApproval1.Location = new Point(271, 44);
             uC_PayementApproval1.Name = "uC_PayementApproval1";
-            uC_PayementApproval1.Size = new Size(1062, 625);
+            uC_PayementApproval1.Size = new Size(1349, 625);
             uC_PayementApproval1.TabIndex = 10;
             // 
             // AirlineProviderDashboard
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 192, 255);
+            BackColor = Color.Turquoise;
             ClientSize = new Size(1942, 1102);
             Controls.Add(uC_PayementApproval1);
             Controls.Add(uC_EditFlight2);

@@ -61,37 +61,36 @@ namespace ChuongTrinhQuanLyBookingTour
 
         private void btnLogout_Click(object sender, EventArgs e)
         {
-            //if (GlobalUserInfo.UserID == 0)
-            //{
-            //    MessageBox.Show("Không thể đăng xuất vì không có UserID.", "Lỗi Logout", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //using (SqlConnection conn = new SqlConnection(connectionString))
-            //{
-            //    conn.Open();
-            //    string query = "UPDATE Users SET IsLoggedIn = 0 WHERE UserID = @UserID";
-            //    SqlCommand cmd = new SqlCommand(query, conn);
-            //    cmd.Parameters.AddWithValue("@UserID", GlobalUserInfo.UserID);
-
-            //    int rowsAffected = cmd.ExecuteNonQuery();
-            //    if (rowsAffected > 0)
-            //    {
-            //        MessageBox.Show("Đã đăng xuất thành công!", "Thông báo");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show("Không thể cập nhật trạng thái đăng xuất.", "Lỗi Logout");
-            //    }
-            //}
-
-            // Đóng tất cả form và mở lại màn hình đăng nhập
-            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
+            if (GlobalUserInfo.UserID == 0)
             {
-                form.Close();
+                MessageBox.Show("Không thể đăng xuất vì không có UserID.", "Lỗi Logout", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            new Form1().Show();
+
+            using (SqlConnection conn = new SqlConnection(connectionString))
+            {
+                conn.Open();
+                string query = "UPDATE Users SET IsLoggedIn = 0 WHERE UserID = @UserID";
+                SqlCommand cmd = new SqlCommand(query, conn);
+                cmd.Parameters.AddWithValue("@UserID", GlobalUserInfo.UserID);
+
+                int rowsAffected = cmd.ExecuteNonQuery();
+                if (rowsAffected > 0)
+                {
+                    MessageBox.Show("Đã đăng xuất thành công!", "Thông báo");
+                }
+                else
+                {
+                    MessageBox.Show("Không thể cập nhật trạng thái đăng xuất.", "Lỗi Logout");
+                }
+            }
+
+            // Đóng form AdminDashboard và mở lại màn hình đăng nhập
+            this.Hide(); // Ẩn form hiện tại thay vì đóng
+            Form1 loginForm = new Form1();
+            loginForm.Show();
         }
+
 
         private void btnApproval_Click(object sender, EventArgs e)
         {

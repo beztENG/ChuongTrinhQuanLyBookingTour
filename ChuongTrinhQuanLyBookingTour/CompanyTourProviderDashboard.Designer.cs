@@ -117,10 +117,10 @@
             btnLogout.FillColor = Color.Red;
             btnLogout.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(36, 974);
+            btnLogout.Location = new Point(28, 974);
             btnLogout.Name = "btnLogout";
             btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnLogout.Size = new Size(156, 44);
+            btnLogout.Size = new Size(180, 44);
             btnLogout.TabIndex = 14;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.Click += btnLogout_Click;

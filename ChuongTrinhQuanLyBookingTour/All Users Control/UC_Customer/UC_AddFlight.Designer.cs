@@ -84,10 +84,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Century", 18F, FontStyle.Bold);
-            label1.Location = new Point(163, 49);
+            label1.Font = new Font("Montserrat", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(154, 49);
             label1.Name = "label1";
-            label1.Size = new Size(245, 35);
+            label1.Size = new Size(267, 41);
             label1.TabIndex = 1;
             label1.Text = "Đặt chuyến bay";
             // 
@@ -115,12 +115,13 @@
             // cmbAirline
             // 
             cmbAirline.BackColor = Color.Transparent;
+            cmbAirline.BorderRadius = 5;
             cmbAirline.CustomizableEdges = customizableEdges3;
             cmbAirline.DrawMode = DrawMode.OwnerDrawFixed;
             cmbAirline.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbAirline.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbAirline.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbAirline.Font = new Font("Segoe UI", 10F);
+            cmbAirline.Font = new Font("Montserrat", 10.2F);
             cmbAirline.ForeColor = Color.FromArgb(68, 88, 112);
             cmbAirline.ItemHeight = 30;
             cmbAirline.Location = new Point(154, 298);
@@ -134,7 +135,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Montserrat SemiBold", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(154, 274);
+            label3.Location = new Point(155, 270);
             label3.Name = "label3";
             label3.Size = new Size(100, 25);
             label3.TabIndex = 5;
@@ -154,12 +155,13 @@
             // cmbDeparture
             // 
             cmbDeparture.BackColor = Color.Transparent;
+            cmbDeparture.BorderRadius = 5;
             cmbDeparture.CustomizableEdges = customizableEdges5;
             cmbDeparture.DrawMode = DrawMode.OwnerDrawFixed;
             cmbDeparture.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbDeparture.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbDeparture.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbDeparture.Font = new Font("Segoe UI", 10F);
+            cmbDeparture.Font = new Font("Montserrat", 10.2F);
             cmbDeparture.ForeColor = Color.FromArgb(68, 88, 112);
             cmbDeparture.ItemHeight = 30;
             cmbDeparture.Location = new Point(154, 377);
@@ -181,12 +183,13 @@
             // cmbArrival
             // 
             cmbArrival.BackColor = Color.Transparent;
+            cmbArrival.BorderRadius = 5;
             cmbArrival.CustomizableEdges = customizableEdges7;
             cmbArrival.DrawMode = DrawMode.OwnerDrawFixed;
             cmbArrival.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbArrival.FocusedColor = Color.FromArgb(94, 148, 255);
             cmbArrival.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
-            cmbArrival.Font = new Font("Segoe UI", 10F);
+            cmbArrival.Font = new Font("Montserrat", 10.2F);
             cmbArrival.ForeColor = Color.FromArgb(68, 88, 112);
             cmbArrival.ItemHeight = 30;
             cmbArrival.Location = new Point(154, 450);
@@ -197,8 +200,9 @@
             // 
             // btnBookFlight
             // 
-            btnBookFlight.BorderRadius = 18;
-            btnBookFlight.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            btnBookFlight.BackColor = Color.Transparent;
+            btnBookFlight.BorderColor = Color.Transparent;
+            btnBookFlight.BorderRadius = 10;
             btnBookFlight.BorderThickness = 1;
             btnBookFlight.CheckedState.FillColor = Color.FromArgb(0, 118, 221);
             btnBookFlight.CheckedState.ForeColor = Color.White;
@@ -207,9 +211,9 @@
             btnBookFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnBookFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnBookFlight.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnBookFlight.FillColor = Color.White;
-            btnBookFlight.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            btnBookFlight.ForeColor = Color.Black;
+            btnBookFlight.FillColor = Color.DarkTurquoise;
+            btnBookFlight.Font = new Font("Montserrat", 10.8F, FontStyle.Bold);
+            btnBookFlight.ForeColor = Color.White;
             btnBookFlight.Location = new Point(1138, 775);
             btnBookFlight.Name = "btnBookFlight";
             btnBookFlight.ShadowDecoration.CustomizableEdges = customizableEdges10;
@@ -225,8 +229,9 @@
             // 
             // btnSearchFlights
             // 
-            btnSearchFlights.BorderRadius = 18;
-            btnSearchFlights.BorderStyle = System.Drawing.Drawing2D.DashStyle.DashDot;
+            btnSearchFlights.BackColor = Color.Gainsboro;
+            btnSearchFlights.BorderColor = Color.Transparent;
+            btnSearchFlights.BorderRadius = 10;
             btnSearchFlights.BorderThickness = 1;
             btnSearchFlights.CheckedState.FillColor = Color.FromArgb(0, 118, 221);
             btnSearchFlights.CheckedState.ForeColor = Color.White;
@@ -235,9 +240,9 @@
             btnSearchFlights.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSearchFlights.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnSearchFlights.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSearchFlights.FillColor = Color.White;
-            btnSearchFlights.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold);
-            btnSearchFlights.ForeColor = Color.Black;
+            btnSearchFlights.FillColor = Color.DarkTurquoise;
+            btnSearchFlights.Font = new Font("Montserrat", 10.8F, FontStyle.Bold);
+            btnSearchFlights.ForeColor = Color.White;
             btnSearchFlights.Location = new Point(163, 713);
             btnSearchFlights.Name = "btnSearchFlights";
             btnSearchFlights.ShadowDecoration.CustomizableEdges = customizableEdges16;
@@ -248,9 +253,11 @@
             // 
             // dtpDepartureDate
             // 
+            dtpDepartureDate.BorderRadius = 5;
             dtpDepartureDate.Checked = true;
             dtpDepartureDate.CustomizableEdges = customizableEdges13;
-            dtpDepartureDate.Font = new Font("Segoe UI", 9F);
+            dtpDepartureDate.FillColor = Color.DarkTurquoise;
+            dtpDepartureDate.Font = new Font("Montserrat", 10.2F);
             dtpDepartureDate.Format = DateTimePickerFormat.Long;
             dtpDepartureDate.Location = new Point(154, 527);
             dtpDepartureDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
@@ -282,11 +289,13 @@
             // 
             // dtpReturnDate
             // 
+            dtpReturnDate.BorderRadius = 5;
             dtpReturnDate.Checked = true;
             dtpReturnDate.CustomizableEdges = customizableEdges11;
-            dtpReturnDate.Font = new Font("Segoe UI", 9F);
+            dtpReturnDate.FillColor = Color.DarkTurquoise;
+            dtpReturnDate.Font = new Font("Montserrat", 10.2F);
             dtpReturnDate.Format = DateTimePickerFormat.Long;
-            dtpReturnDate.Location = new Point(155, 645);
+            dtpReturnDate.Location = new Point(154, 637);
             dtpReturnDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpReturnDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpReturnDate.Name = "dtpReturnDate";
@@ -309,9 +318,10 @@
             // lblReturnDate
             // 
             lblReturnDate.AutoSize = true;
-            lblReturnDate.Location = new Point(155, 622);
+            lblReturnDate.Font = new Font("Montserrat SemiBold", 10.8F, FontStyle.Bold);
+            lblReturnDate.Location = new Point(154, 609);
             lblReturnDate.Name = "lblReturnDate";
-            lblReturnDate.Size = new Size(63, 20);
+            lblReturnDate.Size = new Size(86, 25);
             lblReturnDate.TabIndex = 20;
             lblReturnDate.Text = "Ngày về";
             lblReturnDate.Visible = false;

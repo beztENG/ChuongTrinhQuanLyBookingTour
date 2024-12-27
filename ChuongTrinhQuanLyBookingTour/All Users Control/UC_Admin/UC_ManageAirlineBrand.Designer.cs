@@ -46,6 +46,7 @@
             label1 = new Label();
             label4 = new Label();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
+            label2 = new Label();
             ((System.ComponentModel.ISupportInitialize)pbAirlineImage).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dgvAirlines).BeginInit();
             SuspendLayout();
@@ -54,52 +55,57 @@
             // 
             txtAirlineName.CustomizableEdges = customizableEdges1;
             txtAirlineName.DefaultText = "";
-            txtAirlineName.Font = new Font("Segoe UI", 9F);
-            txtAirlineName.Location = new Point(150, 50);
-            txtAirlineName.Margin = new Padding(3, 4, 3, 4);
+            txtAirlineName.Font = new Font("Montserrat", 9F);
+            txtAirlineName.Location = new Point(185, 149);
+            txtAirlineName.Margin = new Padding(4, 4, 4, 4);
             txtAirlineName.Name = "txtAirlineName";
             txtAirlineName.PasswordChar = '\0';
             txtAirlineName.PlaceholderText = "Enter airline name";
             txtAirlineName.SelectedText = "";
             txtAirlineName.ShadowDecoration.CustomizableEdges = customizableEdges2;
-            txtAirlineName.Size = new Size(200, 22);
+            txtAirlineName.Size = new Size(250, 23);
             txtAirlineName.TabIndex = 0;
             // 
             // btnSubmit
             // 
+            btnSubmit.BorderRadius = 10;
             btnSubmit.CustomizableEdges = customizableEdges3;
-            btnSubmit.Font = new Font("Segoe UI", 9F);
+            btnSubmit.FillColor = Color.DarkTurquoise;
+            btnSubmit.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnSubmit.ForeColor = Color.White;
-            btnSubmit.Location = new Point(150, 330);
+            btnSubmit.Location = new Point(587, 506);
             btnSubmit.Name = "btnSubmit";
             btnSubmit.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            btnSubmit.Size = new Size(100, 30);
+            btnSubmit.Size = new Size(100, 41);
             btnSubmit.TabIndex = 3;
             btnSubmit.Text = "Add Airline";
             btnSubmit.Click += btnSubmit_Click;
             // 
             // btnUpdate
             // 
+            btnUpdate.BorderRadius = 10;
             btnUpdate.CustomizableEdges = customizableEdges5;
-            btnUpdate.Font = new Font("Segoe UI", 9F);
+            btnUpdate.FillColor = Color.DarkTurquoise;
+            btnUpdate.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnUpdate.ForeColor = Color.White;
-            btnUpdate.Location = new Point(270, 330);
+            btnUpdate.Location = new Point(707, 506);
             btnUpdate.Name = "btnUpdate";
             btnUpdate.ShadowDecoration.CustomizableEdges = customizableEdges6;
-            btnUpdate.Size = new Size(100, 30);
+            btnUpdate.Size = new Size(123, 41);
             btnUpdate.TabIndex = 4;
             btnUpdate.Text = "Update Airline";
             btnUpdate.Click += btnUpdate_Click;
             // 
             // btnSelectImage
             // 
+            btnSelectImage.BorderRadius = 5;
             btnSelectImage.CustomizableEdges = customizableEdges7;
-            btnSelectImage.Font = new Font("Segoe UI", 9F);
+            btnSelectImage.Font = new Font("Montserrat", 9F, FontStyle.Bold);
             btnSelectImage.ForeColor = Color.White;
-            btnSelectImage.Location = new Point(150, 280);
+            btnSelectImage.Location = new Point(185, 377);
             btnSelectImage.Name = "btnSelectImage";
             btnSelectImage.ShadowDecoration.CustomizableEdges = customizableEdges8;
-            btnSelectImage.Size = new Size(200, 30);
+            btnSelectImage.Size = new Size(150, 30);
             btnSelectImage.TabIndex = 5;
             btnSelectImage.Text = "Select Image";
             btnSelectImage.Click += btnSelectImage_Click;
@@ -109,7 +115,7 @@
             pbAirlineImage.BorderStyle = BorderStyle.FixedSingle;
             pbAirlineImage.CustomizableEdges = customizableEdges9;
             pbAirlineImage.ImageRotate = 0F;
-            pbAirlineImage.Location = new Point(150, 79);
+            pbAirlineImage.Location = new Point(185, 188);
             pbAirlineImage.Name = "pbAirlineImage";
             pbAirlineImage.ShadowDecoration.CustomizableEdges = customizableEdges10;
             pbAirlineImage.Size = new Size(150, 150);
@@ -139,7 +145,7 @@
             dataGridViewCellStyle3.WrapMode = DataGridViewTriState.False;
             dgvAirlines.DefaultCellStyle = dataGridViewCellStyle3;
             dgvAirlines.GridColor = Color.FromArgb(231, 229, 255);
-            dgvAirlines.Location = new Point(420, 50);
+            dgvAirlines.Location = new Point(455, 147);
             dgvAirlines.Name = "dgvAirlines";
             dgvAirlines.ReadOnly = true;
             dgvAirlines.RowHeadersVisible = false;
@@ -171,15 +177,17 @@
             // 
             // label1
             // 
-            label1.Location = new Point(150, 25);
+            label1.Font = new Font("Montserrat", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(185, 122);
             label1.Name = "label1";
-            label1.Size = new Size(100, 23);
+            label1.Size = new Size(123, 23);
             label1.TabIndex = 8;
             label1.Text = "Airline Name:";
             // 
             // label4
             // 
-            label4.Location = new Point(150, 255);
+            label4.Font = new Font("Montserrat", 9F);
+            label4.Location = new Point(185, 352);
             label4.Name = "label4";
             label4.Size = new Size(100, 23);
             label4.TabIndex = 11;
@@ -189,10 +197,20 @@
             // 
             guna2Elipse1.TargetControl = this;
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(619, 59);
+            label2.Name = "label2";
+            label2.Size = new Size(50, 20);
+            label2.TabIndex = 0;
+            label2.Text = "label2";
+            // 
             // UC_ManageAirlineBrand
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label2);
             Controls.Add(txtAirlineName);
             Controls.Add(btnSubmit);
             Controls.Add(btnUpdate);
@@ -203,11 +221,14 @@
             Controls.Add(label4);
             Name = "UC_ManageAirlineBrand";
             Size = new Size(1400, 610);
+            Load += UC_ManageAirlineBrand_Load;
             ((System.ComponentModel.ISupportInitialize)pbAirlineImage).EndInit();
             ((System.ComponentModel.ISupportInitialize)dgvAirlines).EndInit();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
+        private Label label2;
     }
 }

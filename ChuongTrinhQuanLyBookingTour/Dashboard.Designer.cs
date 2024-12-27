@@ -70,12 +70,13 @@
             // 
             // btnExit
             // 
+            btnExit.BackColor = Color.CornflowerBlue;
             btnExit.CustomizableEdges = customizableEdges1;
             btnExit.DisabledState.BorderColor = Color.DarkGray;
             btnExit.DisabledState.CustomBorderColor = Color.DarkGray;
             btnExit.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnExit.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnExit.FillColor = Color.FromArgb(192, 192, 255);
+            btnExit.FillColor = Color.CornflowerBlue;
             btnExit.Font = new Font("Segoe UI", 9F);
             btnExit.ForeColor = Color.White;
             btnExit.Image = (Image)resources.GetObject("btnExit.Image");
@@ -104,9 +105,9 @@
             // 
             // PanelMoving
             // 
-            PanelMoving.BackColor = Color.FromArgb(192, 255, 255);
+            PanelMoving.BackColor = Color.PaleTurquoise;
             PanelMoving.CustomizableEdges = customizableEdges3;
-            PanelMoving.Location = new Point(16, 135);
+            PanelMoving.Location = new Point(27, 3);
             PanelMoving.Name = "PanelMoving";
             PanelMoving.ShadowDecoration.CustomizableEdges = customizableEdges4;
             PanelMoving.Size = new Size(284, 7);
@@ -121,8 +122,8 @@
             btnSelfInformation.DisabledState.CustomBorderColor = Color.DarkGray;
             btnSelfInformation.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnSelfInformation.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnSelfInformation.FillColor = Color.Aqua;
-            btnSelfInformation.Font = new Font("Segoe UI", 9F);
+            btnSelfInformation.FillColor = Color.DarkTurquoise;
+            btnSelfInformation.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnSelfInformation.ForeColor = Color.White;
             btnSelfInformation.Location = new Point(1368, 13);
             btnSelfInformation.Name = "btnSelfInformation";
@@ -141,8 +142,8 @@
             btnHistoryTransaction.DisabledState.CustomBorderColor = Color.DarkGray;
             btnHistoryTransaction.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnHistoryTransaction.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnHistoryTransaction.FillColor = Color.Aqua;
-            btnHistoryTransaction.Font = new Font("Segoe UI", 9F);
+            btnHistoryTransaction.FillColor = Color.DarkTurquoise;
+            btnHistoryTransaction.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnHistoryTransaction.ForeColor = Color.White;
             btnHistoryTransaction.Location = new Point(1030, 13);
             btnHistoryTransaction.Name = "btnHistoryTransaction";
@@ -161,8 +162,8 @@
             btnAddFilght.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddFilght.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddFilght.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddFilght.FillColor = Color.Aqua;
-            btnAddFilght.Font = new Font("Segoe UI", 9F);
+            btnAddFilght.FillColor = Color.DarkTurquoise;
+            btnAddFilght.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnAddFilght.ForeColor = Color.White;
             btnAddFilght.Location = new Point(365, 13);
             btnAddFilght.Name = "btnAddFilght";
@@ -181,8 +182,8 @@
             btnAddTour.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddTour.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddTour.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddTour.FillColor = Color.Aqua;
-            btnAddTour.Font = new Font("Segoe UI", 9F);
+            btnAddTour.FillColor = Color.DarkTurquoise;
+            btnAddTour.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnAddTour.ForeColor = Color.White;
             btnAddTour.Location = new Point(699, 13);
             btnAddTour.Name = "btnAddTour";
@@ -201,8 +202,8 @@
             btnAddHotel.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddHotel.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddHotel.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddHotel.FillColor = Color.Aqua;
-            btnAddHotel.Font = new Font("Segoe UI", 9F);
+            btnAddHotel.FillColor = Color.DarkTurquoise;
+            btnAddHotel.Font = new Font("Montserrat", 12F, FontStyle.Bold);
             btnAddHotel.ForeColor = Color.White;
             btnAddHotel.Location = new Point(27, 13);
             btnAddHotel.Name = "btnAddHotel";
@@ -228,6 +229,7 @@
             // uC_SelfInformation1
             // 
             uC_SelfInformation1.BackColor = Color.White;
+            uC_SelfInformation1.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             uC_SelfInformation1.Location = new Point(-2, 3);
             uC_SelfInformation1.Name = "uC_SelfInformation1";
             uC_SelfInformation1.Size = new Size(2352, 1065);
@@ -296,7 +298,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.FromArgb(192, 192, 255);
+            BackColor = Color.CornflowerBlue;
             ClientSize = new Size(1942, 1102);
             Controls.Add(panel2);
             Controls.Add(panel1);

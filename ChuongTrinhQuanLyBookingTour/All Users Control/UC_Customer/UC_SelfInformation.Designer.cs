@@ -62,11 +62,11 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Segoe UI", 24F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.ForeColor = Color.FromArgb(33, 150, 243);
-            label1.Location = new Point(100, 30);
+            label1.Font = new Font("Montserrat", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Black;
+            label1.Location = new Point(800, 46);
             label1.Name = "label1";
-            label1.Size = new Size(362, 54);
+            label1.Size = new Size(306, 41);
             label1.TabIndex = 0;
             label1.Text = "Thông tin cá nhân";
             // 
@@ -80,9 +80,9 @@
             guna2GroupBoxPersonalInfo.Controls.Add(pictureBoxAvatar);
             guna2GroupBoxPersonalInfo.Controls.Add(btnChangeAvatar);
             guna2GroupBoxPersonalInfo.CustomizableEdges = customizableEdges12;
-            guna2GroupBoxPersonalInfo.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            guna2GroupBoxPersonalInfo.Font = new Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2GroupBoxPersonalInfo.ForeColor = Color.Black;
-            guna2GroupBoxPersonalInfo.Location = new Point(50, 100);
+            guna2GroupBoxPersonalInfo.Location = new Point(332, 117);
             guna2GroupBoxPersonalInfo.Name = "guna2GroupBoxPersonalInfo";
             guna2GroupBoxPersonalInfo.ShadowDecoration.CustomizableEdges = customizableEdges13;
             guna2GroupBoxPersonalInfo.Size = new Size(600, 600);
@@ -94,8 +94,8 @@
             txtFullName.BorderRadius = 8;
             txtFullName.CustomizableEdges = customizableEdges1;
             txtFullName.DefaultText = "";
-            txtFullName.Font = new Font("Segoe UI", 12F);
-            txtFullName.Location = new Point(50, 310);
+            txtFullName.Font = new Font("Montserrat", 12F);
+            txtFullName.Location = new Point(74, 308);
             txtFullName.Margin = new Padding(3, 4, 3, 4);
             txtFullName.Name = "txtFullName";
             txtFullName.PasswordChar = '\0';
@@ -110,8 +110,8 @@
             txtEmail.BorderRadius = 8;
             txtEmail.CustomizableEdges = customizableEdges3;
             txtEmail.DefaultText = "";
-            txtEmail.Font = new Font("Segoe UI", 12F);
-            txtEmail.Location = new Point(50, 360);
+            txtEmail.Font = new Font("Montserrat", 12F);
+            txtEmail.Location = new Point(74, 358);
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.PasswordChar = '\0';
@@ -126,8 +126,8 @@
             txtPhone.BorderRadius = 8;
             txtPhone.CustomizableEdges = customizableEdges5;
             txtPhone.DefaultText = "";
-            txtPhone.Font = new Font("Segoe UI", 12F);
-            txtPhone.Location = new Point(50, 410);
+            txtPhone.Font = new Font("Montserrat", 12F);
+            txtPhone.Location = new Point(74, 408);
             txtPhone.Margin = new Padding(3, 4, 3, 4);
             txtPhone.Name = "txtPhone";
             txtPhone.PasswordChar = '\0';
@@ -141,8 +141,8 @@
             // 
             btnSave.BorderRadius = 10;
             btnSave.CustomizableEdges = customizableEdges7;
-            btnSave.FillColor = Color.FromArgb(33, 150, 243);
-            btnSave.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnSave.FillColor = Color.Turquoise;
+            btnSave.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnSave.ForeColor = Color.White;
             btnSave.Location = new Point(200, 470);
             btnSave.Name = "btnSave";
@@ -154,6 +154,7 @@
             // 
             // pictureBoxAvatar
             // 
+            pictureBoxAvatar.BackColor = Color.Transparent;
             pictureBoxAvatar.ImageRotate = 0F;
             pictureBoxAvatar.Location = new Point(200, 90);
             pictureBoxAvatar.Name = "pictureBoxAvatar";
@@ -170,13 +171,13 @@
             // 
             btnChangeAvatar.BorderRadius = 15;
             btnChangeAvatar.CustomizableEdges = customizableEdges10;
-            btnChangeAvatar.FillColor = Color.FromArgb(33, 150, 243);
-            btnChangeAvatar.Font = new Font("Segoe UI", 10F, FontStyle.Bold);
+            btnChangeAvatar.FillColor = Color.Turquoise;
+            btnChangeAvatar.Font = new Font("Montserrat", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChangeAvatar.ForeColor = Color.White;
-            btnChangeAvatar.Location = new Point(210, 250);
+            btnChangeAvatar.Location = new Point(193, 260);
             btnChangeAvatar.Name = "btnChangeAvatar";
             btnChangeAvatar.ShadowDecoration.CustomizableEdges = customizableEdges11;
-            btnChangeAvatar.Size = new Size(120, 40);
+            btnChangeAvatar.Size = new Size(157, 31);
             btnChangeAvatar.TabIndex = 6;
             btnChangeAvatar.Text = "Thay đổi ảnh";
             btnChangeAvatar.Click += btnChangeAvatar_Click;
@@ -189,9 +190,9 @@
             guna2GroupBoxPassword.Controls.Add(txtConfirmPassword);
             guna2GroupBoxPassword.Controls.Add(btnChangePassword);
             guna2GroupBoxPassword.CustomizableEdges = customizableEdges22;
-            guna2GroupBoxPassword.Font = new Font("Segoe UI", 14F, FontStyle.Bold);
+            guna2GroupBoxPassword.Font = new Font("Montserrat", 13.7999992F, FontStyle.Bold, GraphicsUnit.Point, 0);
             guna2GroupBoxPassword.ForeColor = Color.Black;
-            guna2GroupBoxPassword.Location = new Point(700, 100);
+            guna2GroupBoxPassword.Location = new Point(982, 117);
             guna2GroupBoxPassword.Name = "guna2GroupBoxPassword";
             guna2GroupBoxPassword.ShadowDecoration.CustomizableEdges = customizableEdges23;
             guna2GroupBoxPassword.Size = new Size(600, 400);
@@ -203,7 +204,7 @@
             txtOldPassword.BorderRadius = 8;
             txtOldPassword.CustomizableEdges = customizableEdges14;
             txtOldPassword.DefaultText = "";
-            txtOldPassword.Font = new Font("Segoe UI", 9F);
+            txtOldPassword.Font = new Font("Montserrat", 12F);
             txtOldPassword.Location = new Point(50, 80);
             txtOldPassword.Margin = new Padding(3, 4, 3, 4);
             txtOldPassword.Name = "txtOldPassword";
@@ -219,7 +220,7 @@
             txtNewPassword.BorderRadius = 8;
             txtNewPassword.CustomizableEdges = customizableEdges16;
             txtNewPassword.DefaultText = "";
-            txtNewPassword.Font = new Font("Segoe UI", 9F);
+            txtNewPassword.Font = new Font("Montserrat", 12F);
             txtNewPassword.Location = new Point(50, 140);
             txtNewPassword.Margin = new Padding(3, 4, 3, 4);
             txtNewPassword.Name = "txtNewPassword";
@@ -235,7 +236,7 @@
             txtConfirmPassword.BorderRadius = 8;
             txtConfirmPassword.CustomizableEdges = customizableEdges18;
             txtConfirmPassword.DefaultText = "";
-            txtConfirmPassword.Font = new Font("Segoe UI", 9F);
+            txtConfirmPassword.Font = new Font("Montserrat", 12F);
             txtConfirmPassword.Location = new Point(50, 200);
             txtConfirmPassword.Margin = new Padding(3, 4, 3, 4);
             txtConfirmPassword.Name = "txtConfirmPassword";
@@ -250,8 +251,8 @@
             // 
             btnChangePassword.BorderRadius = 10;
             btnChangePassword.CustomizableEdges = customizableEdges20;
-            btnChangePassword.FillColor = Color.FromArgb(33, 150, 243);
-            btnChangePassword.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            btnChangePassword.FillColor = Color.Turquoise;
+            btnChangePassword.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnChangePassword.ForeColor = Color.White;
             btnChangePassword.Location = new Point(50, 260);
             btnChangePassword.Name = "btnChangePassword";
@@ -269,13 +270,13 @@
             btnLogout.DisabledState.CustomBorderColor = Color.DarkGray;
             btnLogout.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnLogout.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnLogout.FillColor = Color.FromArgb(33, 150, 243);
+            btnLogout.FillColor = Color.Red;
             btnLogout.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnLogout.ForeColor = Color.White;
-            btnLogout.Location = new Point(786, 569);
+            btnLogout.Location = new Point(1204, 561);
             btnLogout.Name = "btnLogout";
             btnLogout.ShadowDecoration.CustomizableEdges = customizableEdges25;
-            btnLogout.Size = new Size(229, 65);
+            btnLogout.Size = new Size(148, 44);
             btnLogout.TabIndex = 7;
             btnLogout.Text = "Đăng Xuất";
             btnLogout.Click += btnLogout_Click;
@@ -287,7 +288,7 @@
             Controls.Add(guna2GroupBoxPersonalInfo);
             Controls.Add(guna2GroupBoxPassword);
             Name = "UC_SelfInformation";
-            Size = new Size(1350, 700);
+            Size = new Size(1882, 852);
             guna2GroupBoxPersonalInfo.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)pictureBoxAvatar).EndInit();
             guna2GroupBoxPassword.ResumeLayout(false);

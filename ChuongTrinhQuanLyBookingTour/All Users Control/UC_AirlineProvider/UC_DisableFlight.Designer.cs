@@ -96,12 +96,14 @@
             // 
             // btnToggleFlightStatus
             // 
+            btnToggleFlightStatus.BorderRadius = 10;
             btnToggleFlightStatus.CustomizableEdges = customizableEdges1;
             btnToggleFlightStatus.DisabledState.BorderColor = Color.DarkGray;
             btnToggleFlightStatus.DisabledState.CustomBorderColor = Color.DarkGray;
             btnToggleFlightStatus.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnToggleFlightStatus.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnToggleFlightStatus.Font = new Font("Segoe UI", 9F);
+            btnToggleFlightStatus.FillColor = Color.DarkTurquoise;
+            btnToggleFlightStatus.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnToggleFlightStatus.ForeColor = Color.White;
             btnToggleFlightStatus.Location = new Point(558, 656);
             btnToggleFlightStatus.Name = "btnToggleFlightStatus";
@@ -118,17 +120,18 @@
             // 
             // txtSearch
             // 
+            txtSearch.BorderRadius = 5;
             txtSearch.CustomizableEdges = customizableEdges3;
             txtSearch.DefaultText = "";
-            txtSearch.Font = new Font("Segoe UI", 9F);
-            txtSearch.Location = new Point(196, 27);
-            txtSearch.Margin = new Padding(3, 4, 3, 4);
+            txtSearch.Font = new Font("Montserrat", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            txtSearch.Location = new Point(196, 26);
+            txtSearch.Margin = new Padding(4, 4, 4, 4);
             txtSearch.Name = "txtSearch";
             txtSearch.PasswordChar = '\0';
             txtSearch.PlaceholderText = "Search by Flight ID or Destination";
             txtSearch.SelectedText = "";
             txtSearch.ShadowDecoration.CustomizableEdges = customizableEdges4;
-            txtSearch.Size = new Size(250, 30);
+            txtSearch.Size = new Size(312, 31);
             txtSearch.TabIndex = 2;
             txtSearch.TextChanged += txtSearch_TextChanged;
             // 

@@ -61,10 +61,12 @@
             label7 = new Label();
             guna2Elipse1 = new Guna.UI2.WinForms.Guna2Elipse(components);
             btnAddFlight = new Guna.UI2.WinForms.Guna2Button();
+            label8 = new Label();
             SuspendLayout();
             // 
             // txtDeparture
             // 
+            txtDeparture.BorderRadius = 5;
             txtDeparture.CustomizableEdges = customizableEdges1;
             txtDeparture.DefaultText = "";
             txtDeparture.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -74,7 +76,7 @@
             txtDeparture.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtDeparture.Font = new Font("Segoe UI", 9F);
             txtDeparture.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtDeparture.Location = new Point(72, 43);
+            txtDeparture.Location = new Point(161, 184);
             txtDeparture.Margin = new Padding(3, 4, 3, 4);
             txtDeparture.Name = "txtDeparture";
             txtDeparture.PasswordChar = '\0';
@@ -86,6 +88,7 @@
             // 
             // txtArrival
             // 
+            txtArrival.BorderRadius = 5;
             txtArrival.CustomizableEdges = customizableEdges3;
             txtArrival.DefaultText = "";
             txtArrival.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -95,7 +98,7 @@
             txtArrival.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtArrival.Font = new Font("Segoe UI", 9F);
             txtArrival.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtArrival.Location = new Point(72, 106);
+            txtArrival.Location = new Point(161, 247);
             txtArrival.Margin = new Padding(3, 4, 3, 4);
             txtArrival.Name = "txtArrival";
             txtArrival.PasswordChar = '\0';
@@ -107,6 +110,7 @@
             // 
             // txtCost
             // 
+            txtCost.BorderRadius = 5;
             txtCost.CustomizableEdges = customizableEdges5;
             txtCost.DefaultText = "";
             txtCost.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -116,7 +120,7 @@
             txtCost.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtCost.Font = new Font("Segoe UI", 9F);
             txtCost.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtCost.Location = new Point(72, 434);
+            txtCost.Location = new Point(614, 298);
             txtCost.Margin = new Padding(3, 4, 3, 4);
             txtCost.Name = "txtCost";
             txtCost.PasswordChar = '\0';
@@ -128,11 +132,13 @@
             // 
             // dtpDepartureDate
             // 
+            dtpDepartureDate.BorderRadius = 5;
             dtpDepartureDate.Checked = true;
             dtpDepartureDate.CustomizableEdges = customizableEdges7;
+            dtpDepartureDate.FillColor = Color.DarkTurquoise;
             dtpDepartureDate.Font = new Font("Segoe UI", 9F);
             dtpDepartureDate.Format = DateTimePickerFormat.Long;
-            dtpDepartureDate.Location = new Point(72, 166);
+            dtpDepartureDate.Location = new Point(161, 307);
             dtpDepartureDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpDepartureDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpDepartureDate.Name = "dtpDepartureDate";
@@ -143,11 +149,13 @@
             // 
             // dtpArrivalDate
             // 
+            dtpArrivalDate.BorderRadius = 5;
             dtpArrivalDate.Checked = true;
             dtpArrivalDate.CustomizableEdges = customizableEdges9;
+            dtpArrivalDate.FillColor = Color.DarkTurquoise;
             dtpArrivalDate.Font = new Font("Segoe UI", 9F);
             dtpArrivalDate.Format = DateTimePickerFormat.Long;
-            dtpArrivalDate.Location = new Point(72, 244);
+            dtpArrivalDate.Location = new Point(161, 385);
             dtpArrivalDate.MaxDate = new DateTime(9998, 12, 31, 0, 0, 0, 0);
             dtpArrivalDate.MinDate = new DateTime(1753, 1, 1, 0, 0, 0, 0);
             dtpArrivalDate.Name = "dtpArrivalDate";
@@ -158,6 +166,7 @@
             // 
             // txtLandingTime
             // 
+            txtLandingTime.BorderRadius = 5;
             txtLandingTime.CustomizableEdges = customizableEdges11;
             txtLandingTime.DefaultText = "";
             txtLandingTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -167,7 +176,7 @@
             txtLandingTime.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtLandingTime.Font = new Font("Segoe UI", 9F);
             txtLandingTime.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtLandingTime.Location = new Point(72, 383);
+            txtLandingTime.Location = new Point(614, 247);
             txtLandingTime.Margin = new Padding(3, 4, 3, 4);
             txtLandingTime.Name = "txtLandingTime";
             txtLandingTime.PasswordChar = '\0';
@@ -179,6 +188,7 @@
             // 
             // txtTakeOffTime
             // 
+            txtTakeOffTime.BorderRadius = 5;
             txtTakeOffTime.CustomizableEdges = customizableEdges13;
             txtTakeOffTime.DefaultText = "";
             txtTakeOffTime.DisabledState.BorderColor = Color.FromArgb(208, 208, 208);
@@ -188,7 +198,7 @@
             txtTakeOffTime.FocusedState.BorderColor = Color.FromArgb(94, 148, 255);
             txtTakeOffTime.Font = new Font("Segoe UI", 9F);
             txtTakeOffTime.HoverState.BorderColor = Color.FromArgb(94, 148, 255);
-            txtTakeOffTime.Location = new Point(72, 327);
+            txtTakeOffTime.Location = new Point(614, 191);
             txtTakeOffTime.Margin = new Padding(3, 4, 3, 4);
             txtTakeOffTime.Name = "txtTakeOffTime";
             txtTakeOffTime.PasswordChar = '\0';
@@ -201,63 +211,70 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(72, 19);
+            label1.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            label1.Location = new Point(161, 160);
             label1.Name = "label1";
-            label1.Size = new Size(50, 20);
+            label1.Size = new Size(56, 21);
             label1.TabIndex = 10;
             label1.Text = "Nơi đi";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(72, 82);
+            label2.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            label2.Location = new Point(161, 223);
             label2.Name = "label2";
-            label2.Size = new Size(62, 20);
+            label2.Size = new Size(70, 21);
             label2.TabIndex = 11;
             label2.Text = "Nơi đến";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(72, 143);
+            label3.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            label3.Location = new Point(161, 284);
             label3.Name = "label3";
-            label3.Size = new Size(61, 20);
+            label3.Size = new Size(70, 21);
             label3.TabIndex = 12;
             label3.Text = "Ngày đi";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(72, 221);
+            label4.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            label4.Location = new Point(161, 362);
             label4.Name = "label4";
-            label4.Size = new Size(63, 20);
+            label4.Size = new Size(73, 21);
             label4.TabIndex = 13;
             label4.Text = "Ngày về";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(72, 303);
+            label5.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            label5.Location = new Point(614, 167);
             label5.Name = "label5";
-            label5.Size = new Size(130, 20);
+            label5.Size = new Size(154, 21);
             label5.TabIndex = 14;
             label5.Text = "Thời gian cất cánh";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(72, 359);
+            label6.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            label6.Location = new Point(614, 223);
             label6.Name = "label6";
-            label6.Size = new Size(126, 20);
+            label6.Size = new Size(148, 21);
             label6.TabIndex = 15;
             label6.Text = "Thời gian hạ cánh";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(72, 410);
+            label7.Font = new Font("Montserrat", 9F, FontStyle.Bold);
+            label7.Location = new Point(614, 274);
             label7.Name = "label7";
-            label7.Size = new Size(31, 20);
+            label7.Size = new Size(36, 21);
             label7.TabIndex = 16;
             label7.Text = "Giá";
             // 
@@ -268,25 +285,38 @@
             // 
             // btnAddFlight
             // 
+            btnAddFlight.BorderRadius = 10;
             btnAddFlight.CustomizableEdges = customizableEdges15;
             btnAddFlight.DisabledState.BorderColor = Color.DarkGray;
             btnAddFlight.DisabledState.CustomBorderColor = Color.DarkGray;
             btnAddFlight.DisabledState.FillColor = Color.FromArgb(169, 169, 169);
             btnAddFlight.DisabledState.ForeColor = Color.FromArgb(141, 141, 141);
-            btnAddFlight.Font = new Font("Segoe UI", 9F);
+            btnAddFlight.FillColor = Color.DarkTurquoise;
+            btnAddFlight.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAddFlight.ForeColor = Color.White;
-            btnAddFlight.Location = new Point(84, 487);
+            btnAddFlight.Location = new Point(452, 482);
             btnAddFlight.Name = "btnAddFlight";
             btnAddFlight.ShadowDecoration.CustomizableEdges = customizableEdges16;
-            btnAddFlight.Size = new Size(225, 56);
+            btnAddFlight.Size = new Size(136, 43);
             btnAddFlight.TabIndex = 17;
             btnAddFlight.Text = "Thêm";
             btnAddFlight.Click += btnAddFlight_Click;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Montserrat", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(350, 91);
+            label8.Name = "label8";
+            label8.Size = new Size(340, 27);
+            label8.TabIndex = 18;
+            label8.Text = "THÊM THÔNG TIN CHUYẾN BAY";
             // 
             // UC_AddNewFlight
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(label8);
             Controls.Add(btnAddFlight);
             Controls.Add(label7);
             Controls.Add(label6);
@@ -326,5 +356,6 @@
         private Label label7;
         private Guna.UI2.WinForms.Guna2Elipse guna2Elipse1;
         private Guna.UI2.WinForms.Guna2Button btnAddFlight;
+        private Label label8;
     }
 }

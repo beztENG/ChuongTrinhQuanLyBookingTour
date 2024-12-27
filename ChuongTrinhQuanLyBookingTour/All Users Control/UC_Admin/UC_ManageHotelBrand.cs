@@ -11,7 +11,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
     public partial class UC_ManageHotelBrand : UserControl
     {
         private string connectionString = DatabaseHelper.ConnectionString;
-        private int selectedHotelId = -1; 
+        private int selectedHotelId = -1;
 
         public UC_ManageHotelBrand()
         {
@@ -154,6 +154,11 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
             txtLocation.Clear();
             txtRating.Clear();
             selectedHotelId = -1; // Reset selected ID
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

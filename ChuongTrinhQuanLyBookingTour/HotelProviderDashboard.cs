@@ -76,18 +76,22 @@ namespace ChuongTrinhQuanLyBookingTour
                 }
             }
 
-            // Đóng tất cả form và mở lại màn hình đăng nhập
-            foreach (Form form in Application.OpenForms.Cast<Form>().ToList())
-            {
-                form.Close();
-            }
-            new Form1().Show();
+            // Đóng form AdminDashboard và mở lại màn hình đăng nhập
+            this.Hide(); // Ẩn form hiện tại thay vì đóng
+            Form1 loginForm = new Form1();
+            loginForm.Show();
         }
+
 
         private void btnApproval_Click(object sender, EventArgs e)
         {
-          uC_PayementApprovalHotel1.BringToFront();
-          uC_PayementApprovalHotel1.Visible = true;
+            uC_PayementApprovalHotel1.BringToFront();
+            uC_PayementApprovalHotel1.Visible = true;
+        }
+
+        private void uC_PayementApprovalHotel1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

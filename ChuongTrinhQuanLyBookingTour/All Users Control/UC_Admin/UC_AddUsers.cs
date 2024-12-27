@@ -64,8 +64,8 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
         {
             string username = txtUsername.Text.Trim();
             string password = txtPassword.Text.Trim();
-            string fullName = txtFullName.Text.Trim(); 
-            string email = txtEmail.Text.Trim(); 
+            string fullName = txtFullName.Text.Trim();
+            string email = txtEmail.Text.Trim();
             string phone = txtPhone.Text.Trim();
             string role = cmbRole.SelectedItem.ToString();
             string associatedServiceName = cmbAssociation.SelectedItem?.ToString() ?? "";
@@ -197,6 +197,11 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
                     MessageBox.Show("Error: " + ex.Message);
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

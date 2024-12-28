@@ -49,7 +49,7 @@ namespace ChuongTrinhQuanLyBookingTour.All_Users_Control.UC_Admin
                         FROM HotelBookings hb
                         JOIN Rooms r ON hb.RoomID = r.RoomID
                         JOIN Hotels h ON r.HotelID = h.HotelID
-                        WHERE hb.Status = 'Approved'
+                        WHERE hb.Status = 'Approval'
                         GROUP BY h.HotelName;";
                     break;
 

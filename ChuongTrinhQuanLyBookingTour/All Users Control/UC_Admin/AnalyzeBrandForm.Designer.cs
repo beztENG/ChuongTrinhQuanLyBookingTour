@@ -28,62 +28,72 @@
         /// </summary>
         private void InitializeComponent()
         {
-            cbBrandType = new ComboBox();
-            btnAnalyze = new Button();
-            dgvResults = new DataGridView();
-            ((System.ComponentModel.ISupportInitialize)dgvResults).BeginInit();
-            SuspendLayout();
+            this.cbBrandType = new System.Windows.Forms.ComboBox();
+            this.btnAnalyze = new System.Windows.Forms.Button();
+            this.dgvResults = new System.Windows.Forms.DataGridView();
+            this.chartResults = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartResults)).BeginInit();
+            this.SuspendLayout();
             // 
             // cbBrandType
             // 
-            cbBrandType.DropDownStyle = ComboBoxStyle.DropDownList;
-            cbBrandType.Font = new Font("Montserrat", 9F);
-            cbBrandType.FormattingEnabled = true;
-            cbBrandType.Location = new Point(12, 15);
-            cbBrandType.Margin = new Padding(3, 4, 3, 4);
-            cbBrandType.Name = "cbBrandType";
-            cbBrandType.Size = new Size(200, 29);
-            cbBrandType.TabIndex = 0;
+            this.cbBrandType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbBrandType.FormattingEnabled = true;
+            this.cbBrandType.Location = new System.Drawing.Point(12, 12);
+            this.cbBrandType.Name = "cbBrandType";
+            this.cbBrandType.Size = new System.Drawing.Size(200, 24);
+            this.cbBrandType.TabIndex = 0;
             // 
             // btnAnalyze
             // 
-            btnAnalyze.Font = new Font("Montserrat", 9F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAnalyze.Location = new Point(251, 15);
-            btnAnalyze.Margin = new Padding(3, 4, 3, 4);
-            btnAnalyze.Name = "btnAnalyze";
-            btnAnalyze.Size = new Size(92, 30);
-            btnAnalyze.TabIndex = 1;
-            btnAnalyze.Text = "Analyze";
-            btnAnalyze.UseVisualStyleBackColor = true;
-            btnAnalyze.Click += btnAnalyze_Click;
+            this.btnAnalyze.Location = new System.Drawing.Point(218, 12);
+            this.btnAnalyze.Name = "btnAnalyze";
+            this.btnAnalyze.Size = new System.Drawing.Size(75, 24);
+            this.btnAnalyze.TabIndex = 1;
+            this.btnAnalyze.Text = "Analyze";
+            this.btnAnalyze.UseVisualStyleBackColor = true;
+            this.btnAnalyze.Click += new System.EventHandler(this.btnAnalyze_Click);
             // 
             // dgvResults
             // 
-            dgvResults.AllowUserToAddRows = false;
-            dgvResults.AllowUserToDeleteRows = false;
-            dgvResults.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvResults.Location = new Point(12, 52);
-            dgvResults.Margin = new Padding(3, 4, 3, 4);
-            dgvResults.Name = "dgvResults";
-            dgvResults.ReadOnly = true;
-            dgvResults.RowHeadersWidth = 51;
-            dgvResults.RowTemplate.Height = 24;
-            dgvResults.Size = new Size(1113, 633);
-            dgvResults.TabIndex = 2;
+            this.dgvResults.AllowUserToAddRows = false;
+            this.dgvResults.AllowUserToDeleteRows = false;
+            this.dgvResults.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvResults.Location = new System.Drawing.Point(12, 42);
+            this.dgvResults.Name = "dgvResults";
+            this.dgvResults.ReadOnly = true;
+            this.dgvResults.RowHeadersWidth = 51;
+            this.dgvResults.RowTemplate.Height = 24;
+            this.dgvResults.Size = new System.Drawing.Size(760, 200);
+            this.dgvResults.TabIndex = 2;
+            // 
+            // chartResults
+            // 
+            this.chartResults.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+            | System.Windows.Forms.AnchorStyles.Left)
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.chartResults.Location = new System.Drawing.Point(12, 248);
+            this.chartResults.Name = "chartResults";
+            this.chartResults.Size = new System.Drawing.Size(760, 300);
+            this.chartResults.TabIndex = 3;
+            this.chartResults.Text = "chartResults";
             // 
             // AnalyzeBrandForm
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
-            AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dgvResults);
-            Controls.Add(btnAnalyze);
-            Controls.Add(cbBrandType);
-            Margin = new Padding(3, 4, 3, 4);
-            Name = "AnalyzeBrandForm";
-            Size = new Size(1144, 701);
-            Load += AnalyzeBrandForm_Load;
-            ((System.ComponentModel.ISupportInitialize)dgvResults).EndInit();
-            ResumeLayout(false);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.chartResults);
+            this.Controls.Add(this.dgvResults);
+            this.Controls.Add(this.btnAnalyze);
+            this.Controls.Add(this.cbBrandType);
+            this.Name = "AnalyzeBrandForm";
+            this.Text = "Analyze Brand Performance";
+            this.Load += new System.EventHandler(this.AnalyzeBrandForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvResults)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartResults)).EndInit();
+            this.ResumeLayout(false);
         }
 
         #endregion
@@ -93,5 +103,3 @@
         private System.Windows.Forms.DataVisualization.Charting.Chart chartResults;
     }
 }
-
-
